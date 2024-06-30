@@ -1,0 +1,26 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Football{% endblock futitle %}
+<!--content-->
+{% block futball %}
+<h1>football Rankings</h1>
+<h2>Top Scorers</h2>
+<ul>
+{% for scorer in rankings.athlete_rankings.top_scorers %}
+    <li>{{ scorer.name }} - {{ scorer.goals }} goals</li>
+{% endfor %}
+</ul>
+
+<h2>Top Assisting Teams</h2>
+<ul>
+{% for team in rankings.team_rankings.assists %}
+    <li>{{ team.name }} - {{ team.assists }} assists</li>
+{% endfor %}
+</ul>
+
+<!-- ... similar for other rankings ... -->
+
+{% endblock %}

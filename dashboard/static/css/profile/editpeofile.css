@@ -1,0 +1,56 @@
+.profile-update {
+  width: 100%;
+  background-color: rgba(105, 105, 105, 0.397);
+  padding: 10px;
+  border-radius: 10px;
+}
+.profile-update .form-ctrl .fields .left {
+  width: 300px;
+  padding: 20px;
+}
+.profile-update .form-ctrl .fields .left .field img {
+  width: 100%;
+  background-color: rgba(105, 105, 105, 0.397);
+  margin: 10px 0;
+}
+.profile-update .form-ctrl .fields .left .field {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile-update .form-ctrl .fields .left .field input,
+.profile-update .form-ctrl .fields .left .field select,
+.profile-update .form-ctrl .fields .left .field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  color: inherit;
+}
+.profile-update .form-ctrl .fields .left .field label {
+  margin: 10px 0;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1em;
+}
+.profile-update .form-ctrl .fields .other-fields {
+  width: 70%;
+}
+.profile-update .form-ctrl .fields .other-fields .field {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile-update .form-ctrl .fields .other-fields .field input,
+.profile-update .form-ctrl .fields .other-fields .field select,
+.profile-update .form-ctrl .fields .other-fields .field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  color: inherit;
+}
+.profile-update .form-ctrl .fields .other-fields .field label {
+  margin: 10px 0;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1em;
+}/*# sourceMappingURL=editpeofile.css.map */

@@ -1,0 +1,61 @@
+.main-content-area {
+  background-color: rgb(242, 242, 242);
+  .content {
+    .sport-content {
+      .content-area {
+        padding: 10px 5%;
+        align-items: flex-start;
+        @media (max-width: 1028px) {
+          padding: 20px;
+        }
+        .left {
+          width: 400px;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          @media (max-width: 1124px) {
+            display: none;
+          }
+          .accounts {
+            padding: 10px 0;
+            font-size: 17px;
+            font-weight: bold;
+          }
+          .logs {
+            display: flex;
+            list-style: none;
+            flex-direction: column;
+            img {
+              width: 100%;
+            }
+            p{
+              font-weight: 300;
+              font-size: 14px;
+            }
+            a {
+              margin: 5px 0;
+            }
+            li {
+              a {
+                text-decoration: none;
+                color: #636363;
+                font-size: 14px;
+                &:hover {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+        .futbol {
+          width: 100%;
+          margin: 0 20px;
+
+          @media (max-width: 768px) {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

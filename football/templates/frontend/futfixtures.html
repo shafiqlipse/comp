@@ -1,0 +1,35 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Football{% endblock futitle %}
+<!--content-->
+{% block futball %}
+<h1>football fixtures</h1>
+<div class="fixtures">
+  <table class="table table-striped">
+    {% regroup fixtures by date as date_list %}
+    <h2></h2>
+    {% for date in date_list %}
+    <h2>{{ date.grouper }}</h2>
+    <tbody>
+      {% for fixture in date.list %}
+      <tr>
+        <td>
+          {{ fixture.team1.school.name|slice:":9" }}
+          <div class="match-info">
+            VS
+          </div>
+          {{ fixture.team2.school.name|slice:":9" }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endfor %}
+  </table>
+
+  <div class="fixture"></div>
+</div>
+
+{% endblock %}

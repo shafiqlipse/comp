@@ -1,0 +1,61 @@
+.account {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../../images/bgc.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.account .flex-account {
+  background-color: rgba(255, 255, 255, 0.1450980392);
+  padding: 20px;
+  width: 300px;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(1.2em);
+          backdrop-filter: blur(1.2em);
+  text-align: center;
+}
+.account .flex-account img {
+  width: 100px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1450980392);
+  border-radius: 20px;
+}
+.account .flex-account .form-ctrl {
+  padding: 20px;
+  width: 100%;
+}
+.account .flex-account .form-ctrl .field {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  border-bottom: solid rgb(255, 255, 255) 1px;
+}
+.account .flex-account .form-ctrl .field input {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: 0;
+  outline: none;
+}
+.account .flex-account .form-ctrl .field input::-moz-placeholder {
+  color: #fff;
+}
+.account .flex-account .form-ctrl .field input::placeholder {
+  color: #fff;
+}
+.account .flex-account .form-ctrl .field i {
+  color: #fff;
+}
+.account .flex-account .form-ctrl .btn-submit {
+  width: 100%;
+}
+.account .flex-account .form-ctrl .acct {
+  margin: 20px 0;
+}
+.account .flex-account .form-ctrl .acct a {
+  color: #fff;
+  font-size: 14px;
+  text-transform: capitalize;
+}/*# sourceMappingURL=login.css.map */

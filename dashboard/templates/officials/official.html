@@ -1,0 +1,29 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!--title starts-->
+{%block title%}{{official.name}} {% endblock %}
+<!--title ends-->
+{% block content %}
+
+<div class="official-page">
+  <div class="athlest flex">
+    <div class="official-details flex">
+      <div class="image-box">
+        <img src="{{official.photo.url}}" alt="{{official.name}}" />
+      </div>
+
+    </div>
+
+    <ul class="details">
+      <li>Name : {{official.name}}</li>
+      <li>NIN : {{official.nin}}</li>
+      <li>Sport : {{official.sport}}</li>
+      <li>Gender : {{official.gender}}</li>
+      <li>Role : {{official.role}}</li>
+
+    </ul>
+  </div>
+  <hr />
+
+</div>
+
+{% endblock %}

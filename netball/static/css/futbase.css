@@ -1,0 +1,21 @@
+.footbase .futbol {
+  padding: 10px;
+  background-color: #000;
+  width: 100%;
+  position: sticky;
+  top: 20px;
+}
+.footbase .futbol h1 {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: white;
+}
+.footbase .futbol .fut-nav .pages li a {
+  text-decoration: none;
+  color: blue;
+  text-transform: capitalize;
+  margin: 10px;
+}
+.footbase .futbol .fut-nav .pages li a:hover {
+  color: white;
+}/*# sourceMappingURL=futbase.css.map */

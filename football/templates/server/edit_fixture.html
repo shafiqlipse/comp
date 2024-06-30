@@ -1,0 +1,60 @@
+{% extends "server/futbase.html" %} {%load static%}
+<!-- fixtures_edit.html -->
+{%block football%}
+<div class="fixture-page">
+  <h2>{{fixture.team1}} VS {{fixture.team2}}</h2>
+</div>
+<form id="editFixtureForm" method="post" action="" class="edit_fixture glue">
+  {% csrf_token %}
+
+  <div class="fieldsgrid grid3">
+    <div class="field flex">
+      <label>{{form.stage.label}}</label>
+      <span>{{form.stage}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.status.label}}</label>
+      <span>{{form.status}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.round.label}}</label>
+      <span>{{form.round}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.group.label}}</label>
+      <span>{{form.group}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.venue.label}}</label>
+      <span>{{form.venue}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.date.label}}</label>
+      <span>{{form.date}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.time.label}}</label>
+      <span>{{form.time}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.team1.label}}</label>
+      <span>{{form.team1}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.team2.label}}</label>
+      <span>{{form.team2}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.team1_score.label}}</label>
+      <span>{{form.team1_score}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.team2_score.label}}</label>
+      <span>{{form.team2_score}}</span>
+    </div>
+  </div>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+{%endblock%}

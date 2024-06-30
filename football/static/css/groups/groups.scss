@@ -1,0 +1,61 @@
+.groueps {
+  .groups {
+    .group {
+      background-color: #fff;
+      border-radius: 10px;
+      h3 {
+        padding: 5px 10px;
+        background-color: red;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+      }
+      .teams {
+        padding: 0 10px;
+        text-transform: uppercase;
+        .li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Standings inc
+
+.standings {
+  .tables {
+    .table {
+      table {
+        margin: 1px 0px;
+        // background-color: blue;
+        thead {
+          tr {
+            background-color: red;
+            color: white;
+            th {
+              padding: 10px;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            &:first-child {
+              border-left: 3px solid green;
+              // background-color: #41fe9c57;
+            }
+            &:nth-child(2) {
+              border-left: 3px solid rgb(135, 255, 6);
+              // background-color: #c5fe413b;
+            }
+          }
+          td {
+            padding: 10px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}

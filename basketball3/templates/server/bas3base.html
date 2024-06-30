@@ -1,0 +1,22 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} Basketball3{% endblock %}
+<!---->
+
+{%block content%}
+<div class="footbase">
+  <div class="futbol flex">
+    <h1>Basketball3</h1>
+    <nav class="fut-nav">
+      <div class="pages flex">
+        <li><a href="{%url 'basketball3'%}">Tournaments</a></li>
+        <li><a href="{%url 'basketball3_fixtures'%}">Fixtures</a></li>
+        <li><a href="">Results</a></li>
+        <li><a href="{%url 'basketball3_standings'%}">Standings</a></li>
+        <li><a href="">Rankings</a></li>
+      </div>
+    </nav>
+  </div>
+  {% block basketball3 %}{% endblock %}
+</div>
+{% endblock %}

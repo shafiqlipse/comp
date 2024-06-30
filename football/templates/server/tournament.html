@@ -1,0 +1,206 @@
+{% extends "server/futbase.html" %} {%load static%}
+<!---->
+{% block title %} {{tournament}}{% endblock %}
+<!---->
+
+{%block football%}
+<div class="championsh0ps">
+  <div class="dets">
+    <h1>
+      <i class="fa fa-futbol"></i>{{tournament.championship}}
+      {{tournament.season}}
+    </h1>
+    <ul class="details">
+      <li><span>Tournament:</span>{{tournament.name}}</li>
+      <li><span>Participants:</span>{{tournament.participants}}</li>
+      <li><span>Groups:</span>{{tournament.number_of_groups}}</li>
+      <li><span>Teams:</span>{{tournament.teams.count}}</li>
+      <li><span>Fixtures:</span> {{ tournament.fixture_set.count }}</li>
+    </ul>
+  </div>
+  <div class="comp-groups">
+    <div class="form-co">
+      <div class="form-co">
+        <h2>Group forms</h2>
+
+        <h2>Groups</h2>
+        <form method="post">
+          {% csrf_token %} {{ formset.management_form }}
+          <!---->
+          {% for form in formset %}
+          <div class="group-form">
+            {{ form.id }}
+            <h3>{{ form.instance.name }}</h3>
+            {{ form.name }}
+            <div id="teams-for-group-{{ forloop.counter0 }}">
+              {{ form.teams }}
+            </div>
+          </div>
+          {% endfor %}
+          <button type="submit">Save Groups</button>
+        </form>
+      </div>
+    </div>
+    <!-- competition_detail.html -->
+
+    <div class="groups">
+      <h2>Groups</h2>
+      <div class="grops form-control">
+        {% for group in fgroups %}
+        <div class="group">
+          <h3>{{ group.name }}</h3>
+          <ol>
+            {% for team in group.teams.all %}
+            <li>{{ team.school }}</li>
+
+            {% endfor %}
+          </ol>
+        </div>
+        {% endfor %}
+        <form
+          id="generateFixturesForm"
+          action="{% url 'generate_futfixtures' tournament.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="button" id="generateFixturesButton" class="btn-submit">
+            Generate Fixtures
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Display knockout fixtures -->
+    {% for knockout_round in knockout_fixtures %}
+    <h2>
+      {{ knockout_round.sport.name }} - {{ knockout_round.competition.name }} -
+      {{ knockout_round.round }}
+    </h2>
+    <ul>
+      {% for fixture in knockout_round.fixtures %}
+      <li>{{ fixture.0.name }} vs {{ fixture.1.name }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+    <!-- competition_detail.html -->
+  </div>
+
+  <div class="kiokl">
+    <form
+      id="generatefutfixturessForm"
+      action="{% url 'generate_knockout_futfixtures' tournament.id %}"
+      method="post"
+    >
+      {% csrf_token %}
+      <button type="submit" id="generatew FixturesButton" class="btn-submit">
+        Generate Knockout Fixtures
+      </button>
+    </form>
+    <div class="fixtures">
+      {% regroup fixtures by group as group_list %}
+      <h2></h2>
+      {% for group in group_list %}
+      <h2>{{ group.grouper }}</h2>
+      {% for fixture in group.list %}
+      <div class="fixture grid6">
+        <span>{{ fixture.date|date:"F j, Y" }} </span>
+        <span>{{ fixture.team1 }}</span>
+        <span
+          ><a href="{% url 'update_fixture' fixture.id%}"
+            >{{ fixture.time}}
+          </a></span
+        >
+        <span>{{ fixture.team2 }}</span>
+        <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
+        <span class="btn-outlie-primary"
+          ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
+        >
+      </div>
+      <hr />
+
+      {% endfor %} {% endfor %}
+    </div>
+    <div class="fixture-custom">
+      <button class="btn-submit" onclick="Creater()">
+        create other fixture
+      </button>
+    </div>
+  </div>
+
+  <script>
+    document
+      .getElementById("generateFixturesButton")
+      .addEventListener("click", function () {
+        var form = document.getElementById("generateFixturesForm");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action, true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.onload = function () {
+          var response = JSON.parse(xhr.responseText);
+          if (response.success) {
+            alert("Football Fixtures generated successfully");
+            // Add additional logic to update the UI if needed
+          } else {
+            alert("Error: " + response.message);
+          }
+        };
+        xhr.send(formData);
+      });
+
+    const fixtureCreate = document.querySelector(".new-fixture");
+
+    const Creater = () => {
+      if (fixtureCreate.classList.contains("none")) {
+        fixtureCreate.classList.remove("none");
+        fixtureCreate.classList.add("flex");
+      } else {
+        fixtureCreate.classList.add("none");
+        fixtureCreate.classList.remove("flex");
+      }
+    };
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("/get_group_teams/{{ tournament.id }}/")
+        .then((response) => response.json())
+        .then((data) => {
+          const teams = data.teams;
+          const groupForms = document.querySelectorAll(".group-form");
+          groupForms.forEach((groupForm, index) => {
+            const teamsDiv = document.getElementById(
+              `teams-for-group-${index}`
+            );
+            teamsDiv.innerHTML = ""; // Clear existing checkboxes
+            teams.forEach((team) => {
+              const checkboxId = `id_fgroup_set-${index}-teams_${team.id}`;
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.name = `fgroup_set-${index}-teams`;
+              checkbox.value = team.id;
+              checkbox.id = checkboxId;
+
+              // Check if this team is already in the group
+              if (
+                groupForm.querySelector(`input[value="${team.id}"]:checked`)
+              ) {
+                checkbox.checked = true;
+              }
+
+              const label = document.createElement("label");
+              label.htmlFor = checkboxId;
+              label.textContent = team.name;
+
+              const div = document.createElement("div");
+              div.appendChild(checkbox);
+              div.appendChild(label);
+
+              teamsDiv.appendChild(div);
+            });
+          });
+        })
+        .catch((error) => console.error("Error:", error));
+    });
+  </script>
+</div>
+{% endblock %}

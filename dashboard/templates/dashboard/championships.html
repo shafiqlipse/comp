@@ -1,0 +1,51 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} Championships{% endblock %}
+<!---->
+
+{%block content%}
+<div class="championships">
+  <div class="top flex">
+    <h1>Championships</h1>
+    <a class="btn btn-primary" href="{% url 'addchampionship'%}"
+      >Add championship</a
+    >
+  </div>
+
+  <div class="lo">
+    <div class="official-list">
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>Thumbnail</th>
+            <th>Name</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for championship in championships%}
+          <tr>
+            <td><img src="{{championship.thumbnail}}" alt="" /></td>
+            <td>
+              <a href="{% url 'champDetail' championship.id%}"
+                >{{championship.name}}</a
+              >
+            </td>
+
+            <td>
+              <a href="" class="del"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a href="" class="del"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

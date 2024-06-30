@@ -1,0 +1,43 @@
+{% load static %}
+
+<div id="exampleSlider">
+  <div class="MS-content">
+    {% for fixture in fixtures %}
+    <div class="item flex">
+      <div class="ite flex">
+        <div class="fix">
+          <p>{{fixture.team1.school.name|slice:":9"}}</p>
+          <p>{{fixture.team2.school.name|slice:":9"}}</p>
+        </div>
+        <div class="fix">
+          <h2>{{fixture.team1_score}}</h2>
+          <h2>{{fixture.team2_score}}</h2>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="MS-controls">
+    <button class="MS-left">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="MS-right">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Include jQuery -->
+<script src="{% static 'js/jquery-2.2.4.min.js'%}"></script>
+
+<!-- Include Multislider -->
+<script src="{% static 'js/multislider.min.js'%}"></script>
+
+<!-- Initialize element with Multislider -->
+<script>
+  $("#exampleSlider").multislider({
+    interval: 3000,
+    slideAll: false,
+    duration: 5000,
+  });
+</script>

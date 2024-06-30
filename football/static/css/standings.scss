@@ -1,0 +1,29 @@
+.standings {
+  // background-color: red;
+
+  .tables {
+    table {
+      margin: 1px 0px;
+      thead {
+        background-color: red;
+        color: white;
+        tr {
+          th {
+            padding: 10px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &:first-child {
+            border-left: 3px solid green;
+          }
+          &:nth-child(2) {
+            border-left: 3px solid rgb(135, 255, 6);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+.account {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../../images/bgc.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.account .flex_account {
+  background-color: rgba(255, 255, 255, 0.1450980392);
+  padding: 0;
+  width: 70%;
+  border-radius: 25px;
+  -webkit-backdrop-filter: blur(1.2em);
+          backdrop-filter: blur(1.2em);
+  text-align: center;
+  overflow: hidden;
+}
+.account .flex_account .lefta {
+  background-color: #fff;
+  flex-direction: column;
+  padding: 40px;
+}
+.account .flex_account .lefta img {
+  width: 150px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1450980392);
+  border-radius: 20px;
+}
+.account .flex_account .lefta p {
+  text-align: left;
+}
+.account .flex_account .left {
+  padding: 20px;
+}
+.account .flex_account .left .form-ctrl {
+  padding: 20px;
+  width: 100%;
+}
+.account .flex_account .left .form-ctrl .fields {
+  width: 100%;
+}
+.account .flex_account .left .form-ctrl .fields .field {
+  margin: 20px 0;
+  border-bottom: solid rgb(255, 255, 255) 1px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.account .flex_account .left .form-ctrl .fields .field input {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: 0;
+  outline: none;
+}
+.account .flex_account .left .form-ctrl .fields .field input::-moz-placeholder {
+  color: #fff;
+}
+.account .flex_account .left .form-ctrl .fields .field input::placeholder {
+  color: #fff;
+}
+.account .flex_account .left .form-ctrl .fields .field i {
+  color: #fff;
+}
+.account .flex_account .left .form-ctrl .btn-submit {
+  width: 100%;
+}
+.account .flex_account .left .acct {
+  margin: 20px 0;
+}
+.account .flex_account .left .acct a {
+  width: 100px;
+  color: #fff;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.account .flex_account .left .acct a:hover {
+  color: rgb(174, 0, 0);
+}/*# sourceMappingURL=register.css.map */

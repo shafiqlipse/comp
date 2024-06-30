@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  @media (max-width: 500px) {
+    font-size: 100%;
+  }
+}
+$color: red;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: $color;
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.glue {
+  background-color: inherit;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px #3b3b3b35;
+  padding: 10px;
+}
+.dark {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  input,
+  select,
+  textarea {
+    background-color: black;
+    border: solid 0.3px white !important;
+  }
+
+  .glue {
+    background-color: #3b3b3b;
+    border-radius: 10px;
+  }
+}
+.btn-green {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-transform: capitalize;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(163, 4, 4);
+  }
+}
+.btn-submit {
+  background-color: $color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-transform: capitalize;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(163, 4, 4);
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.grid7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.grid5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 508px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

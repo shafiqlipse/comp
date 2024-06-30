@@ -1,0 +1,16 @@
+.standings .tables table {
+  margin: 1px 0px;
+}
+.standings .tables table thead {
+  background-color: red;
+  color: white;
+}
+.standings .tables table thead tr th {
+  padding: 10px;
+}
+.standings .tables table tbody tr:first-child {
+  border-left: 3px solid green;
+}
+.standings .tables table tbody tr:nth-child(2) {
+  border-left: 3px solid rgb(135, 255, 6);
+}/*# sourceMappingURL=standings.css.map */

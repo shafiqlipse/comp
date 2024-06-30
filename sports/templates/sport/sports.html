@@ -1,0 +1,57 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} Sports{% endblock %}
+<!---->
+
+{%block content%}
+<div class="championships grid4">
+  <div class="card">
+    <a href="{%url 'football'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Football</h3>
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a href="{%url 'netball'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Netball</h3>
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a href="{%url 'basketball3'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Basketball3X3</h3>
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a href="{%url 'handball'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Handball</h3>
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a href="{%url 'volleyball'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Volleyball</h3>
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a href="{%url 'athletics'%}" class="sport card-body">
+      <div class="icon"><i class="fa fa-futbol"></i></div>
+      <div class="title">
+        <h3>Athletics</h3>
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

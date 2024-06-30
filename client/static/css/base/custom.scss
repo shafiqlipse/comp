@@ -1,0 +1,82 @@
+#exampleSlider {
+  position: relative;
+
+  width: 100%;
+  @media (max-width: 767px) {
+    border-color: transparent;
+  }
+
+  .MS-content {
+    overflow: hidden;
+    white-space: nowrap;
+
+    @media (max-width: 767px) {
+      margin: 0;
+    }
+
+    .item {
+      display: inline-block;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      vertical-align: top;
+      background-color: #e1e1e1;
+      margin-right: 10px;
+
+      width: 20%;
+      @media (max-width: 1200px) {
+        width: 25%;
+      }
+      @media (max-width: 992px) {
+        width: 33.3333%;
+      }
+      @media (max-width: 767px) {
+        width: 50%;
+      }
+      .ite {
+        padding: 10px;
+        .fix {
+          p,
+          h2 {
+            font-size: 17px;
+            text-align: center;
+            line-height: 1;
+            vertical-align: middle;
+            margin: 0;
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+  .MS-controls {
+    button {
+      position: absolute;
+      border: none;
+      background: transparent;
+      font-size: 30px;
+      outline: 0;
+      top: 35px;
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .MS-left {
+      left: 10px;
+      @media (max-width: 992px) {
+        left: -2px;
+      }
+    }
+    .MS-right {
+      right: 10px;
+      @media (max-width: 992px) {
+        right: -2px;
+      }
+    }
+  }
+}

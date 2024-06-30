@@ -1,0 +1,57 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} {{championship}}{% endblock %}
+<!---->
+
+{%block content%}
+<div class="championships">
+  <div class="champ">
+    {% if championship.thumbnail %}
+    <img src="{{championship.thumbnail.url}}" alt="" />{% endif %}
+    <h3>{{championship}}</h3>
+  </div>
+  <div class="top flex">
+    <h1>{{team.school}} {{team.gender}} {{team.sport}}</h1>
+  </div>
+
+  <div class="lo">
+    <div class="official-list">
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Age</th>
+            <th>Sport</th>
+            <th>Gender</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for athlete in team.athletes.all%}
+          <tr>
+            <td>
+              <a href="{% url 'athleteDetail' athlete.id%}"
+                >{{athlete.fname}} {{athlete.lname}}</a
+              >
+            </td>
+            <td>{{athlete.age}}</td>
+
+            <td>{{athlete.sport}}</td>
+            <td>{{athlete.gender}}</td>
+
+            <td>
+              <a href="" class="del"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a href="" class="del"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

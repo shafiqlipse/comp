@@ -1,0 +1,51 @@
+{% extends "server/bas3base.html" %} {%load static%}
+<!---->
+{% block title %} Football Standings{% endblock %}
+<!---->
+
+{%block basketball3%}
+<div class="standings">
+  <h1>Standings</h1>
+
+  {% for sport_data in standings_data %}
+  <h2>{{ sport_data.sport.name }} | {{ sport_data.competition.name }}</h2>
+  <div class="tables grid2">
+    {% for group, standings in sport_data.standings.items %}
+    <div class="table">
+      <h4>{{ group.name }}</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>P</th>
+            <th>W</th>
+            <th>L</th>
+            <th>Win%</th>
+            <th>PF</th>
+            <th>PA</th>
+            <th>PD</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for team, stats in standings %}
+          <tr>
+            <td>{{ team.school }}</td>
+            <td>{{ stats.played }}</td>
+            <td>{{ stats.wins }}</td>
+            <td>{{ stats.losses }}</td>
+            <td>{{ stats.win_percentage|floatformat:3 }}</td>
+            <td>{{ stats.pf }}</td>
+            <td>{{ stats.pa }}</td>
+            <td>{{ stats.pd }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

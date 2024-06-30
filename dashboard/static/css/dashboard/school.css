@@ -1,0 +1,34 @@
+.home {
+  background-color: rgba(204, 204, 204, 0.0823529412);
+  padding: 20px;
+  border-radius: 10px;
+}
+.home .dash-item {
+  background-color: rgba(204, 204, 204, 0.1450980392);
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: flex-start;
+}
+.home .dash-item .item-head {
+  padding: 10px;
+}
+.home .dash-item .item-head i {
+  font-size: 2em;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1450980392);
+  border-radius: 5px;
+  color: rgb(132, 3, 3);
+}
+.home .dash-item .item-head .numbers {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.home .dash-item .item-head .numbers h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.home .dash-item .item-head .numbers h1 {
+  font-size: 18px;
+  font-weight: 500;
+}/*# sourceMappingURL=school.css.map */

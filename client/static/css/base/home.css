@@ -1,0 +1,45 @@
+.home-page {
+  padding: 10px 5%;
+}
+.home-page .home-area {
+  align-items: flex-start;
+}
+.home-page .home-area .left {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+@media (max-width: 1124px) {
+  .home-page .home-area .left {
+    display: none;
+  }
+}
+.home-page .home-area .left .accounts {
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+.home-page .home-area .left .logs {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+.home-page .home-area .left .logs img {
+  width: 100%;
+}
+.home-page .home-area .left .logs p {
+  font-weight: 300;
+  font-size: 14px;
+}
+.home-page .home-area .left .logs a {
+  margin: 5px 0;
+}
+.home-page .home-area .left .logs li a {
+  text-decoration: none;
+  color: #636363;
+  font-size: 14px;
+}
+.home-page .home-area .left .logs li a:hover {
+  color: red;
+}/*# sourceMappingURL=home.css.map */

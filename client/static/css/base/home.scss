@@ -1,0 +1,45 @@
+.home-page {
+  padding: 10px 5%;
+  .home-area {
+    align-items: flex-start;
+    .left {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      @media (max-width: 1124px) {
+        display: none;
+      }
+      .accounts {
+        padding: 10px 0;
+        font-size: 17px;
+        font-weight: bold;
+      }
+      .logs {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        img {
+          width: 100%;
+        }
+        p {
+          font-weight: 300;
+          font-size: 14px;
+        }
+        a {
+          margin: 5px 0;
+        }
+        li {
+          a {
+            text-decoration: none;
+            color: #636363;
+            font-size: 14px;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

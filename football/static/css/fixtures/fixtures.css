@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .fixtures {
+    padding: 0;
+  }
+}
+.fixtures .table tbody tr td {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+.fixtures .table tbody tr td .match-info {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}/*# sourceMappingURL=fixtures.css.map */

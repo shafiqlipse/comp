@@ -1,0 +1,63 @@
+.profile-update {
+  width: 100%;
+  background-color: rgba(105, 105, 105, 0.397);
+  padding: 10px;
+  border-radius: 10px;
+
+  .form-ctrl {
+    .fields {
+      .left {
+        width: 300px;
+        padding: 20px;
+        .field {
+          img {
+            width: 100%;
+            background-color: rgba(105, 105, 105, 0.397);
+            margin: 10px 0;
+          }
+        }
+        .field {
+          flex-direction: column;
+          align-items: flex-start;
+          input,
+          select,
+          textarea {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            border-radius: 10px;
+            color: inherit;
+          }
+          label {
+            margin: 10px 0;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 1em;
+          }
+        }
+      }
+      .other-fields {
+        width: 70%;
+        .field {
+          flex-direction: column;
+          align-items: flex-start;
+          input,
+          select,
+          textarea {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            border-radius: 10px;
+            color: inherit;
+          }
+          label {
+            margin: 10px 0;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}

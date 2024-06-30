@@ -1,0 +1,27 @@
+{% extends "frontend/netball.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Netball{% endblock futitle %}
+<!--content-->
+{% block futball %}
+<h1>netball fixtures</h1>
+<div class="fixtures">
+  <table class="table table-striped">
+    <tbody>
+      {% for fixture in fixtures %}
+      <tr>
+        <td>
+          {{fixture.team1.school.name|slice:":9" }}
+          <div class="match-info">{{fixture.time}}</div>
+          {{fixture.team2.school.name|slice:":9" }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="fixture"></div>
+</div>
+
+{% endblock %}
