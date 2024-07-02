@@ -43,3 +43,16 @@ def update_fixture_score(sender, instance, created, **kwargs):
             match.team2_score = (match.team2_score or 0) + 1
 
         match.save()
+
+@receiver(post_save, sender=MatchEvent)
+def update_fixture_set(sender, instance, created, **kwargs):
+    if created and instance.event_type in ["Set"]:
+        match = instance.match
+
+        # Assuming the event has a field to indicate which team scored
+        if instance.team == match.team1:
+            match.team1_sets_won = (match.team2_sets_won or 0) + 1
+        elif instance.team == match.team2:
+            match.team2_sets_won = (match.team2_sets_won or 0) + 1
+
+        match.save()

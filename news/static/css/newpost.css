@@ -1,0 +1,43 @@
+.create_post .form-control {
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .create_post .form-control .mian {
+    flex-direction: column;
+  }
+}
+.create_post .form-control .mian .lewft {
+  width: 30%;
+}
+@media (max-width: 768px) {
+  .create_post .form-control .mian .lewft {
+    width: 100%;
+  }
+}
+.create_post .form-control .mian .lewft .field {
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.create_post .form-control .mian .lewft .field img {
+  width: 100%;
+}
+.create_post .form-control .mian .lewft .field h2 {
+  font-size: 15px;
+  text-align: left;
+}
+.create_post .form-control .mian .riwght {
+  width: 65%;
+}
+@media (max-width: 768px) {
+  .create_post .form-control .mian .riwght {
+    width: 100%;
+  }
+}
+.create_post .form-control .mian .riwght .field {
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}/*# sourceMappingURL=newpost.css.map */

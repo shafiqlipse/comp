@@ -95,8 +95,6 @@ class Fixture(models.Model):
         verbose_name_plural = "Fixtures"
 
 
-
-
 class MatchEvent(models.Model):
     match = models.ForeignKey(Fixture, on_delete=models.CASCADE)
     EVENT_CHOICES = [

@@ -65,7 +65,7 @@ from django.forms import TimeInput
 
 
 class FixtureForm(forms.ModelForm):
-    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "datetime-local"}))
+    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "date"}))
     time = forms.TimeField(widget=TimeInput(attrs={"type": "time"}))
 
     class Meta:
@@ -98,13 +98,12 @@ class MatchEventForm(forms.ModelForm):
         fields = ["event_type", "team", "athlete", "minute", "commentary"]
 
     def __init__(self, *args, **kwargs):
-        team1_id = kwargs.pop("team1_id", None)
-        team2_id = kwargs.pop("team2_id", None)
+        match = kwargs.pop("match", None)
         super().__init__(*args, **kwargs)
 
-        if team1_id and team2_id:
+        if match:
             self.fields["team"].queryset = SchoolTeam.objects.filter(
-                id__in=[team1_id, team2_id]
+                id__in=[match.team1.id, match.team2.id]
             )
         else:
             self.fields["team"].queryset = SchoolTeam.objects.none()

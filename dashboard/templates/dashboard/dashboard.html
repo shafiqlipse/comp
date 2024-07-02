@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="{%static 'css/standings.css'%}" />
     <link rel="stylesheet" href="{%static 'css/fixture.css'%}" />
     <link rel="stylesheet" href="{%static 'css/futbase.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/newpost.css'%}" />
     {% comment %}
     <link rel="stylesheet" href="{%static 'css/futbase.css'%}" />
     {% endcomment %}
@@ -162,7 +163,7 @@
             <li class="sidebar-header">Plugins & Addons</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="charts-chartjs.html">
+              <a class="sidebar-link" href="{%url 'posts'%}">
                 <i class="align-middle" data-feather="bar-chart-2"></i>
                 <span class="align-middle">News</span>
               </a>
@@ -490,6 +491,7 @@
 
     <!--   Core JS Files   -->
     <script src="{% static 'js/api.js'%}"></script>
+    <script src="{% static 'js/a.js'%}"></script>
     <!--   Core JS Files   -->
 
     <script>

@@ -1,0 +1,65 @@
+{% extends "dashboard/dashboard.html" %}
+<!---->
+{%load static%}
+<!---->
+{% block title %} News{% endblock %}
+<!---->
+
+{%block content%}
+<div class="create_post">
+  <h1>New Post</h1>
+  <form action="" method="post" class="form-control">
+    {% csrf_token %} {{ form.media }}
+    <div class="mian flex">
+      <div class="riwght">
+        <div class="field flex">
+          <label>{{ form.title.label}} </label>{{form.title}}
+        </div>
+        <div class="field flex">
+          <label>{{ form.content.label}} </label>{{form.content}}
+        </div>
+      </div>
+      <div class="lewft">
+        <div class="field">
+            <h2>Set Featured Image</h2>
+            <label for"#id_thumbnail"> {% if form.instance.thumbnail %}
+            <img
+              src="{{ form.instance.thumbnail.url }}"
+              id="image-preview"
+              alt="Current Photo"
+            />
+            {% else %}
+  
+            <img
+              src="{% static 'images/profile.png'%}"
+              id="image-preview"
+              alt="No Photo"
+            />
+            {% endif %}</label>
+          </div>
+          <div class="field">
+            <input
+              type="file"
+              name="thumbnail"
+              accept="image/*"
+              onchange="displayImage(this);"
+              id="id_thumbnail"
+            />
+          </div>
+        <div class="field flex">
+          <label>{{ form.category.label}} </label>{{form.category}}
+        </div>
+        <div class="field flex">
+          <label>{{ form.championship.label}} </label>{{form.championship}}
+        </div>
+        <div class="field flex">
+          <label>{{ form.sport.label}} </label>{{form.sport}}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

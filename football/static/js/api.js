@@ -88,3 +88,8 @@ function get_gteams() {
 document.getElementById("id_sport").onchange = get_fteams;
 document.getElementById("id_gender").onchange = get_fteams;
 document.getElementById("id_age").onchange = get_fteams;
+
+// Attach the get_teams function to the onchange events of the sport, gender, and age elements
+// document.getElementById("id_sport").onchange = get_teams;
+
+

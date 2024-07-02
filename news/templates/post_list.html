@@ -1,0 +1,54 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} News {% endblock %}
+<!---->
+
+{%block content%}
+<div class="championships">
+  <div class="top flex">
+    <h1>Posts</h1>
+    <a class="btn btn-primary" href="{% url 'newpost'%}"> Add post </a>
+  </div>
+  <div class="lo">
+    <div class="official-list">
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Championship</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in posts%}
+          <tr>
+            <td>
+              <a href="">{{post.title |slice:":25"}}</a>
+            </td>
+            <td>{{post.sport}}</td>
+
+            <td>{{post.category}}</td>
+            <td>{{post.author}}</td>
+            <td>{{post.championship}}</td>
+
+            <td>
+              <a href="" class="del"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a href="" class="del"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

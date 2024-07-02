@@ -1,0 +1,45 @@
+.create_post {
+  //   background-color: rgb(255, 255, 255);
+  .form-control {
+    // background-color: transparent;
+    padding: 20px;
+    .mian {
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+      .lewft {
+        width: 30%;
+
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+        .field {
+          flex-direction: column;
+          text-align: center;
+          align-items: flex-start;
+          margin-bottom: 20px;
+          img {
+            width: 100%;
+          }
+          h2 {
+            font-size: 15px;
+            text-align: left;
+          }
+        }
+      }
+      .riwght {
+        width: 65%;
+
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+        .field {
+          flex-direction: column;
+          text-align: center;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

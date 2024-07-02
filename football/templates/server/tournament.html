@@ -24,20 +24,21 @@
         <h2>Group forms</h2>
 
         <h2>Groups</h2>
-        <form method="post">
+        <form method="post" class="form-control grid2">
           {% csrf_token %} {{ formset.management_form }}
-          <!---->
-          {% for form in formset %}
-          <div class="group-form">
-            {{ form.id }}
-            <h3>{{ form.instance.name }}</h3>
-            {{ form.name }}
-            <div id="teams-for-group-{{ forloop.counter0 }}">
-              {{ form.teams }}
+          <div class="gf grid2">
+            {% for form in formset %}
+            <div class="group-form">
+              {{ form.id }}
+              <h3>{{ form.instance.name }}</h3>
+              {{ form.name }}
+              <div id="teams-for-group-{{ forloop.counter0 }}">
+                {{ form.teams }}
+              </div>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-          <button type="submit">Save Groups</button>
+          <button type="submit" class="btn btn-danger">Save Groups</button>
         </form>
       </div>
     </div>
