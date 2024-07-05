@@ -1099,3 +1099,871 @@ Not Found: /news/img/avatars/avatar-5.jpg
 Not Found: /news/img/avatars/avatar-4.jpg
 Not Found: /news/img/avatars/avatar-3.jpg
 Not Found: /news/js/datatables.js
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixture/img/avatars/avatar-2.jpg
+Not Found: /netball/fixture/js/datatables.js
+Not Found: /netball/fixture/img/avatars/avatar-3.jpg
+Not Found: /netball/fixture/img/avatars/avatar-4.jpg
+Not Found: /netball/fixture/img/avatars/avatar-5.jpg
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixture/img/avatars/avatar-5.jpg
+Not Found: /netball/fixture/img/avatars/avatar-2.jpg
+Not Found: /netball/fixture/img/avatars/avatar-4.jpg
+Not Found: /netball/fixture/img/avatars/avatar-3.jpg
+Not Found: /netball/fixture/js/datatables.js
+Internal Server Error: /football/fixturedetail/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\views.py", line 203, in FixtureDetail
+    eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\forms.py", line 102, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'team1_id'
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /football/fixturedetail/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\views.py", line 203, in FixtureDetail
+    eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\forms.py", line 102, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'team1_id'
+Not Found: /netball/fixture/js/datatables.js
+Not Found: /netball/fixture/img/avatars/avatar-5.jpg
+Not Found: /netball/fixture/img/avatars/avatar-2.jpg
+Not Found: /netball/fixture/img/avatars/avatar-4.jpg
+Not Found: /netball/fixture/img/avatars/avatar-3.jpg
+Not Found: /netball/fixture/js/datatables.js
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Internal Server Error: /football/fixturedetail/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\views.py", line 203, in FixtureDetail
+    eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\forms.py", line 102, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'team1_id'
+E:\django\cms\cms\football\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Internal Server Error: /football/fixturedetail/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\views.py", line 203, in FixtureDetail
+    eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\forms.py", line 102, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'team1_id'
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\apiviews.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Watching for file changes with StatReloader
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /news/img/avatars/avatar-5.jpg
+Not Found: /news/img/avatars/avatar-4.jpg
+Not Found: /news/img/avatars/avatar-2.jpg
+Not Found: /news/img/avatars/avatar-3.jpg
+Not Found: /news/js/datatables.js
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /football/img/avatars/avatar-2.jpg
+Not Found: /football/img/avatars/avatar-5.jpg
+Not Found: /football/img/avatars/avatar-3.jpg
+Not Found: /football/img/avatars/avatar-4.jpg
+Not Found: /football/js/datatables.js
+Not Found: /football/futourn/js/datatables.js
+Not Found: /football/futourn/img/avatars/avatar-4.jpg
+Not Found: /football/futourn/img/avatars/avatar-5.jpg
+Not Found: /football/futourn/img/avatars/avatar-2.jpg
+Not Found: /football/futourn/img/avatars/avatar-3.jpg
+Not Found: /get_group_teams/3/
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+E:\django\cms\cms\football\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/img/avatars/avatar-3.jpg
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/js/datatables.js
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+E:\django\cms\cms\netball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/fixture/img/avatars/avatar-2.jpg
+Not Found: /netball/fixture/js/datatables.js
+Not Found: /netball/fixture/img/avatars/avatar-3.jpg
+Not Found: /netball/fixture/img/avatars/avatar-4.jpg
+Not Found: /netball/fixture/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /netball/fixturedetail/js/datatables.js
+Not Found: /netball/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /netball/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+E:\django\cms\cms\football\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /football/img/avatars/avatar-5.jpg
+Not Found: /football/img/avatars/avatar-2.jpg
+Not Found: /football/img/avatars/avatar-3.jpg
+Not Found: /football/js/datatables.js
+Not Found: /football/img/avatars/avatar-4.jpg
+Not Found: /football/futourn/img/avatars/avatar-4.jpg
+Not Found: /football/futourn/img/avatars/avatar-3.jpg
+Not Found: /football/futourn/img/avatars/avatar-5.jpg
+Not Found: /football/futourn/img/avatars/avatar-2.jpg
+Not Found: /football/futourn/js/datatables.js
+Not Found: /get_group_teams/3/
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /volleyball/img/avatars/avatar-5.jpg
+Not Found: /volleyball/js/datatables.js
+Not Found: /volleyball/img/avatars/avatar-4.jpg
+Not Found: /volleyball/img/avatars/avatar-2.jpg
+Not Found: /volleyball/img/avatars/avatar-3.jpg
+Not Found: /volleyball/futourn/js/datatables.js
+Not Found: /volleyball/futourn/img/avatars/avatar-2.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-5.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-4.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /football/fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /football/fixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/img/avatars/avatar-5.jpg
+Not Found: /volleyball/img/avatars/avatar-2.jpg
+Not Found: /volleyball/img/avatars/avatar-4.jpg
+Not Found: /volleyball/img/avatars/avatar-3.jpg
+Not Found: /volleyball/js/datatables.js
+Not Found: /volleyball/futourn/img/avatars/avatar-2.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-5.jpg
+Not Found: /volleyball/futourn/js/datatables.js
+Not Found: /volleyball/futourn/img/avatars/avatar-4.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixturedetail/js/datatables.js
+Not Found: /volleyball/vfixturedetail/img/avatars/avatar-3.jpg
+E:\django\cms\cms\basketball3\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /handball/img/avatars/avatar-5.jpg
+Not Found: /handball/img/avatars/avatar-3.jpg
+Not Found: /handball/js/datatables.js
+Not Found: /handball/img/avatars/avatar-2.jpg
+Not Found: /handball/img/avatars/avatar-4.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-2.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-5.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-4.jpg
+Not Found: /handball/hhtourn/js/datatables.js
+Not Found: /handball/hhtourn/img/avatars/avatar-3.jpg
+Not Found: /handball/hfixture/js/datatables.js
+Not Found: /handball/hfixture/img/avatars/avatar-5.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-3.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-4.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-2.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /handball/hfixturedetail/js/datatables.js
+Not Found: /handball/hfixturedetail/img/avatars/avatar-4.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-3.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-5.jpg
+Not Found: /handball/hfixturedetail/js/datatables.js
+Not Found: /handball/hfixturedetail/img/avatars/avatar-2.jpg
+Not Found: /handball/hfixturedetail/img/avatars/avatar-4.jpg
+Watching for file changes with StatReloader
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /basketball3/img/avatars/avatar-5.jpg
+Not Found: /basketball3/img/avatars/avatar-4.jpg
+Not Found: /basketball3/js/datatables.js
+Not Found: /basketball3/img/avatars/avatar-3.jpg
+Not Found: /basketball3/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3tourn/js/datatables.js
+Not Found: /basketball3/b3tourn/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-2.jpg
+Not Found: /get_b3group_teams/1/
+Not Found: /basketball3/img/avatars/avatar-4.jpg
+Not Found: /basketball3/img/avatars/avatar-5.jpg
+Not Found: /basketball3/js/datatables.js
+Not Found: /basketball3/img/avatars/avatar-3.jpg
+Not Found: /basketball3/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3tourn/js/datatables.js
+Not Found: /basketball3/b3tourn/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-4.jpg
+Not Found: /get_b3group_teams/1/
+Not Found: /basketball3/img/avatars/avatar-2.jpg
+Not Found: /basketball3/img/avatars/avatar-3.jpg
+Not Found: /basketball3/img/avatars/avatar-5.jpg
+Not Found: /basketball3/js/datatables.js
+Not Found: /basketball3/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3tourn/js/datatables.js
+Not Found: /get_b3group_teams/2/
+Not Found: /basketball3/b3fixture/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixture/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixture/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixture/js/datatables.js
+Not Found: /basketball3/b3fixture/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /accounts/schools/img/avatars/avatar-5.jpg
+Not Found: /accounts/schools/img/avatars/avatar-2.jpg
+Not Found: /accounts/schools/img/avatars/avatar-4.jpg
+Not Found: /accounts/schools/img/avatars/avatar-3.jpg
+Not Found: /accounts/schools/js/datatables.js
+Not Found: /dashboard/teams/img/avatars/avatar-5.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-2.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-4.jpg
+Not Found: /dashboard/teams/js/datatables.js
+Not Found: /dashboard/teams/img/avatars/avatar-3.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-5.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-2.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-4.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-3.jpg
+Not Found: /dashboard/teams/js/datatables.js
+Not Found: /accounts/schools/img/avatars/avatar-2.jpg
+Not Found: /accounts/schools/img/avatars/avatar-3.jpg
+Not Found: /accounts/schools/img/avatars/avatar-5.jpg
+Not Found: /accounts/schools/img/avatars/avatar-4.jpg
+Not Found: /accounts/schools/js/datatables.js
+Not Found: /accounts/school/img/avatars/avatar-2.jpg
+Not Found: /accounts/school/img/avatars/avatar-5.jpg
+Not Found: /accounts/school/js/datatables.js
+Not Found: /accounts/school/img/avatars/avatar-3.jpg
+Not Found: /accounts/school/img/avatars/avatar-4.jpg
+Not Found: /accounts/school/img/avatars/avatar-5.jpg
+Not Found: /accounts/school/img/avatars/avatar-2.jpg
+Not Found: /accounts/school/img/avatars/avatar-3.jpg
+Not Found: /accounts/school/js/datatables.js
+Not Found: /accounts/school/img/avatars/avatar-4.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-5.jpg
+Not Found: /dashboard/teams/js/datatables.js
+Not Found: /dashboard/teams/img/avatars/avatar-4.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-2.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /basketball3/img/avatars/avatar-4.jpg
+Not Found: /basketball3/img/avatars/avatar-5.jpg
+Not Found: /basketball3/img/avatars/avatar-2.jpg
+Not Found: /basketball3/js/datatables.js
+Not Found: /basketball3/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3tourn/js/datatables.js
+Not Found: /basketball3/b3tourn/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3tourn/img/avatars/avatar-5.jpg
+Not Found: /get_b3group_teams/2/
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\basketball3\b3views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-5.jpg
+Not Found: /basketball3/b3fixturedetail/js/datatables.js
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-2.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-3.jpg
+Not Found: /basketball3/b3fixturedetail/img/avatars/avatar-4.jpg

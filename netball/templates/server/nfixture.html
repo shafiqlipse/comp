@@ -15,16 +15,16 @@
         data-toggle="modal"
         data-target="#exawmpleModal"
       >
-        Add official
-      </button>{% else %}
+        Add official</button
+      >{% else %}
       <button
         type="button"
         class="btn btn-primary"
         data-toggle="modal"
         data-target="#exampleModal"
       >
-        Add event
-      </button>{% endif %}
+        Add event</button
+      >{% endif %}
     </div>
   </div>
 
@@ -49,45 +49,7 @@
         <div class="team"><h2>{{fixture.team2}}</h2></div>
       </div>
 
-      <div class="statistics">
-        <div class="stats">
-          <div class="team1">
-            {% for athlete in fixture.team1.athlete.all %}
-            <div class="athlete">{{athlete.fname}}</div>
-            {% endfor %}
-            <div class="fixtures">
-              {% for related_fixture in team1_fixtures %}
-              <div class="fixture">
-                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
-                <h3>{{ related_fixture.date|time:"H:i" }}</h3>
-                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-          <div class="events">
-            <div class="officials">
-              {% for official in officials %}
-              <div class="official">
-                <span>{{official.official}}</span>:
-                <span>{{official.match_role}}</span>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-          <div class="team1">
-            <div class="fixtures">
-              {% for related_fixture in team2_fixtures %}
-              <div class="fixture">
-                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
-                <h3>{{ related_fixture.date|time:"H:i" }}</h3>
-                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
+   
     </div>
   </div>
   <div
@@ -172,4 +134,83 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    var matchSelect = $("#id_match");
+    var teamSelect = $("#id_team");
+    var athleteSelect = $("#id_athlete");
+
+    function resetSelect(selectElement, placeholder) {
+      selectElement.empty();
+      selectElement.append(
+        $("<option></option>").attr("value", "").text(placeholder)
+      );
+      selectElement.prop("disabled", true);
+    }
+
+    resetSelect(teamSelect, "Select a team");
+    resetSelect(athleteSelect, "Select an athlete");
+
+    matchSelect.change(function () {
+      var matchId = $(this).val();
+      if (matchId) {
+        $.ajax({
+          url: "/get_nteams_for_match/",
+          data: { match_id: matchId },
+          dataType: "json",
+          success: function (data) {
+            resetSelect(teamSelect, "Select a team");
+            $.each(data.teams, function (index, team) {
+              teamSelect.append(
+                $("<option></option>").attr("value", team.id).text(team.name)
+              );
+            });
+            teamSelect.prop("disabled", false);
+            resetSelect(athleteSelect, "Select an athlete"); // Reset athlete select
+          },
+          error: function (xhr, status, error) {
+            console.error("An error occurred: " + error);
+            resetSelect(teamSelect, "Error loading teams");
+          },
+        });
+      } else {
+        resetSelect(teamSelect, "Select a team");
+        resetSelect(athleteSelect, "Select an athlete");
+      }
+    });
+
+    teamSelect.change(function () {
+      var teamId = $(this).val();
+      var matchId = matchSelect.val();
+      if (teamId && matchId) {
+        $.ajax({
+          url: "/get_nathletes_for_team/",
+          data: {
+            match_id: matchId,
+            team_id: teamId,
+          },
+          dataType: "json",
+          success: function (data) {
+            resetSelect(athleteSelect, "Select an athlete");
+            $.each(data.athletes, function (index, athlete) {
+              athleteSelect.append(
+                $("<option></option>")
+                  .attr("value", athlete.id)
+                  .text(athlete.name)
+              );
+            });
+            athleteSelect.prop("disabled", false);
+          },
+          error: function (xhr, status, error) {
+            console.error("An error occurred: " + error);
+            resetSelect(athleteSelect, "Error loading athletes");
+          },
+        });
+      } else {
+        resetSelect(athleteSelect, "Select an athlete");
+      }
+    });
+  });
+</script>
 {% endblock %}

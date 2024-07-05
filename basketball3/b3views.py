@@ -23,17 +23,28 @@ from django.db.models.functions import Coalesce
 # Usage
 
 
-# Create your views here.
+from django.db.models import Sum, Case, When, IntegerField
+
+
 def get_rankings(competition):
     # Athlete Rankings
     athlete_rankings = (
         Athlete.objects.filter(b3athlete__match__competition=competition)
         .annotate(
-            points=Count(
-                "b3athlete",
-                filter=Q(
-                    b3athlete__event_type__in=["1-Pointer", "2-Pointer", "3-Pointer"]
-                ),
+            points=Sum(
+                Case(
+                    When(b3athlete__event_type="1-Pointer", then=1),
+                    When(b3athlete__event_type="2-Pointer", then=2),
+                    When(b3athlete__event_type="3-Pointer", then=3),
+                    default=0,
+                    output_field=IntegerField(),
+                )
+            ),
+            two_pointers=Count(
+                "b3athlete", filter=Q(b3athlete__event_type="2-Pointer")
+            ),
+            three_pointers=Count(
+                "b3athlete", filter=Q(b3athlete__event_type="3-Pointer")
             ),
             rebounds=Count("b3athlete", filter=Q(b3athlete__event_type="rebound")),
             assists=Count("b3athlete", filter=Q(b3athlete__event_type="Assist")),
@@ -48,11 +59,20 @@ def get_rankings(competition):
     team_rankings = (
         SchoolTeam.objects.filter(basket_team__match__competition=competition)
         .annotate(
-            points=Count(
-                "basket_team",
-                filter=Q(
-                    basket_team__event_type__in=["1-Pointer", "2-Pointer", "3-Pointer"]
-                ),
+            points=Sum(
+                Case(
+                    When(basket_team__event_type="1-Pointer", then=1),
+                    When(basket_team__event_type="2-Pointer", then=2),
+                    When(basket_team__event_type="3-Pointer", then=3),
+                    default=0,
+                    output_field=IntegerField(),
+                )
+            ),
+            two_pointers=Count(
+                "basket_team", filter=Q(basket_team__event_type="2-Pointer")
+            ),
+            three_pointers=Count(
+                "basket_team", filter=Q(basket_team__event_type="3-Pointer")
             ),
             rebounds=Count("basket_team", filter=Q(basket_team__event_type="rebound")),
             assists=Count("basket_team", filter=Q(basket_team__event_type="Assist")),
@@ -63,6 +83,7 @@ def get_rankings(competition):
         .order_by("-points")
     )
 
+    # The rest of the function remains the same
     top_scorers = athlete_rankings.order_by("-points")[:10]
     top_rebounders = athlete_rankings.order_by("-rebounds")[:10]
     top_assisters = athlete_rankings.order_by("-assists")[:10]

@@ -53,7 +53,7 @@ GroupFormSet = inlineformset_factory(
 
 
 class B3FixtureForm(forms.ModelForm):
-    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "datetime-local"}))
+    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "date"}))
     # time = forms.TimeField(widget=TimeInput(attrs={"type": "time"}))
 
     class Meta:
@@ -82,4 +82,18 @@ class MatchOfficialForm(forms.ModelForm):
 class MatchEventForm(forms.ModelForm):
     class Meta:
         model = MatchEvent
-        fields = "__all__"
+        fields = ["event_type", "team", "athlete", "minute", "commentary"]
+
+    def __init__(self, *args, **kwargs):
+        fixture_instance = kwargs.pop("fixture_instance", None)
+        super().__init__(*args, **kwargs)
+
+        if fixture_instance:
+            # Filter team choices based on the fixture_instance
+            team_choices = [
+                (fixture_instance.team1.id, str(fixture_instance.team1)),
+                (fixture_instance.team2.id, str(fixture_instance.team2)),
+            ]
+            self.fields["team"].choices = team_choices
+        else:
+            self.fields["team"].queryset = self.fields["team"].queryset.none()

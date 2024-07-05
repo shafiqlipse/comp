@@ -88,11 +88,7 @@
           </a></span
         >
         <span>{{ fixture.team2 }}</span>
-        <span
-          ><a href="{% url 'update_fixture' fixture.id%}"
-            >Edit</a
-          ></span
-        >
+        <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
         <span class="btn-outlie-primary"
           ><a href="{% url 'nfixture' fixture.id%}">Manage</a></span
         >
@@ -118,7 +114,20 @@
     </ul>
     {% endfor %}
   </div>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+    rel="stylesheet"
+  />
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Include Select2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
+  <script>
+    $(document).ready(function () {
+      $("#id_teams").select2();
+    });
+  </script>
   <script>
     document
       .getElementById("generateFixturesButton")

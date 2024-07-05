@@ -154,7 +154,7 @@ def edit_fixtures_view(request, id):
         if form.is_valid():
             form.save()
             return redirect(
-                "fixture", id=id
+                "nfixture", id=id
             )  # Replace 'success_url' with the actual URL
     else:
         form = FixtureForm(instance=fixture)
@@ -174,71 +174,38 @@ def NFixtureDetail(request, id):
 
     if request.method == "POST":
         if "official_form" in request.POST:
-            cform = MatchOfficialForm(
-                request.POST, request.FILES
-            )  # Handle file uploads if applicable
-            eform = (
-                MatchEventForm()
-            )  # Initialize empty form for GET requests or invalid POST submissions
+            cform = MatchOfficialForm(request.POST, request.FILES)
+            eform = MatchEventForm()  # Initialize empty event form
             if cform.is_valid():
                 new_official = cform.save(commit=False)
                 new_official.fixture = fixture
                 new_official.save()
-                return redirect("fixture", id=id)
+                return redirect("nfixture", id=id)
         elif "event_form" in request.POST:
-            cform = (
-                MatchOfficialForm()
-            )  # Initialize empty form for GET requests or invalid POST submissions
-            eform = MatchEventForm(request.POST)
+            eform = MatchEventForm(request.POST, fixture_instance=fixture)
+            cform = MatchOfficialForm()  # Initialize empty official form
             if eform.is_valid():
                 new_event = eform.save(commit=False)
                 new_event.match = fixture
                 new_event.save()
-                return redirect("fixture", id=id)
+                return redirect("nfixture", id=id)
         else:
-            cform = (
-                MatchOfficialForm()
-            )  # Initialize empty form for GET requests or invalid POST submissions
-            eform = (
-                MatchEventForm()
-            )  # Initialize empty form for GET requests or invalid POST submissions
+            cform = MatchOfficialForm()
+            eform = MatchEventForm(
+                fixture_instance=fixture
+            )  # Initialize event form with fixture_instance
     else:
-        cform = MatchOfficialForm()  # Initialize empty form for GET requests
-        eform = MatchEventForm()  # Initialize empty form for GET requests
-    # statistics with events
-    team1_yellowcards = events.filter(
-        event_type="YellowCard", team=fixture.team1
-    ).count()
-    team2_yellowcards = events.filter(
-        event_type="YellowCard", team=fixture.team2
-    ).count()
-    team1_redcards = events.filter(event_type="RedCard", team=fixture.team1).count()
-    team2_redcards = events.filter(event_type="RedCard", team=fixture.team2).count()
-    team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
-    team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
-    # ------fixtures by team
-    team1_fixtures = Fixture.objects.filter(
-        Q(team1=fixture.team1) | Q(team2=fixture.team1)
-    ).distinct()
-    team2_fixtures = Fixture.objects.filter(
-        Q(team1=fixture.team2) | Q(team2=fixture.team2)
-    ).distinct()
+        cform = MatchOfficialForm()
+        eform = MatchEventForm(
+            fixture_instance=fixture
+        )  # Initialize event form with fixture_instance
+
     context = {
         "fixture": fixture,
         "cform": cform,
         "eform": eform,
         "officials": officials,
         "events": events,
-        # sevents
-        "team1_yellowcards": team1_yellowcards,
-        "team2_yellowcards": team2_yellowcards,
-        "team1_goals": team1_goals,
-        "team2_redcards": team2_redcards,
-        "team1_redcards": team1_redcards,
-        "team2_goals": team2_goals,
-        # fixtures
-        "team1_fixtures": team1_fixtures,
-        "team2_fixtures": team2_fixtures,
     }
 
     return render(request, "server/nfixture.html", context)

@@ -72,37 +72,3 @@ import logging
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 
-
-def get_athletes_for_team(request):
-    match_id = request.GET.get("match_id")
-    team_id = request.GET.get("team_id")
-
-    logger.info(f"Received request for match_id: {match_id}, team_id: {team_id}")
-
-    if not match_id or not team_id:
-        logger.error("Missing match_id or team_id")
-        return JsonResponse({"error": "Missing match_id or team_id"}, status=400)
-
-    try:
-        match = get_object_or_404(Fixture, id=match_id)
-        team = get_object_or_404(SchoolTeam, id=team_id)
-
-        logger.info(f"Match: {match}, Team: {team}")
-
-        if team not in [match.team1, match.team2]:
-            logger.warning(f"Team {team_id} is not part of match {match_id}")
-            return JsonResponse({"error": "Selected team is not part of this match"}, status=400)
-
-        athletes = team.athletes.all()
-
-        athlete_data = [
-            {"id": athlete.id, "name": f"{athlete.fname} {athlete.lname}"}
-            for athlete in athletes
-        ]
-        logger.info(f"Found {len(athlete_data)} athletes for team {team_id}")
-        logger.debug(f"Athlete data: {athlete_data}")
-
-        return JsonResponse({"athletes": athlete_data})
-    except Exception as e:
-        logger.exception(f"Error processing request: {str(e)}")
-        return JsonResponse({"error": "An unexpected error occurred"}, status=500)

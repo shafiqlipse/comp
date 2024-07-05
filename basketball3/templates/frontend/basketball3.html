@@ -237,14 +237,18 @@
           aria-labelledby="nav-contact-tab"
         >
           <h2>Player rankings</h2>
+
           <table class="table">
             <thead>
               <tr>
                 <th>Athlete</th>
-                <th>Goals</th>
+                <th>Points</th>
+                <th>2-Pointers</th>
+                <th>3-Pointers</th>
+                <th>Rebounds</th>
                 <th>Assists</th>
-                <th>Yellow Cards</th>
-                <th>Red Cards</th>
+                <th>Steals</th>
+                <th>Blocks</th>
                 <th>Fouls</th>
               </tr>
             </thead>
@@ -252,10 +256,13 @@
               {% for athlete in rankings.athlete_rankings|slice:":10" %}
               <tr>
                 <td>{{ athlete.fname }} {{ athlete.lname }}</td>
-                <td>{{ athlete.goals }}</td>
+                <td>{{ athlete.points }}</td>
+                <td>{{ athlete.two_pointers }}</td>
+                <td>{{ athlete.three_pointers }}</td>
+                <td>{{ athlete.rebounds }}</td>
                 <td>{{ athlete.assists }}</td>
-                <td>{{ athlete.yellow_cards }}</td>
-                <td>{{ athlete.red_cards }}</td>
+                <td>{{ athlete.steals }}</td>
+                <td>{{ athlete.blocks }}</td>
                 <td>{{ athlete.fouls }}</td>
               </tr>
               {% endfor %}
@@ -267,9 +274,13 @@
             <thead>
               <tr>
                 <th>Team</th>
-                <th>Goals</th>
-                <th>Yellow Cards</th>
-                <th>Red Cards</th>
+                <th>Points</th>
+                <th>2-Pointers</th>
+                <th>3-Pointers</th>
+                <th>Rebounds</th>
+                <th>Assists</th>
+                <th>Steals</th>
+                <th>Blocks</th>
                 <th>Fouls</th>
               </tr>
             </thead>
@@ -277,9 +288,13 @@
               {% for team in rankings.team_rankings %}
               <tr>
                 <td>{{ team.school }}</td>
-                <td>{{ team.goals }}</td>
-                <td>{{ team.yellow_cards }}</td>
-                <td>{{ team.red_cards }}</td>
+                <td>{{ team.points }}</td>
+                <td>{{ team.two_pointers }}</td>
+                <td>{{ team.three_pointers }}</td>
+                <td>{{ team.rebounds }}</td>
+                <td>{{ team.assists }}</td>
+                <td>{{ team.steals }}</td>
+                <td>{{ team.blocks }}</td>
                 <td>{{ team.fouls }}</td>
               </tr>
               {% endfor %}

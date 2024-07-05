@@ -98,21 +98,15 @@ class MatchEventForm(forms.ModelForm):
         fields = ["event_type", "team", "athlete", "minute", "commentary"]
 
     def __init__(self, *args, **kwargs):
-        match = kwargs.pop("match", None)
+        fixture_instance = kwargs.pop("fixture_instance", None)
         super().__init__(*args, **kwargs)
 
-        if match:
-            self.fields["team"].queryset = SchoolTeam.objects.filter(
-                id__in=[match.team1.id, match.team2.id]
-            )
+        if fixture_instance:
+            # Filter team choices based on the fixture_instance
+            team_choices = [
+                (fixture_instance.team1.id, str(fixture_instance.team1)),
+                (fixture_instance.team2.id, str(fixture_instance.team2)),
+            ]
+            self.fields["team"].choices = team_choices
         else:
-            self.fields["team"].queryset = SchoolTeam.objects.none()
-
-        self.fields["athlete"].queryset = Athlete.objects.none()
-
-    def clean(self):
-        cleaned_data = super().clean()
-        team = cleaned_data.get("team")
-        if team:
-            self.fields["athlete"].queryset = Athlete.objects.filter(schoolteam=team)
-        return cleaned_data
+            self.fields["team"].queryset = self.fields["team"].queryset.none()

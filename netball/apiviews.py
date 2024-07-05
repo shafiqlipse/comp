@@ -47,35 +47,35 @@ def getgroup_teams(request, id):
     return JsonResponse({"teams": teams_list})
 
 
-def get_fixteams(request, id):
-    # Get the fixture object or return a 404 error if not found
-    fixture = get_object_or_404(Fixture, id=id)
+# def get_fixteams(request, id):
+#     # Get the fixture object or return a 404 error if not found
+#     fixture = get_object_or_404(Fixture, id=id)
 
-    # Get the team1 and team2 involved in the fixture
-    team1 = fixture.team1
-    team2 = fixture.team2
+#     # Get the team1 and team2 involved in the fixture
+#     team1 = fixture.team1
+#     team2 = fixture.team2
 
-    # Prepare the data to be returned in the response
-    data = {
-        "team1": {
-            "id": team1.id,
-            "school": team1.school.name,  # Assuming `school` has a `name` field
-        },
-        "team2": {
-            "id": team2.id,
-            "school": team2.school.name,  # Assuming `school` has a `name` field
-        },
-    }
+#     # Prepare the data to be returned in the response
+#     data = {
+#         "team1": {
+#             "id": team1.id,
+#             "school": team1.school.name,  # Assuming `school` has a `name` field
+#         },
+#         "team2": {
+#             "id": team2.id,
+#             "school": team2.school.name,  # Assuming `school` has a `name` field
+#         },
+#     }
 
-    # Return the data as a JSON response
-    return JsonResponse(data)
+#     # Return the data as a JSON response
+#     return JsonResponse(data)
 
 
 from django.http import JsonResponse
 from accounts.models import Athlete
 
 
-def get_teams_for_match(request):
+def get_nteams_for_match(request):
     match_id = request.GET.get("match_id")
     fixture = get_object_or_404(Fixture, id=match_id)
     teams = [fixture.team1, fixture.team2]
@@ -84,9 +84,10 @@ def get_teams_for_match(request):
     )
 
 
-def get_athletes_for_team(request):
+def get_nathletes_for_team(request):
     team_id = request.GET.get("team_id")
-    athletes = Athlete.objects.filter(team_id=team_id)
+    team = SchoolTeam.objects.get(id=team_id)
+    athletes = team.athletes.all()
     return JsonResponse(
         {"athletes": [{"id": athlete.id, "name": str(athlete)} for athlete in athletes]}
     )

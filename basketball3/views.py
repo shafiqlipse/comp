@@ -102,7 +102,9 @@ def b3tourn_details(request, id):
     }
     return render(request, "server/b3tournament.html", context)
 
+
 from datetime import datetime
+
 
 def generate_b3fixtures_view(request, id):
     basketball3 = get_object_or_404(Basketball3, id=id)
@@ -154,7 +156,7 @@ def edit_fixtures_view(request, id):
         if form.is_valid():
             form.save()
             return redirect(
-                "fixture", id=id
+                "b3fixture", id=id
             )  # Replace 'success_url' with the actual URL
     else:
         form = B3FixtureForm(instance=fixture)
@@ -164,25 +166,45 @@ def edit_fixtures_view(request, id):
     )
 
 
+from django.db.models import Q
+
+
 def FixtureDetail(request, id):
     fixture = get_object_or_404(B3Fixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
     if request.method == "POST":
-
-        eform = MatchEventForm(request.POST)
-        if eform.is_valid():
-            new_event = eform.save(commit=False)
-            new_event.match = fixture
-            new_event.save()
-            return redirect("b3fixture", id=id)
+        if "official_form" in request.POST:
+            cform = MatchOfficialForm(request.POST, request.FILES)
+            eform = MatchEventForm()  # Initialize empty event form
+            if cform.is_valid():
+                new_official = cform.save(commit=False)
+                new_official.fixture = fixture
+                new_official.save()
+                return redirect("b3fixture", id=id)
+        elif "event_form" in request.POST:
+            eform = MatchEventForm(request.POST, fixture_instance=fixture)
+            cform = MatchOfficialForm()  # Initialize empty official form
+            if eform.is_valid():
+                new_event = eform.save(commit=False)
+                new_event.match = fixture
+                new_event.save()
+                return redirect("b3fixture", id=id)
+        else:
+            cform = MatchOfficialForm()
+            eform = MatchEventForm(
+                fixture_instance=fixture
+            )  # Initialize event form with fixture_instance
     else:
-
-        eform = MatchEventForm()
+        cform = MatchOfficialForm()
+        eform = MatchEventForm(
+            fixture_instance=fixture
+        )  # Initialize event form with fixture_instance
 
     context = {
         "fixture": fixture,
+        "cform": cform,
         "eform": eform,
         "officials": officials,
         "events": events,

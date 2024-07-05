@@ -177,19 +177,15 @@ def FixtureDetail(request, id):
     if request.method == "POST":
         if "official_form" in request.POST:
             cform = MatchOfficialForm(request.POST, request.FILES)
-            eform = MatchEventForm(
-                request.POST, team1_id=fixture.team1.id, team2_id=fixture.team2.id
-            )
+            eform = MatchEventForm()  # Initialize empty event form
             if cform.is_valid():
                 new_official = cform.save(commit=False)
                 new_official.fixture = fixture
                 new_official.save()
                 return redirect("fixture", id=id)
         elif "event_form" in request.POST:
-            cform = MatchOfficialForm()
-            eform = MatchEventForm(
-                request.POST, team1_id=fixture.team1.id, team2_id=fixture.team2.id
-            )
+            eform = MatchEventForm(request.POST, fixture_instance=fixture)
+            cform = MatchOfficialForm()  # Initialize empty official form
             if eform.is_valid():
                 new_event = eform.save(commit=False)
                 new_event.match = fixture
@@ -197,30 +193,14 @@ def FixtureDetail(request, id):
                 return redirect("fixture", id=id)
         else:
             cform = MatchOfficialForm()
-            eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
+            eform = MatchEventForm(
+                fixture_instance=fixture
+            )  # Initialize event form with fixture_instance
     else:
         cform = MatchOfficialForm()
-        eform = MatchEventForm(team1_id=fixture.team1.id, team2_id=fixture.team2.id)
-
-    # statistics with events
-    team1_yellowcards = events.filter(
-        event_type="YellowCard", team=fixture.team1
-    ).count()
-    team2_yellowcards = events.filter(
-        event_type="YellowCard", team=fixture.team2
-    ).count()
-    team1_redcards = events.filter(event_type="RedCard", team=fixture.team1).count()
-    team2_redcards = events.filter(event_type="RedCard", team=fixture.team2).count()
-    team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
-    team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
-
-    # fixtures by team
-    team1_fixtures = Fixture.objects.filter(
-        Q(team1=fixture.team1) | Q(team2=fixture.team1)
-    ).distinct()
-    team2_fixtures = Fixture.objects.filter(
-        Q(team1=fixture.team2) | Q(team2=fixture.team2)
-    ).distinct()
+        eform = MatchEventForm(
+            fixture_instance=fixture
+        )  # Initialize event form with fixture_instance
 
     context = {
         "fixture": fixture,
@@ -228,17 +208,27 @@ def FixtureDetail(request, id):
         "eform": eform,
         "officials": officials,
         "events": events,
-        "team1_yellowcards": team1_yellowcards,
-        "team2_yellowcards": team2_yellowcards,
-        "team1_goals": team1_goals,
-        "team2_redcards": team2_redcards,
-        "team1_redcards": team1_redcards,
-        "team2_goals": team2_goals,
-        "team1_fixtures": team1_fixtures,
-        "team2_fixtures": team2_fixtures,
     }
 
     return render(request, "server/fixture.html", context)
+    # team1_yellowcards = events.filter(
+    #     event_type="YellowCard", team=fixture.team1
+    # ).count()
+    # team2_yellowcards = events.filter(
+    #     event_type="YellowCard", team=fixture.team2
+    # ).count()
+    # team1_redcards = events.filter(event_type="RedCard", team=fixture.team1).count()
+    # team2_redcards = events.filter(event_type="RedCard", team=fixture.team2).count()
+    # team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
+    # team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
+
+    # # fixtures by team
+    # team1_fixtures = Fixture.objects.filter(
+    #     Q(team1=fixture.team1) | Q(team2=fixture.team1)
+    # ).distinct()
+    # team2_fixtures = Fixture.objects.filter(
+    #     Q(team1=fixture.team2) | Q(team2=fixture.team2)
+    # ).distinct()
 
 
 def fixtures(request):
