@@ -1,0 +1,98 @@
+{% extends "server/futbase.html" %} {%load static%}
+<!---->
+{% block title %} {{championship}}{% endblock %}
+<!---->
+
+{%block football%}
+<div class="championships">
+  <div class="champ">
+    {% if championship.thumbnail %}
+    <img src="{{championship.thumbnail.url}}" alt="" />{% endif %}
+    <h3>{{championship}}</h3>
+  </div>
+  <div class="top flex">
+    <h1>Seasons</h1>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add season</a>
+  </div>
+
+  <div class="lo">
+    <div class="official-list">
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>GROUP</th>
+            <th>TEAM 1</th> <th>VS</th>
+            <th>TEAM 2</th>
+            <th>DATE</th>
+           
+
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fixture in fixtures%}
+          <tr>
+            <td>
+              <a href=""
+                >{{fixture.group}}</a
+              >
+            </td>
+            
+            <td>{{fixture.team1}}</td>
+<td>VS
+            </td>
+            <td>{{fixture.team2}}</td>
+            <td>{{fixture.date}}</td>
+
+            <td>
+              <a href="" class="del"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a href="" class="del"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" class="form-control">
+            {% csrf_token %} {{cform.as_p}}
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

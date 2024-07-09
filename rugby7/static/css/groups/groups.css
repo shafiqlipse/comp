@@ -1,0 +1,39 @@
+.groueps .groups .group {
+  background-color: #fff;
+  border-radius: 10px;
+}
+.groueps .groups .group h3 {
+  padding: 5px 10px;
+  background-color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+.groueps .groups .group .teams {
+  padding: 0 10px;
+  text-transform: uppercase;
+}
+.groueps .groups .group .teams .li {
+  margin-bottom: 10px;
+}
+
+.standings .tables .table table {
+  margin: 1px 0px;
+}
+.standings .tables .table table thead tr {
+  background-color: red;
+  color: white;
+}
+.standings .tables .table table thead tr th {
+  padding: 10px;
+}
+.standings .tables .table table tbody tr:first-child {
+  border-left: 3px solid green;
+}
+.standings .tables .table table tbody tr:nth-child(2) {
+  border-left: 3px solid rgb(135, 255, 6);
+}
+.standings .tables .table table tbody td {
+  padding: 10px;
+  text-transform: uppercase;
+}/*# sourceMappingURL=groups.css.map */

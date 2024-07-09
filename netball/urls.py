@@ -28,6 +28,8 @@ urlpatterns = [
         name="generate_next_round_fixtures",
     ),
     # path("fixtures/", fixtures, name="fixtures"),
+
+    # path("fixtures/", fixtures, name="fixtures"),
     path("Netball/<int:id>", Nutbol, name="Netball"),
     path("Netball_fixtures", NFixtures, name="Netfixtures"),
     path("Netball/", Nhome, name="Netball"),

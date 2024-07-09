@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
-
+from django.contrib import messages
 from .forms import *
 from .models import *
 
@@ -61,42 +61,38 @@ from django.forms import inlineformset_factory
 def ntourn_details(request, id):
     tournament = get_object_or_404(Netball, id=id)
     fgroups = NGroup.objects.filter(competition=tournament)
+    fixtures = Fixture.objects.filter(competition=tournament)
 
-    # Create a formset for editing existing groups
-    GroupFormset = inlineformset_factory(
-        Netball,
-        NGroup,
-        form=NGroupForm,
-        extra=0,  # Set extra=0 to prevent new group creation
-    )
+    GroupFormset = inlineformset_factory(Netball, NGroup, form=NGroupForm, extra=0)
 
     if request.method == "POST":
-        formset = GroupFormset(request.POST, instance=tournament)
-        if formset.is_valid():
-            formset.save()
-            return redirect("netball_tournament", tournament.id)
+        if "save_groups" in request.POST:
+            formset = GroupFormset(request.POST, instance=tournament)
+            if formset.is_valid():
+                formset.save()
+                messages.success(request, "Groups updated successfully.")
+                return redirect("netball_tournament", tournament.id)
+        elif "save_fixture" in request.POST:
+            fixture_form = FixtureForm(request.POST)
+            if fixture_form.is_valid():
+                fixture = fixture_form.save(commit=False)
+                fixture.netball = tournament
+                fixture.save()
+                messages.success(request, "Fixture created/updated successfully.")
+                return redirect("netball_tournament", tournament.id)
+            else:
+                messages.error(
+                    request,
+                    "There was an error in the fixture form submission. Please correct the errors below.",
+                )
     else:
         formset = GroupFormset(instance=tournament)
-
-    if request.method == "POST":
-        fixture_form = FixtureForm(request.POST)
-        if fixture_form.is_valid():
-            fixture = fixture_form.save(commit=False)
-            fixture.netball = tournament
-            fixture.save()
-
-            return redirect(
-                "netball", tournament.id
-            )  # Replace with the actual success URL name
-        else:
-            # Attach errors to the form for display in the template
-            error_message = "There was an error in the form submission. Please correct the errors below."
-    else:
         fixture_form = FixtureForm()
-    fixtures = Fixture.objects.filter(competition=tournament)
+
     context = {
         "tournament": tournament,
         "formset": formset,
+        "fixture_form": fixture_form,
         "fixtures": fixtures,
         "fgroups": fgroups,
     }
@@ -309,6 +305,8 @@ def netballStandings(request):
 
 
 from django.shortcuts import render
+
+
 from .models import Sport, Netball, NGroup, Fixture
 
 

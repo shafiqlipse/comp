@@ -10,7 +10,15 @@
   align-items: center;
 }
 .fixtures .table tbody tr td .match-info {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
+}
+.fixtures .table tbody tr td .match-info .venue {
+  font-size: 14px;
+}
+.fixtures .table tbody tr td .match-info .date {
+  font-size: 11px;
+  color: #a0a0a0;
 }/*# sourceMappingURL=fixtures.css.map */

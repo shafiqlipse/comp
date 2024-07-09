@@ -1,0 +1,177 @@
+{% extends "server/futbase.html" %} {%load static%}
+<!---->
+{% block title %} {{fixture}}{% endblock %}
+<!---->
+
+{%block football%}
+<div class="fxturera">
+  <div class="top flex">
+    <h1>Fixture {{fixture.id}}</h1>
+    <div class="buttons">
+      {% if fixture.status == "Pending" %}
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exawmpleModal"
+      >
+        Add official</button
+      >{% else %}
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Add event</button
+      >{% endif %}
+    </div>
+  </div>
+
+  <div class="FIXTURE">
+    <div class="fixture-details">
+      <div class="teams">
+        <div class="team">
+          <h2>{{fixture.team1}}</h2>
+        </div>
+        <div class="time">
+          {% if fixture.status == "InPlay" %}
+          <h2>{{ fixture.team1_score }} : {{ fixture.team2_score }}</h2>
+          {% else %}
+          <h2>{{ fixture.date|time:"H:i" }}</h2>
+          {% endif %}
+          <p>
+            {{ fixture.season.championship }} | {{ fixture.season }} |
+            {{fixture.competition }}
+          </p>
+          <p>{{ fixture.date|date:"F j, Y" }}</p>
+        </div>
+        <div class="team"><h2>{{fixture.team2}}</h2></div>
+      </div>
+
+      <div class="statistics">
+        <div class="stats">
+          <div class="team1">
+            {% for athlete in fixture.team1.athlete.all %}
+            <div class="athlete">{{athlete.fname}}</div>
+            {% endfor %}
+            <div class="fixtures">
+              {% for related_fixture in team1_fixtures %}
+              <div class="fixture">
+                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
+                <h3>{{ related_fixture.date|time:"H:i" }}</h3>
+                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="events">
+            <div class="officials">
+              {% for official in officials %}
+              <div class="official">
+                <span>{{official.official}}</span>:
+                <span>{{official.match_role}}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="team1">
+            <div class="fixtures">
+              {% for related_fixture in team2_fixtures %}
+              <div class="fixture">
+                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
+                <h3>{{ related_fixture.date|time:"H:i" }}</h3>
+                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">MATCH OFFICIAL</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" class="form-control">
+            {% csrf_token %} {{eform.as_p}}
+            <button type="submit" class="btn btn-primary" name="event_form">
+              Save changes
+            </button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exawmpleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">MATCH OFFICIAL</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            action=""
+            method="post"
+            class="form-control"
+            name="official_form"
+          >
+            {% csrf_token %} {{cform.as_p}}
+            <button type="submit" name="official_form" class="btn btn-primary">
+              Save changes
+            </button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}
+</div>

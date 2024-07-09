@@ -1,0 +1,27 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Football{% endblock futitle %}
+<!--content-->
+{% block futball %}
+
+<div class="groueps">
+  <h2>Groups</h2>
+  <div class="groups grid3">
+    {% for group in fgroups %}
+    <div class="group">
+      <h3>{{ group.name }}</h3>
+      <div class="teams">
+        {% for team in group.teams.all %}
+        <li>{{ team.school.name|slice:":15" }}</li>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

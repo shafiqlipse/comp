@@ -25,7 +25,7 @@ def Nhome(request):
 
 from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
-
+from django.db.models import F
 
 def get_rankings(competition):
     # Athlete Rankings
@@ -75,11 +75,16 @@ def get_rankings(competition):
         "team_penalties": team_penalties,
     }
 
+
 def Nutbol(request, id):
     competition = Netball.objects.get(id=id)
     ngroups = NGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(status="Pending", competition=competition).order_by("date")
-    results = Fixture.objects.filter(status="InPlay", competition=competition).order_by("date")
+    pending_fixtures = Fixture.objects.filter(competition=competition).order_by(
+        F("group").asc(nulls_last=True), "date", "time"
+    )
+    results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
+        "date"
+    )
     rankings = get_rankings(competition)
 
     standings_data = {}
@@ -150,6 +155,7 @@ def Nutbol(request, id):
         "standings_data": standings_data,
     }
     return render(request, "frontend/netball.html", context)
+
 
 def NGroups(request):
     ngroups = NGroup.objects.all()

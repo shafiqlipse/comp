@@ -12,9 +12,17 @@
           gap: 20px;
           align-items: center;
           .match-info {
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             text-transform: uppercase;
+            text-align: center;
+            .venue {
+              font-size: 14px;
+            }
+            .date {
+              font-size: 11px;
+              color: #a0a0a0;
+            }
           }
         }
       }

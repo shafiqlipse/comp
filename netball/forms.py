@@ -77,8 +77,12 @@ GroupFormSet = inlineformset_factory(
 
 
 class FixtureForm(forms.ModelForm):
-    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "date"}))
-    # time = forms.TimeField(widget=TimeInput(attrs={"type": "time"}))
+    date = forms.DateField(
+        widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
+    )
+    time = forms.TimeField(
+        widget=forms.TimeInput(attrs={"type": "time", "class": "form-control"})
+    )
 
     class Meta:
         model = Fixture
@@ -89,12 +93,29 @@ class FixtureForm(forms.ModelForm):
             "group",
             "venue",
             "date",
+            "time",
             "team1",
             "team2",
             "team1_score",
             "team2_score",
         ]
-        widgets = {"group": forms.Select(attrs={"class": "select2"})}
+        widgets = {
+            "stage": forms.Select(attrs={"class": "form-control"}),
+            "status": forms.Select(attrs={"class": "form-control"}),
+            "round": forms.TextInput(attrs={"class": "form-control"}),
+            "group": forms.TextInput(attrs={"class": "form-control"}),
+            "venue": forms.TextInput(attrs={"class": "form-control"}),
+            "team1": forms.Select(attrs={"class": "form-control"}),
+            "team2": forms.Select(attrs={"class": "form-control"}),
+            "team1_score": forms.NumberInput(attrs={"class": "form-control"}),
+            "team2_score": forms.NumberInput(attrs={"class": "form-control"}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            if not isinstance(field.widget, (forms.CheckboxInput, forms.RadioSelect)):
+                field.widget.attrs.update({"class": "form-control"})
 
 
 class MatchOfficialForm(forms.ModelForm):

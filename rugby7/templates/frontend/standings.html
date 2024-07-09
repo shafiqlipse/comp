@@ -1,0 +1,53 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Football{% endblock futitle %}
+<!--content-->
+{% block futball %}
+<h1>football standings</h1>
+<div class="standings">
+  {% for sport_data in standings_data %}
+
+  <h2>{{ sport_data.sport.name }} | {{ sport_data.competition.name }}</h2>
+  <div class="tables grid2">
+    {% for group, standings in sport_data.standings.items %}
+    <div class="table">
+      <h4>{{ group.name }}</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>P</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+            <th>Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for team, stats in standings %}
+          <tr>
+            <td>{{ team.school.name|slice:":9" }}</td>
+            <td>{{ stats.played }}</td>
+            <td>{{ stats.won }}</td>
+            <td>{{ stats.drawn }}</td>
+            <td>{{ stats.lost }}</td>
+            <td>{{ stats.gs }}</td>
+            <td>{{ stats.gc }}</td>
+            <td>{{ stats.gd }}</td>
+            <td>{{ stats.points }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

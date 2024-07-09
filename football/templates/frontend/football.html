@@ -165,21 +165,36 @@
         >
           <div class="fixtures">
             <table class="table table-striped">
-              {% regroup fixtures by date as date_list %}
-              <h2></h2>
-              {% for date in date_list %}
-              <h2>{{ date.grouper }}</h2>
+              {% regroup fixtures by group as group_list %}
+              <!---->
+              {% for group in group_list %}
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    <h3>{{ group.grouper|default:"Ungrouped" }}</h3>
+                  </th>
+                </tr>
+              </thead>
               <tbody>
-                {% for fixture in date.list %}
+                {% for fixture in group.list %}
                 <tr>
                   <td>
-                    {{ fixture.team1.school.name|slice:":9" }}
-                    <div class="match-info">VS</div>
-                    {{ fixture.team2.school.name|slice:":9" }}
+                    {{ fixture.team1.school.name|slice:":15" }}
+                    <div class="match-info">
+                      <div class="time">{{ fixture.time|time:"H:i" }}</div>
+
+                      <div class="date">{{ fixture.date|date:"F j, Y" }}</div>
+                      <div class="venue">{{ fixture.venue }}</div>
+                    </div>
+                    {{ fixture.team2.school.name|slice:":15" }}
                   </td>
                 </tr>
                 {% endfor %}
               </tbody>
+              {% empty %}
+              <tr>
+                <td>No fixtures available.</td>
+              </tr>
               {% endfor %}
             </table>
 
