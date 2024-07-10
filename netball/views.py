@@ -61,33 +61,33 @@ from django.forms import inlineformset_factory
 def ntourn_details(request, id):
     tournament = get_object_or_404(Netball, id=id)
     fgroups = NGroup.objects.filter(competition=tournament)
-    fixtures = Fixture.objects.filter(competition=tournament)
 
-    GroupFormset = inlineformset_factory(Netball, NGroup, form=NGroupForm, extra=0)
+    GroupFormset = inlineformset_factory(
+        Netball,
+        NGroup,
+        form=NGroupForm,
+        extra=0,
+    )
 
     if request.method == "POST":
-        if "save_groups" in request.POST:
-            formset = GroupFormset(request.POST, instance=tournament)
-            if formset.is_valid():
-                formset.save()
-                messages.success(request, "Groups updated successfully.")
-                return redirect("netball_tournament", tournament.id)
-        elif "save_fixture" in request.POST:
-            fixture_form = FixtureForm(request.POST)
-            if fixture_form.is_valid():
-                fixture = fixture_form.save(commit=False)
-                fixture.netball = tournament
-                fixture.save()
-                messages.success(request, "Fixture created/updated successfully.")
-                return redirect("netball_tournament", tournament.id)
-            else:
-                messages.error(
-                    request,
-                    "There was an error in the fixture form submission. Please correct the errors below.",
-                )
+        formset = GroupFormset(request.POST, instance=tournament)
+        if formset.is_valid():
+            formset.save()
+            return redirect("netball_tournament", tournament.id)
+
+        fixture_form = FixtureForm(request.POST)
+        if fixture_form.is_valid():
+            fixture = fixture_form.save(commit=False)
+            fixture.football = tournament
+            fixture.save()
+            return redirect("netball_tournament", tournament.id)
+        else:
+            error_message = "There was an error in the form submission. Please correct the errors below."
     else:
         formset = GroupFormset(instance=tournament)
         fixture_form = FixtureForm()
+
+    fixtures = Fixture.objects.filter(competition=tournament)
 
     context = {
         "tournament": tournament,
@@ -102,7 +102,7 @@ def ntourn_details(request, id):
 from datetime import datetime
 
 
-def generate_fixtures_view(request, id):
+def generate_nfixtures_view(request, id):
     netball = get_object_or_404(Netball, id=id)
     season = netball.season
     now = datetime.now()

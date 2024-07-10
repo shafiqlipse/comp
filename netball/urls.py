@@ -17,9 +17,9 @@ urlpatterns = [
     path("fixturedetail/<int:id>", NFixtureDetail, name="nfixture"),
     path("nstandings/", netballStandings, name="netball_standings"),
     path(
-        "generate_fixtures/<int:id>/",
-        generate_fixtures_view,
-        name="generate_fixtures",
+        "generate_nfixtures/<int:id>/",
+        generate_nfixtures_view,
+        name="generate_nfixtures",
     ),
     # path("fixtures/", fixtures, name="fixtures"),
     path(

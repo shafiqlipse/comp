@@ -4,6 +4,7 @@
 <!---->
 
 {%block netball%}
+
 <div class="championsh0ps">
   <div class="dets">
     <h1>
@@ -18,23 +19,29 @@
       <li><span>Fixtures:</span> {{ tournament.fixture_set.count }}</li>
     </ul>
   </div>
-  <div class="comp-groups flex">
+  <div class="comp-groups">
     <div class="form-co">
-      <h2>Group forms</h2>
+      <div class="form-co">
+        <h2>Group forms</h2>
 
-      <form method="post" class="form-control">
-        {% csrf_token %} {{ formset.management_form }}
-        <div class="gf grid2">
-          {% for form in formset %} {{ form.errors }}
-
-          <table>
-            {{ form.as_table }}
-          </table>
-
-          {% endfor %}
-        </div>
-        <button type="submit" class="btn btn-success" name="save_groups">Save Groups</button>
-      </form>
+        <h2>Groups</h2>
+        <form method="post" class="form-control grid2">
+          {% csrf_token %} {{ formset.management_form }}
+          <div class="gf grid2">
+            {% for form in formset %}
+            <div class="group-form">
+              {{ form.id }}
+              <h3>{{ form.instance.name }}</h3>
+              {{ form.name }}
+              <div id="teams-for-group-{{ forloop.counter0 }}">
+                {{ form.teams }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-danger">Save Groups</button>
+        </form>
+      </div>
     </div>
     <!-- competition_detail.html -->
 
@@ -54,7 +61,7 @@
         {% endfor %}
         <form
           id="generateFixturesForm"
-          action="{% url 'generate_fixtures' tournament.id %}"
+          action="{% url 'generate_nfixtures' tournament.id %}"
           method="post"
         >
           {% csrf_token %}
@@ -64,18 +71,32 @@
         </form>
       </div>
     </div>
+    <!-- Display knockout fixtures -->
+    {% for knockout_round in knockout_fixtures %}
+    <h2>
+      {{ knockout_round.sport.name }} - {{ knockout_round.competition.name }} -
+      {{ knockout_round.round }}
+    </h2>
+    <ul>
+      {% for fixture in knockout_round.fixtures %}
+      <li>{{ fixture.0.name }} vs {{ fixture.1.name }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
     <!-- competition_detail.html -->
   </div>
 
   <div class="kiokl">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#exampleModal"
+    <form
+      id="generateFixturesForm"
+      action="{% url 'generate_nfixtures' tournament.id %}"
+      method="post"
     >
-      Create Fixture
-    </button>
+      {% csrf_token %}
+      <button type="button" id="generateFixturesButton" class="btn-submit">
+        Generate Fixtures
+      </button>
+    </form>
     <div class="fixtures">
       {% regroup fixtures by group as group_list %}
       <h2></h2>
@@ -87,235 +108,101 @@
         <span>{{ fixture.team1 }}</span>
         <span
           ><a href="{% url 'update_fixture' fixture.id%}"
-            >{{ fixture.date|time:"H:i:s" }}
+            >{{ fixture.time}}
           </a></span
         >
         <span>{{ fixture.team2 }}</span>
         <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
         <span class="btn-outlie-primary"
-          ><a href="{% url 'nfixture' fixture.id%}">Manage</a></span
+          ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
         >
       </div>
       <hr />
 
       {% endfor %} {% endfor %}
     </div>
-    {% comment %} next round next round {% endcomment %} {% comment %} next
-    round next round {% endcomment %}
-
-    <!-- New form added here -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NEW {{TOURNAMENT}} FIXTURE</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="col-md-12">
-              <form id="editFixtureForm" method="post" action="" class="needs-validation" novalidate> 
-                {% csrf_token %}
-
-                <div class="row">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.stage.id_for_label }}" class="form-label"
-                        >{{fixture_form.stage.label}}</label
-                      >
-                      {{fixture_form.stage}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.status.id_for_label }}" class="form-label"
-                        >{{fixture_form.status.label}}</label
-                      >
-                      {{fixture_form.status}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.round.id_for_label }}" class="form-label"
-                        >{{fixture_form.round.label}}</label
-                      >
-                      {{fixture_form.round}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.group.id_for_label }}" class="form-label"
-                        >{{fixture_form.group.label}}</label
-                      >
-                      {{fixture_form.group}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.venue.id_for_label }}" class="form-label"
-                        >{{fixture_form.venue.label}}</label
-                      >
-                      {{fixture_form.venue}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.date.id_for_label }}" class="form-label"
-                        >{{fixture_form.date.label}}</label
-                      >
-                      {{fixture_form.date}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.time.id_for_label }}" class="form-label"
-                        >{{fixture_form.time.label}}</label
-                      >
-                      {{fixture_form.time}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.team1.id_for_label }}" class="form-label"
-                        >{{fixture_form.team1.label}}</label
-                      >
-                      {{fixture_form.team1}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="{{ fixture_form.team2.id_for_label }}" class="form-label"
-                        >{{fixture_form.team2.label}}</label
-                      >
-                      {{fixture_form.team2}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label
-                        for="{{ fixture_form.team1_score.id_for_label }}"
-                        class="form-label"
-                        >{{fixture_form.team1_score.label}}</label
-                      >
-                      {{fixture_form.team1_score}}
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label
-                        for="{{ fixture_form.team2_score.id_for_label }}"
-                        class="form-label"
-                        >{{fixture_form.team2_score.label}}</label
-                      >
-                      {{fixture_form.team2_score}}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mt-4">
-                  <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary" name="save_fixture">Save Fixture</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-      </div>
-
-          <!-- End of new form -->
-          {% comment %} next round next round {% endcomment %}
-          <div class="nextround flex">
-            <h1>Next Round Fixtures</h1>
-            <a
-              href="{% url 'generate_next_round_fixtures'%}"
-              class="btn-submit"
-            >
-              Generate Next Fixtures
-            </a>
-          </div>
-
-          {% for round_number, fixtures in next_round_fixtures %}
-          <h2>Round {{ forloop.counter }}</h2>
-          <ul>
-            {% for fixture in fixtures %}
-            <li>{{ fixture.team1 }} vs {{ fixture.team2 }}</li>
-            {% endfor %}
-          </ul>
-          {% endfor %}
-      
-      </div>
-   
+    <div class="fixture-custom">
+      <button class="btn-submit" onclick="Creater()">
+        create other fixture
+      </button>
     </div>
   </div>
-  
-  <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
-  rel="stylesheet"
-/>
-<!-- Include jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Include Select2 JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-<script>
-  $(document).ready(function () {
-    $("#id_teams").select2();
-  });
-</script>
-<script>
-  document
-    .getElementById("generateFixturesButton")
-    .addEventListener("click", function () {
-      var form = document.getElementById("generateFixturesForm");
-      var formData = new FormData(form);
+  <script>
+    document
+      .getElementById("generateFixturesButton")
+      .addEventListener("click", function () {
+        var form = document.getElementById("generateFixturesForm");
+        var formData = new FormData(form);
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", form.action, true);
-      xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-      xhr.onload = function () {
-        var response = JSON.parse(xhr.responseText);
-        if (response.success) {
-          alert("Football Fixtures generated successfully");
-          // Add additional logic to update the UI if needed
-        } else {
-          alert("Error: " + response.message);
-        }
-      };
-      xhr.send(formData);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action, true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.onload = function () {
+          var response = JSON.parse(xhr.responseText);
+          if (response.success) {
+            alert("Netball Fixtures generated successfully");
+            // Add additional logic to update the UI if needed
+          } else {
+            alert("Error: " + response.message);
+          }
+        };
+        xhr.send(formData);
+      });
+
+    const fixtureCreate = document.querySelector(".new-fixture");
+
+    const Creater = () => {
+      if (fixtureCreate.classList.contains("none")) {
+        fixtureCreate.classList.remove("none");
+        fixtureCreate.classList.add("flex");
+      } else {
+        fixtureCreate.classList.add("none");
+        fixtureCreate.classList.remove("flex");
+      }
+    };
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("/get_group_teams/{{ tournament.id }}/")
+        .then((response) => response.json())
+        .then((data) => {
+          const teams = data.teams;
+          const groupForms = document.querySelectorAll(".group-form");
+          groupForms.forEach((groupForm, index) => {
+            const teamsDiv = document.getElementById(
+              `teams-for-group-${index}`
+            );
+            teamsDiv.innerHTML = ""; // Clear existing checkboxes
+            teams.forEach((team) => {
+              const checkboxId = `id_fgroup_set-${index}-teams_${team.id}`;
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.name = `fgroup_set-${index}-teams`;
+              checkbox.value = team.id;
+              checkbox.id = checkboxId;
+
+              // Check if this team is already in the group
+              if (
+                groupForm.querySelector(`input[value="${team.id}"]:checked`)
+              ) {
+                checkbox.checked = true;
+              }
+
+              const label = document.createElement("label");
+              label.htmlFor = checkboxId;
+              label.textContent = team.name;
+
+              const div = document.createElement("div");
+              div.appendChild(checkbox);
+              div.appendChild(label);
+
+              teamsDiv.appendChild(div);
+            });
+          });
+        })
+        .catch((error) => console.error("Error:", error));
     });
-
-  const fixtureCreate = document.querySelector(".new-fixture");
-
-  const Creater = () => {
-    if (fixtureCreate.classList.contains("none")) {
-      fixtureCreate.classList.remove("none");
-      fixtureCreate.classList.add("flex");
-    } else {
-      fixtureCreate.classList.add("none");
-      fixtureCreate.classList.remove("flex");
-    }
-  };
-</script></div>
+  </script>
+</div>
 {% endblock %}
-
