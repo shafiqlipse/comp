@@ -3018,3 +3018,4 @@ Traceback (most recent call last):
     no_edit_link = "%s: %s" % (capfirst(opts.verbose_name), obj)
                                                             ^^^
 TypeError: __str__ returned non-string (type Fixture)
+Watching for file changes with StatReloader
