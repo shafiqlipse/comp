@@ -2950,3 +2950,71 @@ Not Found: /netball/futourn/img/avatars/avatar-2.jpg
 Not Found: /netball/futourn/js/datatables.js
 Not Found: /netball/futourn/img/avatars/avatar-4.jpg
 Not Found: /get_group_teams/2/
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Internal Server Error: /admin/football/football/
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\options.py", line 2018, in changelist_view
+    response = self.response_action(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\options.py", line 1650, in response_action
+    response = func(self, request, queryset)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\options.py", line 2160, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 171, in get_deleted_objects
+    to_delete = collector.nested(format_callback)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 238, in nested
+    roots.extend(self._nested(root, seen, format_callback))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 222, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 222, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 222, in _nested
+    children.extend(self._nested(child, seen, format_callback))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 224, in _nested
+    ret = [format_callback(obj)]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\admin\utils.py", line 144, in format_callback
+    no_edit_link = "%s: %s" % (capfirst(opts.verbose_name), obj)
+                                                            ^^^
+TypeError: __str__ returned non-string (type Fixture)
