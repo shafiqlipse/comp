@@ -13,7 +13,7 @@ urlpatterns = [
     # path("addtourn", addchampionship, name="addchampionship"),
     path("fixtures/", fixtures, name="netball_fixtures"),
     path("futourn/<int:id>", ntourn_details, name="netball_tournament"),
-    path("fixture/<int:id>", edit_fixtures_view, name="update_fixture"),
+    path("nfixture/<int:id>", edit_fixtures_view, name="update_nfixture"),
     path("fixturedetail/<int:id>", NFixtureDetail, name="nfixture"),
     path("nstandings/", netballStandings, name="netball_standings"),
     path(
@@ -28,7 +28,6 @@ urlpatterns = [
         name="generate_next_round_fixtures",
     ),
     # path("fixtures/", fixtures, name="fixtures"),
-
     # path("fixtures/", fixtures, name="fixtures"),
     path("Netball/<int:id>", Nutbol, name="Netball"),
     path("Netball_fixtures", NFixtures, name="Netfixtures"),
