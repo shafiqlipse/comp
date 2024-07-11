@@ -27,6 +27,7 @@ from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
 from django.db.models import F
 
+
 def get_rankings(competition):
     # Athlete Rankings
     athlete_rankings = (
@@ -267,11 +268,11 @@ def netbollStandings(request):
 
                         # Update match results
                         if fixture.team1_score > fixture.team2_score:
-                            standings[fixture.team1]["points"] += 3
+                            standings[fixture.team1]["points"] += 2
                             standings[fixture.team1]["won"] += 1
                             standings[fixture.team2]["lost"] += 1
                         elif fixture.team1_score < fixture.team2_score:
-                            standings[fixture.team2]["points"] += 3
+                            standings[fixture.team2]["points"] += 2
                             standings[fixture.team2]["won"] += 1
                             standings[fixture.team1]["lost"] += 1
                         else:
