@@ -128,7 +128,7 @@ def Nutbol(request, id):
                     standings[team]["gc"] += opponent_score
 
                     if team_score > opponent_score:
-                        standings[team]["points"] += 3
+                        standings[team]["points"] += 2
                         standings[team]["won"] += 1
                     elif team_score < opponent_score:
                         standings[team]["lost"] += 1
