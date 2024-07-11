@@ -142,7 +142,7 @@ def generate_nfixtures_view(request, id):
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
 
-def edit_fixtures_view(request, id):
+def edit_nfixtures_view(request, id):
     fixture = get_object_or_404(Fixture, id=id)
 
     if request.method == "POST":

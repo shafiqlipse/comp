@@ -71,19 +71,6 @@
         </form>
       </div>
     </div>
-    <!-- Display knockout fixtures -->
-    {% for knockout_round in knockout_fixtures %}
-    <h2>
-      {{ knockout_round.sport.name }} - {{ knockout_round.competition.name }} -
-      {{ knockout_round.round }}
-    </h2>
-    <ul>
-      {% for fixture in knockout_round.fixtures %}
-      <li>{{ fixture.0.name }} vs {{ fixture.1.name }}</li>
-      {% endfor %}
-    </ul>
-    {% endfor %}
-    <!-- competition_detail.html -->
   </div>
 
   <div class="kiokl">
@@ -107,14 +94,14 @@
         <span>{{ fixture.date|date:"F j, Y" }} </span>
         <span>{{ fixture.team1 }}</span>
         <span
-          ><a href="{% url 'update_fixture' fixture.id%}"
+          ><a href="{% url 'update_nfixture' fixture.id%}"
             >{{ fixture.time}}
           </a></span
         >
         <span>{{ fixture.team2 }}</span>
-        <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
+        <span><a href="{% url 'update_nfixture' fixture.id%}">Edit</a></span>
         <span class="btn-outlie-primary"
-          ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
+          ><a href="{% url 'nfixture' fixture.id%}">Manage</a></span
         >
       </div>
       <hr />
