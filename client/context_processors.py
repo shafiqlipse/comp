@@ -1,5 +1,5 @@
-from football.models import Fixture, Football
-from netball.models import Netball
+from football.models import Football
+from netball.models import Fixture,  Netball
 from basketball3.models import Basketball3
 from handball.models import Handball
 from volleyball.models import Volleyball
