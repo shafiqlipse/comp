@@ -3464,3 +3464,195 @@ Not Found: /dashboard/img/avatars/avatar-5.jpg
 Not Found: /dashboard/img/avatars/avatar-4.jpg
 Not Found: /dashboard/img/avatars/avatar-3.jpg
 Not Found: /dashboard/js/datatables.js
+Watching for file changes with StatReloader
+Internal Server Error: /sport/sports
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Not Found: /favicon.ico
+E:\django\cms\cms\accounts\decorators.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /sport/sports
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Internal Server Error: /sport/sports
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Internal Server Error: /sport/sports
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Internal Server Error: /handball/hhtourn/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Not Found: /favicon.ico
+Not Found: /handball/img/avatars/avatar-5.jpg
+Not Found: /handball/img/avatars/avatar-2.jpg
+Not Found: /handball/img/avatars/avatar-4.jpg
+Not Found: /handball/img/avatars/avatar-3.jpg
+Not Found: /handball/js/datatables.js
+Not Found: /handball/img/avatars/avatar-2.jpg
+Not Found: /handball/img/avatars/avatar-5.jpg
+Not Found: /handball/img/avatars/avatar-4.jpg
+Not Found: /handball/img/avatars/avatar-3.jpg
+Not Found: /handball/js/datatables.js
+Internal Server Error: /sport/sports
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\accounts\decorators.py", line 27, in _wrapped_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: account/login.html
+Not Found: /favicon.ico
+E:\django\cms\cms\accounts\decorators.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\accounts\decorators.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /handball/img/avatars/avatar-5.jpg
+Not Found: /handball/img/avatars/avatar-2.jpg
+Not Found: /handball/img/avatars/avatar-4.jpg
+Not Found: /handball/img/avatars/avatar-3.jpg
+Not Found: /handball/js/datatables.js
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /dashboard/officials/img/avatars/avatar-5.jpg
+Not Found: /dashboard/officials/js/datatables.js
+Not Found: /dashboard/officials/img/avatars/avatar-3.jpg
+Not Found: /dashboard/officials/img/avatars/avatar-4.jpg
+Not Found: /dashboard/officials/img/avatars/avatar-2.jpg
+Not Found: /dashboard/championships/img/avatars/avatar-5.jpg
+Not Found: /dashboard/championships/img/avatars/avatar-2.jpg
+Not Found: /dashboard/championships/img/avatars/avatar-4.jpg
+Not Found: /dashboard/championships/img/avatars/avatar-3.jpg
+Not Found: /dashboard/championships/js/datatables.js
+Not Found: /dashboard/teams/img/avatars/avatar-5.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-3.jpg
+Not Found: /dashboard/teams/img/avatars/avatar-4.jpg
+Not Found: /dashboard/teams/js/datatables.js
+Not Found: /dashboard/teams/img/avatars/avatar-2.jpg
+Not Found: /accounts/schools/img/avatars/avatar-4.jpg
+Not Found: /accounts/schools/img/avatars/avatar-2.jpg
+Not Found: /accounts/schools/img/avatars/avatar-5.jpg
+Not Found: /accounts/schools/js/datatables.js
+Not Found: /accounts/schools/img/avatars/avatar-3.jpg
+E:\django\cms\cms\volleyball\volviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\volviews.py changed, reloading.
+Watching for file changes with StatReloader

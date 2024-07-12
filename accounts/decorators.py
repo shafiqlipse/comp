@@ -9,11 +9,11 @@ from django.shortcuts import render
 def staff_required(view_func):
     @login_required(login_url="login")
     def _wrapped_view(request, *args, **kwargs):
-        if request.user.is_staff:
+        if request.user.is_games:
             return view_func(request, *args, **kwargs)
         else:
             return render(
-                request, "account/login.html"
+                request, "accounts/login.html"
             )  # You can customize this template
 
     return _wrapped_view
@@ -25,7 +25,7 @@ def school_required(view_func):
             return view_func(request, *args, **kwargs)
         else:
             return render(
-                request, "account/login.html"
+                request, "accounts/login.html"
             )  # You can customize this template
 
     return _wrapped_view

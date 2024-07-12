@@ -76,10 +76,8 @@ def Volbol(request, id):
     groups = VGroup.objects.filter(competition=competition)
 
     for group in groups:
-        # Initialize standings with default values for all teams in the group
-        standings = {}
-        for team in group.teams.all():
-            standings[team] = {
+        standings = {
+            team: {
                 "points": 0,
                 "played": 0,
                 "won": 0,
@@ -91,50 +89,38 @@ def Volbol(request, id):
                 "set_ratio": 0,
                 "point_ratio": 0,
             }
+            for team in group.teams.all()
+        }
 
-        # Update standings based on fixtures
         group_fixtures = Fixture.objects.filter(group=group)
         for fixture in group_fixtures:
             if fixture.team1_score is not None and fixture.team2_score is not None:
-                # Update played matches
                 standings[fixture.team1]["played"] += 1
                 standings[fixture.team2]["played"] += 1
 
-                # Update points for and against
-                standings[fixture.team1]["points_for"] += fixture.team1_score
-                standings[fixture.team2]["points_for"] += fixture.team2_score
-                standings[fixture.team1]["points_against"] += fixture.team2_score
-                standings[fixture.team2]["points_against"] += fixture.team1_score
+                standings[fixture.team1]["points_for"] += fixture.team1_score or 0
+                standings[fixture.team2]["points_for"] += fixture.team2_score or 0
+                standings[fixture.team1]["points_against"] += fixture.team2_score or 0
+                standings[fixture.team2]["points_against"] += fixture.team1_score or 0
 
-                # Update sets won and lost
-                standings[fixture.team1]["sets_won"] += fixture.team1_sets_won
-                standings[fixture.team2]["sets_won"] += fixture.team2_sets_won
-                standings[fixture.team1]["sets_lost"] += fixture.team2_sets_won
-                standings[fixture.team2]["sets_lost"] += fixture.team1_sets_won
+                standings[fixture.team1]["sets_won"] += fixture.team1_sets_won or 0
+                standings[fixture.team2]["sets_won"] += fixture.team2_sets_won or 0
+                standings[fixture.team1]["sets_lost"] += fixture.team2_sets_won or 0
+                standings[fixture.team2]["sets_lost"] += fixture.team1_sets_won or 0
 
-                # Update match results
-                if fixture.team1_sets_won > fixture.team2_sets_won:
+                if (fixture.team1_sets_won or 0) > (fixture.team2_sets_won or 0):
                     standings[fixture.team1]["points"] += 3
                     standings[fixture.team1]["won"] += 1
                     standings[fixture.team2]["lost"] += 1
-                elif fixture.team1_sets_won < fixture.team2_sets_won:
+                elif (fixture.team1_sets_won or 0) < (fixture.team2_sets_won or 0):
                     standings[fixture.team2]["points"] += 3
                     standings[fixture.team2]["won"] += 1
                     standings[fixture.team1]["lost"] += 1
 
-        # Calculate set ratio and point ratio
         for team, stats in standings.items():
-            if stats["sets_lost"] > 0:
-                stats["set_ratio"] = stats["sets_won"] / stats["sets_lost"]
-            else:
-                stats["set_ratio"] = stats["sets_won"]
+            stats["set_ratio"] = stats["sets_won"] / max(stats["sets_lost"], 1)
+            stats["point_ratio"] = stats["points_for"] / max(stats["points_against"], 1)
 
-            if stats["points_against"] > 0:
-                stats["point_ratio"] = stats["points_for"] / stats["points_against"]
-            else:
-                stats["point_ratio"] = stats["points_for"]
-
-        # Sort standings by points, set ratio, point ratio, sets won, and points for
         sorted_standings = sorted(
             standings.items(),
             key=lambda x: (
