@@ -10,14 +10,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-
+from accounts.decorators import *
 
 from django.db import connection
 
 # template
 
-
 # Create your views here.
+@school_required
 def Votball(request):
     volleyball = Sport.objects.get(name="Volleyball")
     fcomps = Volleyball.objects.filter(sport=volleyball)
@@ -57,7 +57,8 @@ def delete_volleyball(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
-
+# Create your views here.
+@school_required
 def vtourn_details(request, id):
     tournament = get_object_or_404(Volleyball, id=id)
     fgroups = VGroup.objects.filter(competition=tournament)
@@ -106,6 +107,10 @@ def vtourn_details(request, id):
 from datetime import datetime
 
 
+
+
+# Create your views here.
+@school_required
 def generate_fixtures_view(request, id):
     volleyball = get_object_or_404(Volleyball, id=id)
     season = volleyball.season
@@ -211,7 +216,8 @@ def VFixtureDetail(request, id):
 
     return render(request, "server/vfixture.html", context)
 
-
+# Create your views here.
+@school_required
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
@@ -221,7 +227,8 @@ def fixtures(request):
 from django.shortcuts import render
 from .models import Sport, Volleyball, VGroup, Fixture
 
-
+# Create your views here.
+@school_required
 def volleyballStandings(request):
     sports = Sport.objects.all()
 
@@ -333,7 +340,8 @@ def volleyballStandings(request):
 from django.shortcuts import render
 from .models import Sport, Volleyball, VGroup, Fixture
 
-
+# Create your views here.
+@school_required
 def generate_next_round_fixtures(request):
     sports = Sport.objects.all()
     next_round_fixtures = []
@@ -453,3 +461,15 @@ def generate_next_round_fixtures(request):
     }
 
     return render(request, "server/ntournament.html", context)
+
+
+
+
+
+
+
+
+def volfixtures(request):
+    fixures = Fixture.objects.all()
+    context = {"fixures": fixures}
+    return render(request, "frontend/volfixtures.html", context)

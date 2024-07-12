@@ -5,6 +5,7 @@ from .forms import *
 from .models import *
 
 from accounts.models import Sport
+from accounts.decorators import *
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -18,6 +19,7 @@ from django.db import connection
 
 
 # Create your views here.
+@school_required
 def Busketball3(request):
     basketball3 = Sport.objects.get(name="Basketball3X3")
     b3comps = Basketball3.objects.filter(sport=basketball3)
@@ -57,7 +59,8 @@ def delete_basketball3(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
-
+# Create your views here.
+@school_required
 def b3tourn_details(request, id):
     tournament = get_object_or_404(Basketball3, id=id)
     fgroups = B3Group.objects.filter(competition=tournament)
@@ -304,3 +307,11 @@ def basketball3Standings(request):
     }
 
     return render(request, "server/b3standings.html", context)
+
+
+
+
+def b3nfixtures(request):
+    fixures = B3Fixture.objects.all()
+    context = {"fixures": fixures}
+    return render(request, "frontend/b3fixtures.html", context)

@@ -26,5 +26,6 @@ urlpatterns = [
     # path("Football_fixtures", Fixtures, name="Footfixtures"),
     path("Basketball3", B3home, name="Basketball3"),
     # path("fixtures/", fixtures, name="fixtures"),
+    path("b3nfixtures/", b3nfixtures, name="b3nfixtures"),
     path("b3standings/", basketball3Standings, name="basketball3_standings"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

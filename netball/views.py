@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import *
 from .models import *
-
+from accounts.decorators import *
 from accounts.models import Sport
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -16,8 +16,8 @@ from django.db import connection
 
 # template
 
-
 # Create your views here.
+@school_required
 def Nutball(request):
     netball = Sport.objects.get(name="Netball")
     fcomps = Netball.objects.filter(sport=netball)
@@ -43,7 +43,8 @@ def Nutball(request):
     return render(request, "server/netball.html", context)
 
 
-# delete
+# Create your views here.
+@school_required
 def delete_netball(request, id):
     netball = get_object_or_404(Netball, id=id)
 
@@ -57,7 +58,8 @@ def delete_netball(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
-
+# Create your views here.
+@school_required
 def ntourn_details(request, id):
     tournament = get_object_or_404(Netball, id=id)
     fgroups = NGroup.objects.filter(competition=tournament)
@@ -101,7 +103,8 @@ def ntourn_details(request, id):
 
 from datetime import datetime
 
-
+# Create your views here.
+@school_required
 def generate_nfixtures_view(request, id):
     netball = get_object_or_404(Netball, id=id)
     season = netball.season
@@ -206,7 +209,8 @@ def NFixtureDetail(request, id):
 
     return render(request, "server/nfixture.html", context)
 
-
+# Create your views here.
+@school_required
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
@@ -429,3 +433,9 @@ def generate_next_round_fixtures(request):
     }
 
     return render(request, "server/ntournament.html", context)
+
+
+def netfixtures(request):
+    fixures = Fixture.objects.all()
+    context = {"fixures": fixures}
+    return render(request, "frontend/netfixtures.html", context)

@@ -73,29 +73,47 @@
         create other fixture
       </button>
     </div>
-    <div class="fixtures">
-      {% regroup fixtures by group as group_list %}
-      <h2></h2>
-      {% for group in group_list %}
-      <h2>{{ group.grouper }}</h2>
-      {% for fixture in group.list %}
-      <div class="fixture grid6">
-        <span>{{ fixture.date|date:"F j, Y" }} </span>
-        <span>{{ fixture.team1 }}</span>
-        <span
-          ><a href="{% url 'update_fixture' fixture.id%}"
-            >{{ fixture.date|time:"H:i:s" }}
-          </a></span
-        >
-        <span>{{ fixture.team2 }}</span>
-        <span><a href="{% url 'update_b3fixture' fixture.id%}">Edit</a></span>
-        <span class="btn-outlie-primary"
-          ><a href="{% url 'b3fixture' fixture.id%}">Manage</a></span
-        >
-      </div>
-      <hr />
+    <div class="lo">
+      <div class="official-list">
+        <table id="myTable" class="display">
+          <thead>
+            <tr>
+              <th>Fixture</th>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Time</th>
+              <th>Date</th>
 
-      {% endfor %} {% endfor %}
+              <th>Edit</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% regroup fixtures by group as group_list %}
+            <h2></h2>
+            {% for group in group_list %}
+            <h2>{{ group.grouper }}</h2>
+            {% for fixture in group.list %}
+            <tr>
+              <td>{{ fixture.id }}</td>
+              <td>{{ fixture.team1 }}</td>
+
+              <td>{{ fixture.team2 }}</td>
+              <td>{{ fixture.time}}</td>
+              <td>{{ fixture.date|date:"F j, Y" }}</td>
+
+              <td>
+                <a href="{% url 'update_nfixture' fixture.id%}">Edit</a>
+              </td>
+              <td>
+                <a href="{% url 'nfixture' fixture.id%}">Manage</a>
+              </td>
+            </tr>
+
+            {% endfor %} {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
     {% comment %} next round {% endcomment %}
     <div class="nextround flex">

@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-
+from accounts.decorators import *
 
 from django.db import connection
 
@@ -57,7 +57,8 @@ def delete_handball(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
-
+# Create your views here.
+@school_required
 def htourn_details(request, id):
     tournament = get_object_or_404(Handball, id=id)
     fgroups = HGroup.objects.filter(competition=tournament)
@@ -105,7 +106,8 @@ def htourn_details(request, id):
 
 from datetime import datetime
 
-
+# Create your views here.
+@school_required
 def generate_hfixtures_view(request, id):
     handball = get_object_or_404(Handball, id=id)
     season = handball.season
@@ -144,6 +146,7 @@ def generate_hfixtures_view(request, id):
 
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
+# Create your views here.
 
 def edit_fixtures_view(request, id):
     fixture = get_object_or_404(Fixture, id=id)
@@ -212,13 +215,15 @@ def FixtureDetail(request, id):
 
     return render(request, "server/hfixture.html", context)
 
-
+# Create your views here.
+@school_required
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "server/hfixtures.html", context)
 
-
+# Create your views here.
+@school_required
 def handballStandings(request):
     sports = Sport.objects.all()
 
@@ -313,7 +318,8 @@ def handballStandings(request):
 from django.shortcuts import render
 from .models import Sport, Handball, HGroup, Fixture
 
-
+# Create your views here.
+@school_required
 def generate_next_round_fixtures(request):
     sports = Sport.objects.all()
     next_round_fixtures = []
@@ -433,3 +439,15 @@ def generate_next_round_fixtures(request):
     }
 
     return render(request, "server/ntournament.html", context)
+
+
+
+
+
+
+
+
+def handfixtures(request):
+    fixures = Fixture.objects.all()
+    context = {"fixures": fixures}
+    return render(request, "frontend/handfixtures.html", context)

@@ -3,9 +3,11 @@ from accounts.models import Sport
 from dashboard.models import *
 from dashboard.forms import *
 from .forms import *
+from accounts.decorators import *
 
 
 # Create your views here.
+@school_required
 def Sports(request):
     sports = Sport.objects.all()
     if request.method == "POST":

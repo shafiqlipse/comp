@@ -31,6 +31,7 @@ urlpatterns = [
     # path("fixtures/", fixtures, name="fixtures"),
     path("Netball/<int:id>", Nutbol, name="Netball"),
     path("Netball_fixtures", NFixtures, name="Netfixtures"),
+    path("netfixtures/", netfixtures, name="netfixtures"),
     path("Netball/", Nhome, name="Netball"),
     path("Netball_results", NResults, name="Netresults"),
     path("Netbalstandings", netbollStandings, name="Netstandings"),

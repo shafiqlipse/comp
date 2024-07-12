@@ -8,7 +8,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <link
+      href="https://cdn.datatables.net/v/dt/dt-2.0.1/datatables.min.css"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="shortcut icon" href="{% static 'images/logo.png'%}" />
     <title>USSSA | {% block title %}{% endblock %}</title>
@@ -48,6 +51,19 @@
       </div>
       <footer class="foooter">footer</footer>
     </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable();
+      });
+    </script>
+    <script>
+      $("#myModal").on("shown.bs.modal", function () {
+        $("#myInput").trigger("focus");
+      });
+    </script>
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

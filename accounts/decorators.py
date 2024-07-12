@@ -21,7 +21,7 @@ def staff_required(view_func):
 def school_required(view_func):
     @login_required(login_url="login")
     def _wrapped_view(request, *args, **kwargs):
-        if request.user.is_school:
+        if request.user.is_admin:
             return view_func(request, *args, **kwargs)
         else:
             return render(
