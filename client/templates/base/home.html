@@ -8,9 +8,29 @@
 <div class="home-page">
   <div class="home-area flex">
     <div class="left">{% include "base/left.html" %}</div>
-    <div class="futbol">home</div>
 
-    <div class="left">{% include "base/right.html" %}</div>
+    
+      <div class="fixtures">
+      
+        <table class="table table-striped">
+          <tbody>
+            {% for fixture in xfixtures %}
+            <tr>
+              <td>
+                {{ fixture.team1.school.name|slice:":9" }}
+                <div class="match-info">
+                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
+                </div>
+                {{ fixture.team2.school.name|slice:":9" }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="left">{% include "base/right.html" %}</div>
+    </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}

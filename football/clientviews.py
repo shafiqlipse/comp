@@ -299,3 +299,8 @@ def competition_rankings(request, competition_id):
     }
 
     return render(request, "frotend/futrankings.html", context)
+
+
+
+
+

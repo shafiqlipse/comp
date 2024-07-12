@@ -30,6 +30,7 @@ urlpatterns = [
     #  # path("addtourn", addchampionship, name="addchampionship"),
     #  # path("fixtures/", fixtures, name="fixtures"),
     path("Football<int:id>", Furtbol, name="Football"),
+
     # path("Football_fixtures", Fixtures, name="Footfixtures"),
     path("Football", Fhome, name="Football"),
     path("Football_rankings", get_rankings, name="Footrankigs"),

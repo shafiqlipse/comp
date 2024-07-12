@@ -1,5 +1,5 @@
 from football.models import Football
-from netball.models import Fixture,  Netball
+from netball.models import Fixture, Netball
 from basketball3.models import Basketball3
 from handball.models import Handball
 from volleyball.models import Volleyball
@@ -33,3 +33,14 @@ def volleyball_tournaments(request):
 def top_fixtures(request):
     fixtures = Fixture.objects.filter(status="InPlay").order_by("-date")
     return {"top_fixtures": fixtures}
+
+
+from datetime import date
+
+
+def todays_fixtures(request):
+    today = date.today()
+    xfixtures = Fixture.objects.filter(date=today)
+    context = {"xfixtures": xfixtures}
+
+    return context
