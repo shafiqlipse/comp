@@ -18,9 +18,13 @@
             <tr>
               <td>
                 {{ fixture.team1.school.name|slice:":9" }}
+                {% if fixture.status == 'Pending' %}
+                <div class="match-info">
+                  {{ fixture.time }}
+                </div>{% else %}
                 <div class="match-info">
                   {{ fixture.team1_score }}:{{ fixture.team2_score }}
-                </div>
+                </div>{% endif %}
                 {{ fixture.team2.school.name|slice:":9" }}
               </td>
             </tr>
