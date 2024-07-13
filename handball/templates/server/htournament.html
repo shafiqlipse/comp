@@ -91,9 +91,8 @@
           <tbody>
             {% regroup fixtures by group as group_list %}
             <h2></h2>
-            {% for group in group_list %}
-        
-            {% for fixture in group.list %}  <tr> 
+            {% for group in group_list %} {% for fixture in group.list %}
+            <tr>
               <td>{{ fixture.id }}</td>
               <td>{{ fixture.team1 }}</td>
 
@@ -102,10 +101,10 @@
               <td>{{ fixture.date|date:"F j, Y" }}</td>
 
               <td>
-                <a href="{% url 'update_nfixture' fixture.id%}">Edit</a>
+                <a href="{% url 'update_hfixture' fixture.id%}">Edit</a>
               </td>
               <td>
-                <a href="{% url 'nfixture' fixture.id%}">Manage</a>
+                <a href="{% url 'hfixture' fixture.id%}">Manage</a>
               </td>
             </tr>
 
