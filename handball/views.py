@@ -57,6 +57,7 @@ def delete_handball(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
+
 # Create your views here.
 @school_required
 def htourn_details(request, id):
@@ -106,6 +107,7 @@ def htourn_details(request, id):
 
 from datetime import datetime
 
+
 # Create your views here.
 @school_required
 def generate_hfixtures_view(request, id):
@@ -146,7 +148,9 @@ def generate_hfixtures_view(request, id):
 
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
+
 # Create your views here.
+
 
 def edit_fixtures_view(request, id):
     fixture = get_object_or_404(Fixture, id=id)
@@ -215,12 +219,14 @@ def FixtureDetail(request, id):
 
     return render(request, "server/hfixture.html", context)
 
+
 # Create your views here.
 @school_required
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "server/hfixtures.html", context)
+
 
 # Create your views here.
 @school_required
@@ -317,6 +323,7 @@ def handballStandings(request):
 
 from django.shortcuts import render
 from .models import Sport, Handball, HGroup, Fixture
+
 
 # Create your views here.
 @school_required
@@ -441,13 +448,7 @@ def generate_next_round_fixtures(request):
     return render(request, "server/ntournament.html", context)
 
 
-
-
-
-
-
-
 def handfixtures(request):
-    fixures = Fixture.objects.all()
+    fixures = Fixture.objects.filter(status="Pending").order_by("-date")
     context = {"fixures": fixures}
     return render(request, "frontend/handfixtures.html", context)

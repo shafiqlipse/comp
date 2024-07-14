@@ -30,17 +30,10 @@ def volleyball_tournaments(request):
     return {"vtourns": vtourns}
 
 
-def top_fixtures(request):
-    fixtures = Fixture.objects.filter(status="InPlay").order_by("-date")
-    return {"top_fixtures": fixtures}
-
-
 from datetime import date
 
 
-def todays_fixtures(request):
+def top_fixtures(request):
     today = date.today()
-    xfixtures = Fixture.objects.filter(date=today)
-    context = {"xfixtures": xfixtures}
-
-    return context
+    fixtures = Fixture.objects.filter(date=today).order_by("-date")
+    return {"top_fixtures": fixtures}

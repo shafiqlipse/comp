@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from netball.models import Fixture
 
 
 # Create your views here.
 def Home(request):
-    context = {}
-    return render(request, "base/home.html", context)
+
+    return render(request, "base/home.html")

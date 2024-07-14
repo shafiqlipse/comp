@@ -312,6 +312,6 @@ def basketball3Standings(request):
 
 
 def b3nfixtures(request):
-    fixures = B3Fixture.objects.all()
+    fixures = B3Fixture.objects.all().order_by("-date")
     context = {"fixures": fixures}
     return render(request, "frontend/b3fixtures.html", context)
