@@ -148,22 +148,25 @@ def Handbol(request, id):
                         fixture.team1_score,
                     ),
                 ]:
-                    standings[team]["played"] += 1
-                    standings[team]["gs"] += team_score
-                    standings[team]["gc"] += opponent_score
+                    if team in standings:
+                        standings[team]["played"] += 1
+                        standings[team]["gs"] += team_score
+                        standings[team]["gc"] += opponent_score
 
-                    if team_score > opponent_score:
-                        standings[team]["points"] += 2  # 2 points for a win in handball
-                        standings[team]["won"] += 1
-                    elif team_score < opponent_score:
-                        standings[team]["lost"] += 1
-                    else:
-                        standings[team]["points"] += 1  # 1 point for a draw
-                        standings[team]["drawn"] += 1
+                        if team_score > opponent_score:
+                            standings[team][
+                                "points"
+                            ] += 2  # 2 points for a win in handball
+                            standings[team]["won"] += 1
+                        elif team_score < opponent_score:
+                            standings[team]["lost"] += 1
+                        else:
+                            standings[team]["points"] += 1  # 1 point for a draw
+                            standings[team]["drawn"] += 1
 
-                    standings[team]["gd"] = (
-                        standings[team]["gs"] - standings[team]["gc"]
-                    )
+                        standings[team]["gd"] = (
+                            standings[team]["gs"] - standings[team]["gc"]
+                        )
 
         sorted_standings = sorted(
             standings.items(),
