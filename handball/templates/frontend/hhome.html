@@ -3,7 +3,7 @@
 <!--static-->
 {% load static %}
 <!--title-->
-{% block futitle %}Netball{% endblock futitle %}
+{% block futitle %}Handball{% endblock futitle %}
 <!--content-->
 {% block content %}
 <div class="home-page">
@@ -15,7 +15,7 @@
         <div class="logs">
           {% for htourn in htourns %}
           <li>
-            <a href="{%url 'Netball' htourn.id %}" class="sport-link"
+            <a href="{%url 'Handball' htourn.id %}" class="sport-link"
               >{{htourn.championship}}|{{htourn.season}}|{{htourn.name}}</a
             >
           </li>
@@ -32,7 +32,7 @@
         <div class="logs">
           {% for htourn in htourns %}
           <li>
-            <a href="{%url 'Netball' htourn.id %}" class="sport-link"
+            <a href="{%url 'Handball' htourn.id %}" class="sport-link"
               >{{htourn.championship}}|{{htourn.season}}|{{htourn.name}}</a
             >
           </li>
