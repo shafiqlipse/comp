@@ -9,32 +9,51 @@
   <div class="home-area flex">
     <div class="left">{% include "base/left.html" %}</div>
 
-    
-      <div class="fixtures">
+    <div id="exampleSlider">
       
-        <table class="table table-striped">
-          <tbody>
-            {% for fixture in xfixtures %}
-            <tr>
-              <td>
-                {{ fixture.team1.school.name|slice:":9" }}
-                {% if fixture.status == 'Pending' %}
-                <div class="match-info">
-                  {{ fixture.time }}
-                </div>{% else %}
-                <div class="match-info">
-                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
-                </div>{% endif %}
-                {{ fixture.team2.school.name|slice:":9" }}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="MS-content">netball
+        {% for fixture in fixtures %}
+        <div class="item flex">
+          <div class="ite flex">
+            <div class="fix">
+              <p>{{fixture.team1.school.name|slice:":9"}}</p>
+              <p>{{fixture.team2.school.name|slice:":9"}}</p>
+            </div>
+            <div class="fix">
+              <h2>{{fixture.team1_score}}</h2>
+              <h2>{{fixture.team2_score}}</h2>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-
+      <div class="MS-controls">
+        <button class="MS-left">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="MS-right">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    
+  
       <div class="left">{% include "base/right.html" %}</div>
     </div>
   </div>
-  {% endblock %}
+  <script src="{% static 'js/jquery-2.2.4.min.js'%}"></script>
+
+  <!-- Include Multislider -->
+  <script src="{% static 'js/multislider.min.js'%}"></script>
+  
+  <!-- Initialize element with Multislider -->
+  <script>
+    $("#exampleSlider").multislider({
+      interval: 3000,
+      slideAll: false,
+      duration: 5000,
+    });
+  </script>
+  
 </div>
+  {% endblock %}

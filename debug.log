@@ -4976,3 +4976,4 @@ Traceback (most recent call last):
 AttributeError: 'Manager' object has no attribute 'filterfilter'
 E:\django\cms\cms\client\context_processors.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
