@@ -123,22 +123,23 @@ def Nutbol(request, id):
                         fixture.team1_score,
                     ),
                 ]:
-                    standings[team]["played"] += 1
-                    standings[team]["gs"] += team_score
-                    standings[team]["gc"] += opponent_score
+                    if team in standings:
+                        standings[team]["played"] += 1
+                        standings[team]["gs"] += team_score
+                        standings[team]["gc"] += opponent_score
 
-                    if team_score > opponent_score:
-                        standings[team]["points"] += 2
-                        standings[team]["won"] += 1
-                    elif team_score < opponent_score:
-                        standings[team]["lost"] += 1
-                    else:
-                        standings[team]["points"] += 1
-                        standings[team]["drawn"] += 1
+                        if team_score > opponent_score:
+                            standings[team]["points"] += 2
+                            standings[team]["won"] += 1
+                        elif team_score < opponent_score:
+                            standings[team]["lost"] += 1
+                        else:
+                            standings[team]["points"] += 1
+                            standings[team]["drawn"] += 1
 
-                    standings[team]["gd"] = (
-                        standings[team]["gs"] - standings[team]["gc"]
-                    )
+                        standings[team]["gd"] = (
+                            standings[team]["gs"] - standings[team]["gc"]
+                        )
 
         sorted_standings = sorted(
             standings.items(),

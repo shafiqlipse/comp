@@ -30,6 +30,7 @@ urlpatterns = [
     path("vstandings/", volleyballStandings, name="volleyball_standings"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("Volleyball", Vhome, name="Volleyball"),
+    path("addvfixtures/", create_vfixture, name="addvfixture"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("volfixtures/", volfixtures, name="volfixtures"),
     # path("fixtures/", fixtures, name="fixtures"),

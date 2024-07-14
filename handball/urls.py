@@ -29,6 +29,7 @@ urlpatterns = [
     path("hstandings/", handballStandings, name="handball_standings"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("handfixtures/", handfixtures, name="handfixtures"),
+    path("add_fixtures/", create_hfixture, name="add_fixture"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("Handball/<int:id>", Handbol, name="Handball"),
     path("Handball/", Hhome, name="Handball"),

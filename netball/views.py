@@ -16,6 +16,7 @@ from django.db import connection
 
 # template
 
+
 # Create your views here.
 @school_required
 def Nutball(request):
@@ -57,6 +58,7 @@ def delete_netball(request, id):
 
 # view official details
 from django.forms import inlineformset_factory
+
 
 # Create your views here.
 @school_required
@@ -102,6 +104,7 @@ def ntourn_details(request, id):
 
 
 from datetime import datetime
+
 
 # Create your views here.
 @school_required
@@ -208,6 +211,7 @@ def NFixtureDetail(request, id):
     }
 
     return render(request, "server/nfixture.html", context)
+
 
 # Create your views here.
 @school_required
@@ -439,3 +443,30 @@ def netfixtures(request):
     fixures = Fixture.objects.all()
     context = {"fixures": fixures}
     return render(request, "frontend/netfixtures.html", context)
+
+
+def create_nfixture(request):
+    if request.method == "POST":
+        fixture_form = FixtureForm(request.POST)
+        if fixture_form.is_valid():
+            fixture = fixture_form.save(commit=False)
+
+            # Set the season (e.g., get the current season)
+            current_season = Season.objects.get(id=1)
+            fixture.season = current_season
+
+            # Set the competition (e.g., get a specific competition)
+            netball_competition = Netball.objects.get(id=1)
+            fixture.competition = netball_competition
+
+            fixture.save()
+            messages.success(
+                request, f"Fixture {fixture.id} has been created successfully."
+            )
+            return redirect(
+                "fixture_list"
+            )  # Replace with your actual fixture list URL name
+    else:
+        fixture_form = FixtureForm()
+
+    return render(request, "server/create_fixture.html", {"fixture_form": fixture_form})

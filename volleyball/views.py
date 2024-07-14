@@ -464,7 +464,34 @@ def generate_next_round_fixtures(request):
 
 
 
+from django.contrib import messages
+def create_vfixture(request):
+    if request.method == "POST":
+        fixture_form = FixtureForm(request.POST)
+        if fixture_form.is_valid():
+            fixture = fixture_form.save(commit=False)
 
+            # Set the season (e.g., get the current season)
+            current_season = Season.objects.get(id=1)
+            fixture.season = current_season
+
+            # Set the competition (e.g., get a specific competition)
+            netball_competition = Volleyball.objects.get(id=1)
+            fixture.competition = netball_competition
+
+            fixture.save()
+            messages.success(
+                request, f"Fixture {fixture.id} has been created successfully."
+            )
+            return redirect(
+                "fixture_list"
+            )  # Replace with your actual fixture list URL name
+    else:
+        fixture_form = FixtureForm()
+
+    return render(
+        request, "server/create_vfixture.html", {"fixture_form": fixture_form}
+    )
 
 
 

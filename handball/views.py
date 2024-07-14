@@ -57,6 +57,7 @@ def delete_handball(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
+
 # Create your views here.
 @school_required
 def htourn_details(request, id):
@@ -104,7 +105,9 @@ def htourn_details(request, id):
     return render(request, "server/htournament.html", context)
 
 
+from django.contrib import messages
 from datetime import datetime
+
 
 # Create your views here.
 @school_required
@@ -146,7 +149,9 @@ def generate_hfixtures_view(request, id):
 
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
+
 # Create your views here.
+
 
 def edit_fixtures_view(request, id):
     fixture = get_object_or_404(Fixture, id=id)
@@ -215,12 +220,14 @@ def FixtureDetail(request, id):
 
     return render(request, "server/hfixture.html", context)
 
+
 # Create your views here.
 @school_required
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "server/hfixtures.html", context)
+
 
 # Create your views here.
 @school_required
@@ -317,6 +324,7 @@ def handballStandings(request):
 
 from django.shortcuts import render
 from .models import Sport, Handball, HGroup, Fixture
+
 
 # Create your views here.
 @school_required
@@ -441,13 +449,36 @@ def generate_next_round_fixtures(request):
     return render(request, "server/ntournament.html", context)
 
 
-
-
-
-
-
-
 def handfixtures(request):
     fixures = Fixture.objects.all()
     context = {"fixures": fixures}
     return render(request, "frontend/handfixtures.html", context)
+
+
+def create_hfixture(request):
+    if request.method == "POST":
+        fixture_form = FixtureForm(request.POST)
+        if fixture_form.is_valid():
+            fixture = fixture_form.save(commit=False)
+
+            # Set the season (e.g., get the current season)
+            current_season = Season.objects.get(id=1)
+            fixture.season = current_season
+
+            # Set the competition (e.g., get a specific competition)
+            netball_competition = Handball.objects.get(id=1)
+            fixture.competition = netball_competition
+
+            fixture.save()
+            messages.success(
+                request, f"Fixture {fixture.id} has been created successfully."
+            )
+            return redirect(
+                "fixture_list"
+            )  # Replace with your actual fixture list URL name
+    else:
+        fixture_form = FixtureForm()
+
+    return render(
+        request, "server/create_hfixture.html", {"fixture_form": fixture_form}
+    )

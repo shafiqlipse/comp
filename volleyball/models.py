@@ -54,7 +54,11 @@ class Fixture(models.Model):
         ("Postponed", "Postponed"),
     )
 
-    stages = (("Group", "Group"), ("Knockout", "Knockout"))
+    stages = (
+        ("Group", "Group"),
+        ("Knockout", "Knockout"),
+        ("Classification", "Classification"),
+    )
     season = models.ForeignKey(
         Season, related_name="volfix", on_delete=models.CASCADE, null=True, blank=True
     )

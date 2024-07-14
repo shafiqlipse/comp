@@ -5615,3 +5615,295 @@ Not Found: /handball/hfixture/img/avatars/avatar-2.jpg
 Not Found: /handball/hfixture/img/avatars/avatar-3.jpg
 Not Found: /handball/hfixture/img/avatars/avatar-4.jpg
 Not Found: /handball/hfixture/js/datatables.js
+Watching for file changes with StatReloader
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /netball/img/avatars/avatar-3.jpg
+Not Found: /netball/js/datatables.js
+Not Found: /netball/img/avatars/avatar-5.jpg
+Not Found: /netball/img/avatars/avatar-4.jpg
+Not Found: /netball/img/avatars/avatar-2.jpg
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\models.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\models.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\models.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\models.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/futourn/img/avatars/avatar-2.jpg
+Not Found: /netball/futourn/img/avatars/avatar-5.jpg
+Not Found: /netball/futourn/img/avatars/avatar-4.jpg
+Not Found: /netball/futourn/img/avatars/avatar-3.jpg
+Not Found: /netball/futourn/js/datatables.js
+Not Found: /get_group_teams/1/
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /netball/addfixtures/
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\netball\views.py", line 472, in create_nfixture
+    return render(request, "server/create_fixture.html", {"fixture_form": fixture_form})
+                                                                          ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'fixture_form' where it is not associated with a value
+Not Found: /favicon.ico
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Internal Server Error: /netball/addfixtures/
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\netball\views.py", line 466, in create_nfixture
+    return redirect(
+           ^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'fixture_list' not found. 'fixture_list' is not a valid view function or pattern name.
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /netball/addfixtures/img/avatars/avatar-5.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-2.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-4.jpg
+Not Found: /netball/addfixtures/img/avatars/avatar-3.jpg
+Not Found: /netball/addfixtures/js/datatables.js
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /handball/img/avatars/avatar-2.jpg
+Not Found: /handball/img/avatars/avatar-3.jpg
+Not Found: /handball/js/datatables.js
+Not Found: /handball/img/avatars/avatar-5.jpg
+Not Found: /handball/img/avatars/avatar-4.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-4.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-2.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-5.jpg
+Not Found: /handball/hhtourn/img/avatars/avatar-3.jpg
+Not Found: /handball/hhtourn/js/datatables.js
+Not Found: /handball/add_fixtures/img/avatars/avatar-5.jpg
+Not Found: /handball/add_fixtures/img/avatars/avatar-2.jpg
+Not Found: /handball/add_fixtures/img/avatars/avatar-4.jpg
+Not Found: /handball/add_fixtures/js/datatables.js
+Not Found: /handball/add_fixtures/img/avatars/avatar-3.jpg
+Internal Server Error: /handball/add_fixtures/
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\handball\views.py", line 476, in create_hfixture
+    return redirect(
+           ^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'fixture_list' not found. 'fixture_list' is not a valid view function or pattern name.
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /volleyball/img/avatars/avatar-3.jpg
+Not Found: /volleyball/img/avatars/avatar-4.jpg
+Not Found: /volleyball/js/datatables.js
+Not Found: /volleyball/img/avatars/avatar-2.jpg
+Not Found: /volleyball/img/avatars/avatar-5.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-5.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-4.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-2.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-3.jpg
+Not Found: /volleyball/futourn/js/datatables.js
+Not Found: /volleyball/futourn/img/avatars/avatar-3.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-4.jpg
+Not Found: /volleyball/futourn/img/avatars/avatar-2.jpg
+Not Found: /volleyball/futourn/js/datatables.js
+Not Found: /volleyball/futourn/img/avatars/avatar-5.jpg
+Not Found: /volleyball/addvfixtures/img/avatars/avatar-4.jpg
+Not Found: /volleyball/addvfixtures/js/datatables.js
+Not Found: /volleyball/addvfixtures/img/avatars/avatar-2.jpg
+Not Found: /volleyball/addvfixtures/img/avatars/avatar-3.jpg
+Not Found: /volleyball/addvfixtures/img/avatars/avatar-5.jpg
+Internal Server Error: /volleyball/addvfixtures/
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\volleyball\views.py", line 486, in create_vfixture
+    return redirect(
+           ^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'fixture_list' not found. 'fixture_list' is not a valid view function or pattern name.
+E:\django\cms\cms\netball\netviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\netball\netviews.py changed, reloading.
+Watching for file changes with StatReloader
