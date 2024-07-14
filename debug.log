@@ -5518,3 +5518,4 @@ Traceback (most recent call last):
 NameError: name 'F' is not defined
 E:\django\cms\cms\handball\hadviews.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader

@@ -1,10 +1,49 @@
-{% extends "frontend/handball.html" %}
+{% extends "frontend/football.html" %}
 
 <!--static-->
 {% load static %}
 <!--title-->
-{% block futitle %}Handball{% endblock futitle %}
+{% block futitle %}Netball{% endblock futitle %}
 <!--content-->
-{% block futball %}
-<h1>handball home</h1>
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for htourn in htourns %}
+          <li>
+            <a href="{%url 'Netball' htourn.id %}" class="sport-link"
+              >{{htourn.championship}}|{{htourn.season}}|{{htourn.name}}</a
+            >
+          </li>
+          <hr />
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for htourn in htourns %}
+          <li>
+            <a href="{%url 'Netball' htourn.id %}" class="sport-link"
+              >{{htourn.championship}}|{{htourn.season}}|{{htourn.name}}</a
+            >
+          </li>
+          <hr />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
 {% endblock %}
