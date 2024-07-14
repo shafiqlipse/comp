@@ -19,9 +19,6 @@ from django.db import connection
 from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
 
-from django.shortcuts import render
-from .models import Handball, HGroup, Fixture
-
 
 def get_rankings(competition):
     # Athlete Rankings
@@ -100,6 +97,10 @@ def get_rankings(competition):
     }
 
 
+from django.shortcuts import render
+from .models import Handball, HGroup, Fixture
+
+
 def Handbol(request, id):
     competition = Handball.objects.get(id=id)
     hgroups = HGroup.objects.filter(competition=competition)
@@ -116,8 +117,7 @@ def Handbol(request, id):
 
     for group in groups:
         standings = {
-            team.id: {
-                "team": team,
+            team: {
                 "points": 0,
                 "played": 0,
                 "won": 0,
@@ -147,28 +147,26 @@ def Handbol(request, id):
                         fixture.team1_score,
                     ),
                 ]:
-                    standings[team.id]["played"] += 1
-                    standings[team.id]["gs"] += team_score
-                    standings[team.id]["gc"] += opponent_score
+                    standings[team]["played"] += 1
+                    standings[team]["gs"] += team_score
+                    standings[team]["gc"] += opponent_score
 
                     if team_score > opponent_score:
-                        standings[team.id][
-                            "points"
-                        ] += 2  # 2 points for a win in handball
-                        standings[team.id]["won"] += 1
+                        standings[team]["points"] += 2  # 2 points for a win in handball
+                        standings[team]["won"] += 1
                     elif team_score < opponent_score:
-                        standings[team.id]["lost"] += 1
+                        standings[team]["lost"] += 1
                     else:
-                        standings[team.id]["points"] += 1  # 1 point for a draw
-                        standings[team.id]["drawn"] += 1
+                        standings[team]["points"] += 1  # 1 point for a draw
+                        standings[team]["drawn"] += 1
 
-                    standings[team.id]["gd"] = (
-                        standings[team.id]["gs"] - standings[team.id]["gc"]
+                    standings[team]["gd"] = (
+                        standings[team]["gs"] - standings[team]["gc"]
                     )
 
         sorted_standings = sorted(
-            standings.values(),
-            key=lambda x: (x["points"], x["gd"], x["gs"]),
+            standings.items(),
+            key=lambda x: (x[1]["points"], x[1]["gd"], x[1]["gs"]),
             reverse=True,
         )
         standings_data[group] = sorted_standings
