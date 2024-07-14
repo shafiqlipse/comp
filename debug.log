@@ -4977,3 +4977,10 @@ AttributeError: 'Manager' object has no attribute 'filterfilter'
 E:\django\cms\cms\client\context_processors.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\handball\views.py changed, reloading.
+Watching for file changes with StatReloader
