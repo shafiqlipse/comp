@@ -18,7 +18,7 @@ from django.db import connection
 
 from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
-
+from django.db.models import F
 
 def get_rankings(competition):
     # Athlete Rankings
@@ -104,9 +104,9 @@ from .models import Handball, HGroup, Fixture
 def Handbol(request, id):
     competition = Handball.objects.get(id=id)
     hgroups = HGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(
-        status="Pending", competition=competition
-    ).order_by("date")
+    pending_fixtures = Fixture.objects.filter(competition=competition).order_by(
+        F("group").asc(nulls_last=True), "date", "time"
+    )
     results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )

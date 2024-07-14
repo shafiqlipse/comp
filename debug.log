@@ -5503,3 +5503,18 @@ ValueError: Need 2 values to unpack in for loop; got 9.
 Not Found: /favicon.ico
 E:\django\cms\cms\handball\hadviews.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /handball/Handball/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\handball\hadviews.py", line 108, in Handbol
+    F("group").asc(nulls_last=True), "date", "time"
+    ^
+NameError: name 'F' is not defined
+E:\django\cms\cms\handball\hadviews.py changed, reloading.
+Watching for file changes with StatReloader
