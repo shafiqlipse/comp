@@ -1,56 +1,147 @@
 {% extends "server/handbase.html" %} {%load static%}
 <!-- fixtures_edit.html -->
 {%block handball%}
-<div class="fixture-page">
-  <h2>{{fixture.team1}} VS {{fixture.team2}}</h2>
-</div>
-<form id="editFixtureForm" method="post" action="" class="edit_fixture glue">
-  {% csrf_token %}
 
-  <div class="fieldsgrid grid3">
-    <div class="field flex">
-      <label>{{form.stage.label}}</label>
-      <span>{{form.stage}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.status.label}}</label>
-      <span>{{form.status}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.round.label}}</label>
-      <span>{{form.round}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.group.label}}</label>
-      <span>{{form.group}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.venue.label}}</label>
-      <span>{{form.venue}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.date.label}}</label>
-      <span>{{form.date}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.team1.label}}</label>
-      <span>{{form.team1}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.team2.label}}</label>
-      <span>{{form.team2}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.team1_score.label}}</label>
-      <span>{{form.team1_score}}</span>
-    </div>
-    <div class="field flex">
-      <label>{{form.team2_score.label}}</label>
-      <span>{{form.team2_score}}</span>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4">{{fixture.team1}} VS {{fixture.team2}}</h2>
     </div>
   </div>
 
-  <button type="submit">Save Changes</button>
-</form>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form
+        id="editFixtureForm"
+        method="post"
+        action=""
+        class="needs-validation"
+        novalidate
+      >
+        {% csrf_token %}
 
-{%endblock%}
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.stage.id_for_label }}" class="form-label"
+                >{{form.stage.label}}</label
+              >
+              {{form.stage}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.status.id_for_label }}" class="form-label"
+                >{{form.status.label}}</label
+              >
+              {{form.status}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.round.id_for_label }}" class="form-label"
+                >{{form.round.label}}</label
+              >
+              {{form.round}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.group.id_for_label }}" class="form-label"
+                >{{form.group.label}}</label
+              >
+              {{form.group}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.venue.id_for_label }}" class="form-label"
+                >{{form.venue.label}}</label
+              >
+              {{form.venue}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="{{ form.date.id_for_label }}" class="form-label"
+                >{{form.date.label}}</label
+              >
+              {{form.date}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="{{ form.time.id_for_label }}" class="form-label"
+                >{{form.time.label}}</label
+              >
+              {{form.time}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="{{ form.team1.id_for_label }}" class="form-label"
+                >{{form.team1.label}}</label
+              >
+              {{form.team1}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="{{ form.team2.id_for_label }}" class="form-label"
+                >{{form.team2.label}}</label
+              >
+              {{form.team2}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ form.team1_score.id_for_label }}"
+                class="form-label"
+                >{{form.team1_score.label}}</label
+              >
+              {{form.team1_score}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ form.team2_score.id_for_label }}"
+                class="form-label"
+                >{{form.team2_score.label}}</label
+              >
+              {{form.team2_score}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ form.team1_sets_won.id_for_label }}"
+                class="form-label"
+                >{{form.team1_sets_won.label}}</label
+              >
+              {{form.team1_sets_won}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ form.team2_sets_won.id_for_label }}"
+                class="form-label"
+                >{{form.team2_sets_won.label}}</label
+              >
+              {{form.team2_sets_won}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

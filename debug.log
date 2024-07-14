@@ -5519,3 +5519,99 @@ NameError: name 'F' is not defined
 E:\django\cms\cms\handball\hadviews.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+Internal Server Error: /volleyball/vfixture/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: server/volbase.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\volleyball\views.py", line 168, in edit_vfixtures_view
+    return render(
+           ^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "E:\django\cms\venv\Lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: server/volbase.html
+Not Found: /favicon.ico
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\volleyball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /volleyball/vfixture/img/avatars/avatar-5.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-2.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-4.jpg
+Not Found: /volleyball/vfixture/img/avatars/avatar-3.jpg
+Not Found: /volleyball/vfixture/js/datatables.js
+E:\django\cms\cms\handball\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /handball/hfixture/img/avatars/avatar-5.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-2.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-3.jpg
+Not Found: /handball/hfixture/img/avatars/avatar-4.jpg
+Not Found: /handball/hfixture/js/datatables.js

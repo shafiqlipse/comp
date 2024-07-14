@@ -20,6 +20,7 @@ from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
 from django.db.models import F
 
+
 def get_rankings(competition):
     # Athlete Rankings
     athlete_rankings = (
@@ -227,6 +228,9 @@ def HFixtureDetail(request, id):
 
 
 def Hhome(request):
-
-    context = {}
+    girls = Handball.objects.get(name="Handball girls")
+    boys = Handball.objects.get(name="Handball boys")
+    girls_teams = girls.teams.all()
+    boys_teams = boys.teams.all()
+    context = {"girls_teams": girls_teams, "boys_teams": boys_teams}
     return render(request, "frontend/hhome.html", context)
