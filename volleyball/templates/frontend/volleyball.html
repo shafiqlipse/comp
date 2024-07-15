@@ -125,8 +125,9 @@
                 {% for fixture in date.list %}
                 <tr>
                   <td>
-                    {{ fixture.team1.school.name|slice:":9" }} vs {{
-                    fixture.team2.school.name|slice:":9" }}
+                    {{ fixture.team1.school.name|slice:":9" }} vs
+                    <!---->
+                    {{ fixture.team2.school.name|slice:":9" }}
                   </td>
                   <td>
                     <div class="match-info">
