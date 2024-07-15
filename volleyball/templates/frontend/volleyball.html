@@ -113,8 +113,9 @@
                   <th>Teams</th>
                 </tr>
               </thead>
-              {% regroup competition.list by group as group_list %} {% for group
-              in group_list %}
+              {% regroup competition.list by group as group_list %}
+              <!---->
+              {% for group in group_list %}
               <tbody>
                 <tr>
                   <th colspan="2">{{ group.grouper }}</th>
