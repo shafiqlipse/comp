@@ -80,9 +80,9 @@ def get_rankings(competition):
 def Nutbol(request, id):
     competition = Netball.objects.get(id=id)
     ngroups = NGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(competition=competition).order_by(
-        F("group").asc(nulls_last=True), "date", "time"
-    )
+    pending_fixtures = Fixture.objects.filter(
+        competition=competition, status="Pending"
+    ).order_by(F("group").asc(nulls_last=True), "date", "time")
     results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
