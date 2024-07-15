@@ -104,8 +104,9 @@
           aria-labelledby="nav-home-tab"
         >
           <div class="fixtures">
-            {% regroup results by competition as competition_list %} {% for
-            competition in competition_list %}
+            {% regroup results by competition as competition_list %}
+            <!---->
+            {% for competition in competition_list %}
             <h2>{{ competition.grouper }}</h2>
             <table class="table table-striped">
               <thead>
