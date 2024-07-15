@@ -112,7 +112,6 @@
               <thead>
                 <tr>
                   <th>Teams</th>
-                  <th>Score</th>
                 </tr>
               </thead>
               {% regroup competition.list by date as date_list %}
@@ -125,15 +124,12 @@
                 {% for fixture in date.list %}
                 <tr>
                   <td>
-                    {{ fixture.team1.school.name|slice:":9" }} vs
-                    <!---->
-                    {{ fixture.team2.school.name|slice:":9" }}
-                  </td>
-                  <td>
+                    {{ fixture.team1.school.name|slice:":9" }}
                     <div class="match-info flex">
                       {{ fixture.team1_sets_won }}:{{ fixture.team2_sets_won }}
                       ({{ fixture.team1_score }}:{{ fixture.team2_score }})
                     </div>
+                    {{ fixture.team2.school.name|slice:":9" }}
                   </td>
                 </tr>
                 {% endfor %}
