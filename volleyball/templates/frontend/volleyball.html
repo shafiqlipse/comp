@@ -104,31 +104,42 @@
           aria-labelledby="nav-home-tab"
         >
           <div class="fixtures">
+            {% regroup results by competition as competition_list %}
+            <!---->
+            {% for competition in competition_list %}
+            <h2>{{ competition.grouper }}</h2>
             <table class="table table-striped">
-              {% regroup results by competition as competition_list %}
-              <!---->
-              {% for competition in competition_list %}
-              <h2>{{ competition.grouper }}</h2>
+              <thead>
+                <tr>
+                  <th>Teams</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
               {% regroup competition.list by date as date_list %}
               <!---->
               {% for date in date_list %}
-              <h3>{{ date.grouper }}</h3>
               <tbody>
+                <tr>
+                  <th colspan="2">{{ date.grouper }}</th>
+                </tr>
                 {% for fixture in date.list %}
                 <tr>
                   <td>
-                    {{ fixture.team1.school.name|slice:":9" }}
+                    {{ fixture.team1.school.name|slice:":9" }} vs {{
+                    fixture.team2.school.name|slice:":9" }}
+                  </td>
+                  <td>
                     <div class="match-info">
                       {{ fixture.team1_sets_won }}:{{ fixture.team2_sets_won }}
                       ({{ fixture.team1_score }}:{{ fixture.team2_score }})
                     </div>
-                    {{ fixture.team2.school.name|slice:":9" }}
                   </td>
                 </tr>
                 {% endfor %}
               </tbody>
-              {% endfor %} {% endfor %}
+              {% endfor %}
             </table>
+            {% endfor %}
           </div>
         </div>
         <div
