@@ -1,9 +1,9 @@
-{% extends "server/bas5base.html" %} {%load static%}
+{% extends "dashboard/dashboard.html" %} {%load static%}
 <!---->
-{% block title %} Basketball 5X5 {% endblock %}
+{% block title %} {{tournament.championship}}{% endblock %}
 <!---->
 
-{%block basketball5%}
+{%block content%}
 <div class="championships">
   <div class="champ">
     {% if championship.thumbnail %}
@@ -11,7 +11,7 @@
     <h3>{{championship}}</h3>
   </div>
   <div class="top flex">
-    <h1>Basketball5 Tournaments</h1>
+    <h1>Basketball5X3 Tournaments</h1>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add tournament</a>
   </div>
 
@@ -80,7 +80,40 @@
         </div>
         <div class="modal-body">
           <form action="" method="post" class="form-control">
-            {% csrf_token %} {{cform.as_p}}
+            {% csrf_token %}
+            <div class="field flex">
+              <label>{{ cform.name.label}} </label>{{cform.name}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.championship.label}} </label
+              >{{cform.championship}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.season.label}} </label>{{cform.season}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.participants.label}} </label
+              >{{cform.participants}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.number_of_groups.label}} </label
+              >{{cform.number_of_groups}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.sport.label}} </label>{{cform.sport}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.gender.label}} </label>{{cform.gender}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.age.label}} </label>{{cform.age}}
+            </div>
+
+            <div class="field flex">
+              <label>{{ cform.teams.label}} </label>
+              <div id="id_teams" class="form-control teams"></div>
+            </div>
+
             <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
         </div>

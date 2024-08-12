@@ -25,23 +25,29 @@
       </div>
       {% include "base/left.html" %}
     </div>
+
     <div class="futbol">
       <div class="accounts">
         <h3>Tournaments</h3>
         <hr />
         <div class="logs">
           {% for htourn in htourns %}
-          <li>
-            <a href="{%url 'Handball' htourn.id %}" class="sport-link"
-              >{{htourn.championship}}|{{htourn.season}}|{{htourn.name}}</a
-            >
-          </li>
-          <hr />
+
+          <div class="netcard">
+            <a href="{%url 'Handball' htourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{htourn.name}}</h3>
+                <p>{{htourn.championship}} | {{htourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
           {% endfor %}
         </div>
       </div>
     </div>
-
+    
     <div class="left">{% include "base/right.html" %}</div>
   </div>
 </div>

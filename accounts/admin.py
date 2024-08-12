@@ -8,6 +8,7 @@ from football.models import *
 from handball.models import *
 from volleyball.models import *
 from basketball3.models import *
+from rugby7s.models import *
 
 
 # Register your models here.
@@ -21,3 +22,4 @@ admin.site.register(Netball)
 admin.site.register(Handball)
 admin.site.register(Volleyball)
 admin.site.register(Basketball3)
+admin.site.register(Rugby7s)

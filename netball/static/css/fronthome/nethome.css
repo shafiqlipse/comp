@@ -1,0 +1,63 @@
+.home-page .home-area .futbol {
+  width: 100%;
+}
+.home-page .home-area .futbol .accounts {
+  width: 100%;
+  padding: 20px;
+}
+@media (max-width: 460px) {
+  .home-page .home-area .futbol .accounts {
+    padding: 10px;
+  }
+}
+.home-page .home-area .futbol .accounts .logs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 660px) {
+  .home-page .home-area .futbol .accounts .logs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 460px) {
+  .home-page .home-area .futbol .accounts .logs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.home-page .home-area .futbol .accounts .logs .netcard {
+  box-shadow: 1px 1px 10px 1px #d6d6d6;
+  border-radius: 5px;
+  padding: 10px;
+}
+.home-page .home-area .futbol .accounts .logs .netcard:hover {
+  box-shadow: none;
+  color: red;
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgb(26, 26, 27);
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport:hover {
+  box-shadow: none;
+  color: red;
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport .icon {
+  font-size: 2em;
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport .title {
+  margin: 10px;
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport .title h3 {
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.home-page .home-area .futbol .accounts .logs .netcard .sport .title p {
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 300;
+}/*# sourceMappingURL=nethome.css.map */

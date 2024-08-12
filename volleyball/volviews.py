@@ -64,10 +64,10 @@ def get_rankings(competition):
 def Volbol(request, id):
     competition = Volleyball.objects.get(id=id)
     vgroups = VGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(
+    pending_fixtures = VFixture.objects.filter(
         status="Pending", competition=competition
     ).order_by("date")
-    results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
+    results = VFixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
     rankings = get_rankings(competition)
@@ -92,7 +92,7 @@ def Volbol(request, id):
             for team in group.teams.all()
         }
 
-        group_fixtures = Fixture.objects.filter(group=group)
+        group_fixtures = VFixture.objects.filter(group=group)
         for fixture in group_fixtures:
             if fixture.team1_score is not None and fixture.team2_score is not None:
                 standings[fixture.team1]["played"] += 1

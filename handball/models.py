@@ -46,7 +46,7 @@ class HGroup(models.Model):
         return self.name
 
 
-class Fixture(models.Model):
+class HFixture(models.Model):
     statuses = (
         ("Pending", "Pending"),
         ("InPlay", "InPlay"),
@@ -87,7 +87,7 @@ class Fixture(models.Model):
 
 
 class MatchEvent(models.Model):
-    match = models.ForeignKey(Fixture, on_delete=models.CASCADE)
+    match = models.ForeignKey(HFixture, on_delete=models.CASCADE)
     EVENT_CHOICES = [
         ("Goal", "Goal"),
         ("Save", "Save"),
@@ -146,7 +146,7 @@ class match_official(models.Model):
     )
 
     fixture = models.ForeignKey(
-        Fixture, on_delete=models.CASCADE, related_name="hofix", null=True, blank=True
+        HFixture, on_delete=models.CASCADE, related_name="hofix", null=True, blank=True
     )
     official = models.ForeignKey(
         Official,

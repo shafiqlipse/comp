@@ -99,16 +99,16 @@ def get_rankings(competition):
 
 
 from django.shortcuts import render
-from .models import Handball, HGroup, Fixture
+from .models import Handball, HGroup, HFixture
 
 
 def Handbol(request, id):
     competition = Handball.objects.get(id=id)
     hgroups = HGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(competition=competition).order_by(
+    pending_fixtures = HFixture.objects.filter(competition=competition).order_by(
         F("group").asc(nulls_last=True), "date", "time"
     )
-    results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
+    results = HFixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
     rankings = get_rankings(competition)
@@ -131,7 +131,7 @@ def Handbol(request, id):
             for team in group.teams.all()
         }
 
-        group_fixtures = Fixture.objects.filter(group=group)
+        group_fixtures = HFixture.objects.filter(group=group)
         for fixture in group_fixtures:
             if fixture.team1_score is not None and fixture.team2_score is not None:
                 for team, opponent, team_score, opponent_score in [
@@ -190,7 +190,7 @@ from django.db.models import Q
 
 
 def HFixtureDetail(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(HFixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
@@ -205,10 +205,10 @@ def HFixtureDetail(request, id):
     team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
     team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
     # ------fixtures by team
-    team1_fixtures = Fixture.objects.filter(
+    team1_fixtures = HFixture.objects.filter(
         Q(team1=fixture.team1) | Q(team2=fixture.team1)
     ).distinct()
-    team2_fixtures = Fixture.objects.filter(
+    team2_fixtures = HFixture.objects.filter(
         Q(team1=fixture.team2) | Q(team2=fixture.team2)
     ).distinct()
     context = {
@@ -231,9 +231,6 @@ def HFixtureDetail(request, id):
 
 
 def Hhome(request):
-    girls = Handball.objects.get(name="Handball girls")
-    boys = Handball.objects.get(name="Handball boys")
-    girls_teams = girls.teams.all()
-    boys_teams = boys.teams.all()
-    context = {"girls_teams": girls_teams, "boys_teams": boys_teams}
+
+    context = {}
     return render(request, "frontend/hhome.html", context)

@@ -80,12 +80,12 @@ def get_rankings(competition):
 def Nutbol(request, id):
     competition = Netball.objects.get(id=id)
     ngroups = NGroup.objects.filter(competition=competition)
-    pending_fixtures = Fixture.objects.filter(
+    pending_fixtures = NFixture.objects.filter(
         competition=competition, status="Pending"
     ).order_by(F("group").asc(nulls_last=True), "date", "time")
-    results = Fixture.objects.filter(status="InPlay", competition=competition).order_by(
-        "date"
-    )
+    results = NFixture.objects.filter(
+        status="InPlay", competition=competition
+    ).order_by("date")
     rankings = get_rankings(competition)
 
     standings_data = {}
@@ -106,7 +106,7 @@ def Nutbol(request, id):
             for team in group.teams.all()
         }
 
-        group_fixtures = Fixture.objects.filter(group=group)
+        group_fixtures = NFixture.objects.filter(group=group)
         for fixture in group_fixtures:
             if fixture.team1_score is not None and fixture.team2_score is not None:
                 for team, opponent, team_score, opponent_score in [
@@ -172,7 +172,7 @@ from django.db.models import Q
 
 
 def FixtureDetail(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(NFixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
@@ -187,10 +187,10 @@ def FixtureDetail(request, id):
     team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
     team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
     # ------fixtures by team
-    team1_fixtures = Fixture.objects.filter(
+    team1_fixtures = NFixture.objects.filter(
         Q(team1=fixture.team1) | Q(team2=fixture.team1)
     ).distinct()
-    team2_fixtures = Fixture.objects.filter(
+    team2_fixtures = NFixture.objects.filter(
         Q(team1=fixture.team2) | Q(team2=fixture.team2)
     ).distinct()
     context = {
@@ -213,13 +213,13 @@ def FixtureDetail(request, id):
 
 
 def NFixtures(request):
-    fixtures = Fixture.objects.filter(status="InPlay").order_by("-date")
+    fixtures = NFixture.objects.filter(status="InPlay").order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "frontend/netfixtures.html", context)
 
 
 def NResults(request):
-    results = Fixture.objects.filter(status="InPlay").order_by("-date")
+    results = NFixture.objects.filter(status="InPlay").order_by("-date")
     context = {"results": results}
     return render(request, "frontend/netfixtures.html", context)
 
@@ -251,7 +251,7 @@ def netbollStandings(request):
                     }
 
                 # Update standings based on fixtures
-                fixtures = Fixture.objects.filter(group=group)
+                fixtures = NFixture.objects.filter(group=group)
                 for fixture in fixtures:
                     if (
                         fixture.team1_score is not None
@@ -313,3 +313,4 @@ def netbollStandings(request):
     }
 
     return render(request, "frontend/netstandings.html", context)
+

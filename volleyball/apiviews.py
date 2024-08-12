@@ -53,7 +53,7 @@ from accounts.models import Athlete
 
 def get_teams_for_match(request):
     match_id = request.GET.get("match_id")
-    fixture = get_object_or_404(Fixture, id=match_id)
+    fixture = get_object_or_404(VFixture, id=match_id)
     teams = [fixture.team1, fixture.team2]
     return JsonResponse(
         {"teams": [{"id": team.id, "name": str(team)} for team in teams]}

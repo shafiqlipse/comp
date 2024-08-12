@@ -1,60 +1,73 @@
-.main-content-area {
+* {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+}
+
+.main-wrapper .nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.main-wrapper .main-content-area {
   background-color: rgb(242, 242, 242);
 }
-.main-content-area .content .sport-content .content-area {
+.main-wrapper .main-content-area .content .sport-content .content-area {
   padding: 10px 5%;
   align-items: flex-start;
 }
 @media (max-width: 1028px) {
-  .main-content-area .content .sport-content .content-area {
+  .main-wrapper .main-content-area .content .sport-content .content-area {
     padding: 20px;
   }
 }
-.main-content-area .content .sport-content .content-area .left {
+.main-wrapper .main-content-area .content .sport-content .content-area .left {
   width: 400px;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
 }
 @media (max-width: 1124px) {
-  .main-content-area .content .sport-content .content-area .left {
+  .main-wrapper .main-content-area .content .sport-content .content-area .left {
     display: none;
   }
 }
-.main-content-area .content .sport-content .content-area .left .accounts {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .accounts {
   padding: 10px 0;
   font-size: 17px;
   font-weight: bold;
 }
-.main-content-area .content .sport-content .content-area .left .logs {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs {
   display: flex;
   list-style: none;
   flex-direction: column;
 }
-.main-content-area .content .sport-content .content-area .left .logs img {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs img {
   width: 100%;
 }
-.main-content-area .content .sport-content .content-area .left .logs p {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs p {
   font-weight: 300;
   font-size: 14px;
 }
-.main-content-area .content .sport-content .content-area .left .logs a {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs a {
   margin: 5px 0;
 }
-.main-content-area .content .sport-content .content-area .left .logs li a {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs li a {
   text-decoration: none;
   color: #636363;
   font-size: 14px;
 }
-.main-content-area .content .sport-content .content-area .left .logs li a:hover {
+.main-wrapper .main-content-area .content .sport-content .content-area .left .logs li a:hover {
   color: red;
 }
-.main-content-area .content .sport-content .content-area .futbol {
+.main-wrapper .main-content-area .content .sport-content .content-area .futbol {
   width: 100%;
   margin: 0 20px;
 }
 @media (max-width: 768px) {
-  .main-content-area .content .sport-content .content-area .futbol {
+  .main-wrapper .main-content-area .content .sport-content .content-area .futbol {
     margin: 0;
   }
 }/*# sourceMappingURL=base.css.map */

@@ -1,0 +1,38 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Basketball5{% endblock futitle %}
+<!--content-->
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">{% include "base/left.html" %}</div>
+
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for b5tourn in b5tourns %}
+
+          <div class="netcard">
+            <a href="{%url 'Basketball5' b5tourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{b5tourn.name}}</h3>
+                <p>{{b5tourn.championship}} | {{b5tourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

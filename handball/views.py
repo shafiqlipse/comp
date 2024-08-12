@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
-
 from .forms import *
 from .models import *
-
 from accounts.models import Sport
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -11,12 +8,7 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from accounts.decorators import *
-
 from django.db import connection
-
-# template
-
-
 # Create your views here.
 def Hutball(request):
     handball = Sport.objects.get(name="Handball")
@@ -95,7 +87,7 @@ def htourn_details(request, id):
             error_message = "There was an error in the form submission. Please correct the errors below."
     else:
         fixture_form = FixtureForm()
-    fixtures = Fixture.objects.filter(competition=tournament)
+    fixtures = HFixture.objects.filter(competition=tournament)
     context = {
         "tournament": tournament,
         "formset": formset,
@@ -131,7 +123,7 @@ def generate_hfixtures_view(request, id):
         # Simple round-robin algorithm for group stage fixtures
         for i in range(team_count - 1):
             for j in range(i + 1, team_count):
-                fixture = Fixture(
+                fixture = HFixture(
                     competition=handball,
                     season=season,
                     group=group,
@@ -145,7 +137,7 @@ def generate_hfixtures_view(request, id):
                 fixtures.append(fixture)
 
     # Bulk create fixtures
-    Fixture.objects.bulk_create(fixtures)
+    HFixture.objects.bulk_create(fixtures)
 
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
@@ -154,7 +146,7 @@ def generate_hfixtures_view(request, id):
 
 
 def edit_fixtures_view(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(HFixture, id=id)
 
     if request.method == "POST":
         form = FixtureForm(request.POST, instance=fixture)
@@ -178,7 +170,7 @@ from django.db.models import Q
 
 
 def FixtureDetail(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(HFixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
@@ -224,7 +216,7 @@ def FixtureDetail(request, id):
 # Create your views here.
 @school_required
 def fixtures(request):
-    fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
+    fixtures = HFixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "server/hfixtures.html", context)
 
@@ -258,7 +250,7 @@ def handballStandings(request):
                     }
 
                 # Update standings based on fixtures
-                fixtures = Fixture.objects.filter(group=group)
+                fixtures = HFixture.objects.filter(group=group)
                 for fixture in fixtures:
                     if (
                         fixture.team1_score is not None
@@ -323,7 +315,7 @@ def handballStandings(request):
 
 
 from django.shortcuts import render
-from .models import Sport, Handball, HGroup, Fixture
+from .models import Sport, Handball, HGroup, HFixture
 
 
 # Create your views here.
@@ -355,7 +347,7 @@ def generate_next_round_fixtures(request):
                         "gc": 0,
                     }
 
-                fixtures = Fixture.objects.filter(group=group)
+                fixtures = HFixture.objects.filter(group=group)
                 for fixture in fixtures:
                     if (
                         fixture.team1_score is not None
@@ -450,7 +442,7 @@ def generate_next_round_fixtures(request):
 
 
 def handfixtures(request):
-    fixures = Fixture.objects.all()
+    fixures = HFixture.objects.all()
     context = {"fixures": fixures}
     return render(request, "frontend/handfixtures.html", context)
 

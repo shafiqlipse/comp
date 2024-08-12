@@ -1,0 +1,304 @@
+{% extends "base/base.html" %}
+<!--static-->
+{% load static %}
+<!--title-->
+{% block title %}{% block futitle %}{{competition}}{% endblock futitle %}
+<!---->
+{% endblock title %}
+<!--content-->
+{% block content %}
+<div class="sport-content">
+  <nav class="navbear">
+    <div class="coned flex">
+      <a class="navbar-brands" href="">Rugby7s</a>
+      <nav>
+        <div class="nav nav-tabs natabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link active"
+            id="nav-profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-groups"
+            type="button"
+            role="tab"
+            aria-controls="nav-groups"
+            aria-selected="false"
+          >
+            groups
+          </button>
+          <button
+            class="nav-link"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+          >
+            Results
+          </button>
+          <button
+            class="nav-link"
+            id="nav-contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-fixtures"
+            type="button"
+            role="tab"
+            aria-controls="nav-contact"
+            aria-selected="false"
+          >
+            fixtures
+          </button>
+          <button
+            class="nav-link"
+            id="nav-contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-standings"
+            type="button"
+            role="tab"
+            aria-controls="nav-contact"
+            aria-selected="false"
+          >
+            standings
+          </button>
+          <button
+            class="nav-link"
+            id="nav-contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-rankings"
+            type="button"
+            role="tab"
+            aria-controls="nav-contact"
+            aria-selected="false"
+          >
+            rankings
+          </button>
+        </div>
+      </nav>
+    </div>
+  </nav>
+  <div class="content-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for r7tourn in r7tourns %}
+          <li>
+            <a href="{%url 'Rugby7s' r7tourn.id %}" class="sport-link"
+              >{{r7tourn.championship}}|{{r7tourn.season}}|{{r7tourn.name}}</a
+            >
+          </li>
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="futbol">
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane tabpane fade"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+        >
+          <div class="fixtures">
+            <h1>Results</h1>
+            {% regroup results by date as date_list %}
+            <!---->
+            {% for date in date_list %}
+            <div class="grouper">{{ date.grouper }}</div>
+            <!---->
+            {% for fixture in date.list %}
+            <div class="fixture">
+              <div class="match-info fglex">
+                <p>{{ fixture.team1.school.name|slice:":15"}}</p>
+
+                <p>{{ fixture.team1_score }}:{{ fixture.team2_score }}</p>
+
+                <p>{{ fixture.team2.school.name|slice:":15"}}</p>
+              </div>
+              <hr />
+            </div>
+            {% endfor %} {% endfor %}
+
+            <div class="fixture"></div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade show active"
+          id="nav-groups"
+          role="tabpanel"
+          aria-labelledby="nav-profile-tab"
+        >
+          <div class="groueps">
+            <h2>Groups</h2>
+            <div class="groups grid3">
+              {% for group in r7groups %}
+              <div class="group">
+                <h3>{{ group.name }}</h3>
+                <div class="teams">
+                  {% for team in group.teams.all %}
+                  <li>{{ team.school.name|slice:":15" }}</li>
+
+                  {% endfor %}
+                </div>
+              </div>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane tabpane fade"
+          id="nav-fixtures"
+          role="tabpanel"
+          aria-labelledby="nav-contact-tab"
+        >
+          <div class="fixtures">
+            <h1>Fixtures</h1>
+            {% regroup fixtures by date as date_list %}
+            <!---->
+            {% for date in date_list %}
+            <div class="grouper">{{ date.grouper }}</div>
+            <!---->
+            {% for fixture in date.list %}
+            <div class="fixture">
+              <div class="match-info fglex">
+                <p>{{ fixture.team1.school.name|slice:":15"}}</p>
+
+                <p>{{ fixture.time }}</p>
+
+                <p>{{ fixture.team2.school.name|slice:":15"}}</p>
+              </div>
+              <hr />
+            </div>
+            {% endfor %} {% endfor %}
+
+            <div class="fixture"></div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="nav-standings"
+          role="tabpanel"
+          aria-labelledby="nav-contact-tab"
+        >
+          <div class="standings">
+            <h2>{{ competition.championship }} | {{ competition.name }}</h2>
+            <div class="tables grid2">
+              {% for group, standings in standings_data.items %}
+              <div class="table">
+                <h4>{{ group.name }}</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Team</th>
+                      <th>P</th>
+                      <th>W</th>
+                      <th>D</th>
+                      <th>L</th>
+                      <th>FS</th>
+                      <th>FA</th>
+                      <th>PD</th>
+                      <th>Pts</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for team, stats in standings %}
+                    <tr>
+                      <td>{{ team.school.name|slice:":6" }}</td>
+                      <td>{{ stats.p }}</td>
+                      <td>{{ stats.w }}</td>
+                      <td>{{ stats.d }}</td>
+                      <td>{{ stats.l }}</td>
+                      <td>{{ stats.fs }}</td>
+                      <td>{{ stats.fa }}</td>
+                      <td>{{ stats.pd }}</td>
+                      <td>{{ stats.pts }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="nav-rankings"
+          role="tabpanel"
+          aria-labelledby="nav-contact-tab"
+        >
+          <h2>Player Rankings</h2>
+          {% if rankings.top_points_scorers %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Tries</th>
+                <th>Conversions</th>
+                <th>Penalty Kicks</th>
+                <th>Drop Goals</th>
+                <th>Total Points</th>
+                <th>Tackles</th>
+                <th>Yellow Cards</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for player in rankings.top_points_scorers %}
+              <tr>
+                <td>{{ player.fname }} {{ player.lname }}</td>
+                <td>{{ player.tries }}</td>
+                <td>{{ player.conversions }}</td>
+                <td>{{ player.penalty_kicks }}</td>
+                <td>{{ player.drop_goals }}</td>
+                <td>{{ player.total_points }}</td>
+                <td>{{ player.tackles }}</td>
+                <td>{{ player.yellow_cards }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p>No player rankings data available.</p>
+          {% endif %}
+
+          <h2>Team Rankings</h2>
+          {% if rankings.team_points %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th>Tries</th>
+                <th>Total Points</th>
+                <th>Tackles</th>
+                <th>Yellow Cards</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for team in rankings.team_points %}
+              <tr>
+                <td>{{ team.school.name }}</td>
+                <td>{{ team.tries }}</td>
+                <td>{{ team.total_points }}</td>
+                <td>{{ team.tackles }}</td>
+                <td>{{ team.yellow_cards }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p>No team rankings data available.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+{% endblock %}

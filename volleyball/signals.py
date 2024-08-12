@@ -21,10 +21,10 @@ def create_groups_for_season(sender, instance, created, **kwargs):
 
 
 # set score to zero and begin th game
-@receiver(pre_save, sender=Fixture)
+@receiver(pre_save, sender=VFixture)
 def reset_scores_if_inplay(sender, instance, **kwargs):
     if instance.id:
-        previous = Fixture.objects.get(id=instance.id)
+        previous = VFixture.objects.get(id=instance.id)
         if previous.status == "Pending" and instance.status == "InPlay":
             instance.team1_score = 0
             instance.team2_score = 0

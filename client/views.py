@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from netball.models import Fixture
+from netball.models import NFixture
 
 
 # Create your views here.

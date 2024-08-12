@@ -75,7 +75,7 @@ class FixtureForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Fixture
+        model = HFixture
         fields = [
             "stage",
             "status",

@@ -1,0 +1,69 @@
+.sport-content .navbear {
+  width: 100%;
+  position: sticky;
+  top: 50px;
+  z-index: 199;
+}
+.sport-content .content-area {
+  position: relative;
+}
+.sport-content .content-area .left {
+  position: sticky;
+  top: 100;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .grouper {
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  background-color: #ccc;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture {
+  padding: 5px;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info {
+    grid-template-columns: 1fr 50px 1fr;
+  }
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info p {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info p:first-child {
+  text-align: right;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info p:nth-child(2) {
+  text-align: center;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  margin: 5px 10px;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info p:nth-child(3) {
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info p {
+    font-size: 12px;
+  }
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture .match-info .fgex {
+  text-align: center;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 1px;
+}
+.sport-content .content-area .futbol .tabpane .fixtures .fixture hr {
+  padding: 0;
+  margin: 0;
+}/*# sourceMappingURL=netball.css.map */

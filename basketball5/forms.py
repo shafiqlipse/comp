@@ -13,6 +13,7 @@ class Co3mpForm(forms.ModelForm):
             "season",
             "sport",
             "gender",
+            "age",
             "teams",
             "participants",
             "number_of_groups",
@@ -21,21 +22,30 @@ class Co3mpForm(forms.ModelForm):
 
 class B5GroupForm(forms.ModelForm):
     teams = forms.ModelMultipleChoiceField(
-        queryset=SchoolTeam.objects.all(),  # Replace Team with your actual model name
+        queryset=SchoolTeam.objects.none(),  # We'll set this in __init__
         widget=CheckboxSelectMultiple,
+        required=False,  # Set to True if you want to require at least one team
     )
 
     class Meta:
         model = B5Group
         fields = ["name", "teams"]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and hasattr(self.instance, "competition"):
+            self.fields["teams"].queryset = self.instance.competition.teams.all()
 
-GroupFormSet = forms.inlineformset_factory(
+
+from django.forms import inlineformset_factory
+
+GroupFormSet = inlineformset_factory(
     parent_model=Basketball5,
     model=B5Group,
+    form=B5GroupForm,  # Use our custom form
     fields=["name", "teams"],
-    extra=0,  # Set this to the number of forms you want initially
-    can_delete=False,  # If you want to allow deleting groups, set this to True
+    extra=0,
+    can_delete=False,
 )
 
 
@@ -43,7 +53,7 @@ GroupFormSet = forms.inlineformset_factory(
 
 
 class B5FixtureForm(forms.ModelForm):
-    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "datetime-local"}))
+    date = forms.DateTimeField(widget=forms.TextInput(attrs={"type": "date"}))
     # time = forms.TimeField(widget=TimeInput(attrs={"type": "time"}))
 
     class Meta:
@@ -72,4 +82,18 @@ class MatchOfficialForm(forms.ModelForm):
 class MatchEventForm(forms.ModelForm):
     class Meta:
         model = MatchEvent
-        fields = "__all__"
+        fields = ["event_type", "team", "athlete", "minute", "commentary"]
+
+    def __init__(self, *args, **kwargs):
+        fixture_instance = kwargs.pop("fixture_instance", None)
+        super().__init__(*args, **kwargs)
+
+        if fixture_instance:
+            # Filter team choices based on the fixture_instance
+            team_choices = [
+                (fixture_instance.team1.id, str(fixture_instance.team1)),
+                (fixture_instance.team2.id, str(fixture_instance.team2)),
+            ]
+            self.fields["team"].choices = team_choices
+        else:
+            self.fields["team"].queryset = self.fields["team"].queryset.none()

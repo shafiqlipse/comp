@@ -1,0 +1,26 @@
+.sport-content {
+  .navbear {
+    .coned {
+      .navbar-brands {
+        padding: 5px;
+      }
+      nav {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #f00f0f #0288d5; /* For Firefox */
+
+        .nav-tabs {
+          width: 500px;
+
+          .nav-link {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

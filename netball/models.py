@@ -46,7 +46,7 @@ class NGroup(models.Model):
         return self.name
 
 
-class Fixture(models.Model):
+class NFixture(models.Model):
     statuses = (
         ("Pending", "Pending"),
         ("InPlay", "InPlay"),
@@ -87,7 +87,7 @@ class Fixture(models.Model):
 
 
 class MatchEvent(models.Model):
-    match = models.ForeignKey(Fixture, on_delete=models.CASCADE)
+    match = models.ForeignKey(NFixture, on_delete=models.CASCADE)
     EVENT_CHOICES = [
         ("Goal", "Goal"),
         ("Intercept", "Intercept"),
@@ -132,7 +132,7 @@ class match_official(models.Model):
     )
 
     fixture = models.ForeignKey(
-        Fixture, on_delete=models.CASCADE, related_name="nofix", null=True, blank=True
+        NFixture, on_delete=models.CASCADE, related_name="nofix", null=True, blank=True
     )
     official = models.ForeignKey(
         Official,

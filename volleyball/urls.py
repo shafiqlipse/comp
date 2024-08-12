@@ -32,6 +32,7 @@ urlpatterns = [
     path("Volleyball", Vhome, name="Volleyball"),
     path("addvfixtures/", create_vfixture, name="addvfixture"),
     # path("fixtures/", fixtures, name="fixtures"),
+    path("vfixtured/<int:id>/", VFixturepage, name="vfixtured"),
     path("volfixtures/", volfixtures, name="volfixtures"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("Volleyball/<int:id>", Volbol, name="Volleyball"),

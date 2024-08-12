@@ -17,6 +17,12 @@ class Basketball5(models.Model):
     sport = models.ForeignKey(
         Sport, on_delete=models.CASCADE, related_name="basketball5"
     )
+    age = models.CharField(
+        choices=(("U16", "U16"), ("U18", "U18"), ("U20", "U20")),
+        max_length=50,
+        null=True,
+        blank=True,
+    )
     gender = models.CharField(
         choices=[("Male", "male"), ("Female", "female")],
         max_length=10,
@@ -76,6 +82,7 @@ class B5Fixture(models.Model):
 
     venue = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateTimeField(null=True, blank=True)
+    time = models.TimeField(null=True, blank=True)
     team1 = models.ForeignKey(
         SchoolTeam, related_name="b5team1", on_delete=models.CASCADE
     )
@@ -91,7 +98,7 @@ class B5Fixture(models.Model):
 
 class MatchEvent(models.Model):
     match = models.ForeignKey(
-        B5Fixture, on_delete=models.CASCADE, related_name="basket5fixture"
+        B5Fixture, on_delete=models.CASCADE, related_name="basketfixture"
     )
     EVENT_CHOICES = [
         ("1-Pointer", "1-Pointer"),
@@ -108,7 +115,6 @@ class MatchEvent(models.Model):
         ("Shot Made (3-Pointer)", "Shot Made (3-Pointer)"),
         ("Shot Missed (3-Pointer)", "Shot Missed (3-Pointer)"),
         ("Free Throw", "Free Throw"),
-       
         # Add more choices as needed
     ]
 
@@ -119,7 +125,7 @@ class MatchEvent(models.Model):
     team = models.ForeignKey(
         SchoolTeam,
         on_delete=models.CASCADE,
-        related_name="basket_5team",
+        related_name="basket5_team",
     )
     athlete = models.ForeignKey(
         Athlete,
@@ -133,8 +139,6 @@ class MatchEvent(models.Model):
 
     def __str__(self):
         return f"{self.team} - {self.event_type} at {self.minute}'"
-
-
 
 
 class match_official(models.Model):
@@ -165,16 +169,3 @@ class match_official(models.Model):
     def __str__(self):
         return self.fixture
 
-
-# class Standings(models.Model):
-#     team = models.OneToOneField(SchoolTeam, on_delete=models.CASCADE)
-#     points = models.IntegerField(default=0)
-#     wins = models.IntegerField(default=0)
-#     losses = models.IntegerField(default=0)
-#     draws = models.IntegerField(default=0)
-#     goals_for = models.IntegerField(default=0)
-#     goals_against = models.IntegerField(default=0)
-#     goal_difference = models.IntegerField(default=0)
-
-#     def __str__(self):
-#         return f"{self.team} - {self.points} points"

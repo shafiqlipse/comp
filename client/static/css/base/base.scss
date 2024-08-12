@@ -1,58 +1,75 @@
-.main-content-area {
-  background-color: rgb(242, 242, 242);
-  .content {
-    .sport-content {
-      .content-area {
-        padding: 10px 5%;
-        align-items: flex-start;
-        @media (max-width: 1028px) {
-          padding: 20px;
-        }
-        .left {
-          width: 400px;
-          background-color: #fff;
-          padding: 20px;
-          border-radius: 5px;
-          @media (max-width: 1124px) {
-            display: none;
+* {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468,
+    "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+}
+
+.main-wrapper {
+  .nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .main-content-area {
+    background-color: rgb(242, 242, 242);
+
+    .content {
+      .sport-content {
+        .content-area {
+          padding: 10px 5%;
+          align-items: flex-start;
+          @media (max-width: 1028px) {
+            padding: 20px;
           }
-          .accounts {
-            padding: 10px 0;
-            font-size: 17px;
-            font-weight: bold;
-          }
-          .logs {
-            display: flex;
-            list-style: none;
-            flex-direction: column;
-            img {
-              width: 100%;
+          .left {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            @media (max-width: 1124px) {
+              display: none;
             }
-            p{
-              font-weight: 300;
-              font-size: 14px;
+            .accounts {
+              padding: 10px 0;
+              font-size: 17px;
+              font-weight: bold;
             }
-            a {
-              margin: 5px 0;
-            }
-            li {
-              a {
-                text-decoration: none;
-                color: #636363;
+            .logs {
+              display: flex;
+              list-style: none;
+              flex-direction: column;
+              img {
+                width: 100%;
+              }
+              p {
+                font-weight: 300;
                 font-size: 14px;
-                &:hover {
-                  color: red;
+              }
+              a {
+                margin: 5px 0;
+              }
+              li {
+                a {
+                  text-decoration: none;
+                  color: #636363;
+                  font-size: 14px;
+                  &:hover {
+                    color: red;
+                  }
                 }
               }
             }
           }
-        }
-        .futbol {
-          width: 100%;
-          margin: 0 20px;
+          .futbol {
+            width: 100%;
+            margin: 0 20px;
 
-          @media (max-width: 768px) {
-            margin: 0;
+            @media (max-width: 768px) {
+              margin: 0;
+            }
           }
         }
       }

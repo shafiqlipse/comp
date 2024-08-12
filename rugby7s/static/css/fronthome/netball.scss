@@ -1,0 +1,74 @@
+.sport-content {
+  .navbear {
+    width: 100%;
+    position: sticky;
+    top: 50px;
+    z-index: 199;
+  }
+  .content-area {
+    position: relative;
+    .left {
+      position: sticky;
+      top: 100;
+    }
+    .futbol {
+      .tabpane {
+        .fixtures {
+          .grouper {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background-color: #ccc;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+          }
+          .fixture {
+            padding: 5px;
+            .match-info {
+              display: grid;
+              grid-template-columns: 1fr 100px 1fr;
+              align-items: center;
+              @media (max-width: 480px) {
+                grid-template-columns: 1fr 50px 1fr;
+              }
+              p {
+                font-size: 15px;
+                &:first-child {
+                  text-align: right;
+                }
+                &:nth-child(2) {
+                  text-align: center;
+                  padding: 5px;
+                  background-color: red;
+                  color: white;
+                  margin: 5px 10px;
+                }
+                &:nth-child(3) {
+                  text-align: left;
+                }
+                @media (max-width: 480px) {
+                  font-size: 12px;
+                }
+                text-transform: capitalize;
+              }
+              .fgex {
+                text-align: center;
+                padding: 5px;
+                background-color: red;
+                color: white;
+                // margin: 5px 10px;
+                align-items: center;
+                justify-content: center;
+                font-size: 1px;
+              }
+            }
+            hr {
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

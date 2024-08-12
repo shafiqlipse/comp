@@ -25,8 +25,10 @@ urlpatterns = [
     # path("get_fteams/", getfoot_teams, name="get_fteams"),--netball
     path("get_nteams/", getnet_teams, name="get_nteams"),
     # path("get_nteams/", getnet_teams, name="get_nteams"),
+    path("get_fixture_teams/", get_fixture_teams, name="get_fixture_teams"),
     path("get_b3teams/", getb3_teams, name="get_b3teams"),
     # path("get_teams_for_match/", get_teams_for_match, name="get_teams_for_match"),
+    path("summernote/", include("django_summernote.urls")),
     # path("get_athletes_for_team/", get_athletes_for_team, name="get_athletes_for_team"),
     # path("accounts/", include("accounts.urls")),
     path("dashboard/", include("dashboard.urls")),
@@ -36,9 +38,11 @@ urlpatterns = [
     path("netball/", include("netball.urls")),
     path("handball/", include("handball.urls")),
     path("news/", include("news.urls")),
+    path("rugby7s/", include("rugby7s.urls")),
+    path("rugby15s/", include("rugby15s.urls")),
     path("volleyball/", include("volleyball.urls")),
     # path("beachsoccer/", include("beachsoccer.urls")),
     path("basketball3/", include("basketball3.urls")),
     path("athletics/", include("athletics.urls")),
-    # path("basketball5/", include("basketball5.urls")),
+    path("basketball5/", include("basketball5.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

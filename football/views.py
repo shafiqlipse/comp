@@ -231,6 +231,44 @@ def FixtureDetail(request, id):
     # ).distinct()
 
 
+def Fixturepage(request, id):
+    fixture = get_object_or_404(Fixture, id=id)
+    events = MatchEvent.objects.filter(match_id=id)
+    goals1 = events.filter(event_type="Goal", team=fixture.team1)
+    goals2 = events.filter(event_type="Goal", team=fixture.team2)
+    team1_yellowcards = events.filter(
+        event_type="YellowCard", team=fixture.team1
+    ).count()
+    team2_yellowcards = events.filter(
+        event_type="YellowCard", team=fixture.team2
+    ).count()
+    team1_redcards = events.filter(event_type="RedCard", team=fixture.team1).count()
+    team2_redcards = events.filter(event_type="RedCard", team=fixture.team2).count()
+    team1_goals = events.filter(event_type="Goal", team=fixture.team1).count()
+    team2_goals = events.filter(event_type="Goal", team=fixture.team2).count()
+    team1_fouls = events.filter(event_type="Foul", team=fixture.team1).count()
+    team2_fouls = events.filter(event_type="Foul", team=fixture.team2).count()
+    team1_Save = events.filter(event_type="Save", team=fixture.team1).count()
+    team2_Save = events.filter(event_type="Save", team=fixture.team2).count()
+    context = {
+        "fixture": fixture,
+        "events": events,
+        "team1_yellowcards": team1_yellowcards,
+        "team2_yellowcards": team2_yellowcards,
+        "team1_redcards": team1_redcards,
+        "team2_redcards": team2_redcards,
+        "team1_goals": team1_goals,
+        "team2_goals": team2_goals,
+        "team1_fouls": team1_fouls,
+        "team2_fouls": team2_fouls,
+        "team1_Save": team1_Save,
+        "team2_Save": team2_Save,
+        "goals1": goals1,
+        "goals2": goals2,
+    }
+    return render(request, "frontend/fixturepage.html", context)
+
+
 def fixtures(request):
     fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}

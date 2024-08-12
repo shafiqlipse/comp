@@ -1,0 +1,137 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} {{tournament.championship}}{% endblock %}
+<!---->
+
+{%block content%}
+<div class="championships">
+  <div class="champ">
+    {% if championship.thumbnail %}
+    <img src="{{championship.thumbnail.url}}" alt="" />{% endif %}
+    <h3>{{championship}}</h3>
+  </div>
+  <div class="top flex">
+    <h1>Rugby7s Tournaments</h1>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Add tournament
+    </button>
+  </div>
+
+  <div class="lo">
+    <div class="official-list">
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            <th>Gender</th>
+            <th>Groups</th>
+            <th>Participants</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for comp in fcomps%}
+          <tr>
+            <td>
+              <a href="{% url 'rugby7s_tournament' comp.id%}"
+                >{{comp.championship}} {{comp.name}}</a
+              >
+            </td>
+            <td>{{comp.sport}}</td>
+
+            <td>{{comp.gender}}</td>
+            <td>{{comp.number_of_groups}}</td>
+            <td>{{comp.participants}}</td>
+
+            <td>
+              <a href="" class="del"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+              <a href="" class="del"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Tournament</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" class="form-control">
+            {% csrf_token %}
+            <div class="field flex">
+              <label>{{ cform.name.label}} </label>{{cform.name}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.championship.label}} </label
+              >{{cform.championship}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.season.label}} </label>{{cform.season}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.participants.label}} </label
+              >{{cform.participants}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.number_of_groups.label}} </label
+              >{{cform.number_of_groups}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.sport.label}} </label>{{cform.sport}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.gender.label}} </label>{{cform.gender}}
+            </div>
+            <div class="field flex">
+              <label>{{ cform.age.label}} </label>{{cform.age}}
+            </div>
+
+            <div class="field flex">
+              <label>{{ cform.teams.label}} </label>
+              <div id="id_teams" class="form-control teams"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

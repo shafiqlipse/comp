@@ -1,0 +1,61 @@
+.home-page {
+  .home-area {
+    .futbol {
+      width: 100%;
+      .accounts {
+        width: 100%;
+        padding: 20px;
+        @media (max-width: 460px) {
+          padding: 10px;
+        }
+        .logs {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          @media (max-width: 660px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          @media (max-width: 460px) {
+            grid-template-columns: repeat(1, 1fr);
+          }
+          .netcard {
+            box-shadow: 1px 1px 10px 1px #d6d6d6;
+            border-radius: 5px;
+            padding: 10px;
+            &:hover {
+              box-shadow: none;
+              color: red;
+            }
+            .sport {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+              color: rgb(26, 26, 27);
+              &:hover {
+                box-shadow: none;
+                color: red;
+              }
+              .icon {
+                font-size: 2em;
+              }
+              .title {
+                margin: 10px;
+                h3 {
+                  font-size: 15px;
+                  text-transform: capitalize;
+                  font-weight: 500;
+                }
+                p {
+                  font-size: 12px;
+                  text-transform: capitalize;
+                  font-weight: 300;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

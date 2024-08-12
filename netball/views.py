@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
 from django.contrib import messages
 from .forms import *
 from .models import *
@@ -10,8 +9,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-
-
 from django.db import connection
 
 # template
@@ -91,13 +88,15 @@ def ntourn_details(request, id):
         formset = GroupFormset(instance=tournament)
         fixture_form = FixtureForm()
 
-    fixtures = Fixture.objects.filter(competition=tournament)
+    fixtures = NFixture.objects.filter(competition=tournament)
+    results = NFixture.objects.filter(competition=tournament, status="InPlay")
 
     context = {
         "tournament": tournament,
         "formset": formset,
         "fixture_form": fixture_form,
         "fixtures": fixtures,
+        "results": results,
         "fgroups": fgroups,
     }
     return render(request, "server/ntournament.html", context)
@@ -128,7 +127,7 @@ def generate_nfixtures_view(request, id):
         # Simple round-robin algorithm for group stage fixtures
         for i in range(team_count - 1):
             for j in range(i + 1, team_count):
-                fixture = Fixture(
+                fixture = NFixture(
                     competition=netball,
                     season=season,
                     group=group,
@@ -143,13 +142,13 @@ def generate_nfixtures_view(request, id):
                 fixtures.append(fixture)
 
     # Bulk create fixtures
-    Fixture.objects.bulk_create(fixtures)
+    NFixture.objects.bulk_create(fixtures)
 
     return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
 
 
 def edit_nfixtures_view(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(NFixture, id=id)
 
     if request.method == "POST":
         form = FixtureForm(request.POST, instance=fixture)
@@ -170,7 +169,7 @@ from django.db.models import Q
 
 
 def NFixtureDetail(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(NFixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
@@ -216,7 +215,7 @@ def NFixtureDetail(request, id):
 # Create your views here.
 @school_required
 def fixtures(request):
-    fixtures = Fixture.objects.filter(competition_id=4).order_by("-date")
+    fixtures = NFixture.objects.filter(competition_id=4).order_by("-date")
     context = {"fixtures": fixtures}
     return render(request, "server/nfixtures.html", context)
 
@@ -248,7 +247,7 @@ def netballStandings(request):
                     }
 
                 # Update standings based on fixtures
-                fixtures = Fixture.objects.filter(group=group)
+                fixtures = NFixture.objects.filter(group=group)
                 for fixture in fixtures:
                     if (
                         fixture.team1_score is not None
@@ -315,7 +314,7 @@ def netballStandings(request):
 from django.shortcuts import render
 
 
-from .models import Sport, Netball, NGroup, Fixture
+from .models import Sport, Netball, NGroup, NFixture
 
 
 def generate_next_round_fixtures(request):
@@ -345,7 +344,7 @@ def generate_next_round_fixtures(request):
                         "gc": 0,
                     }
 
-                fixtures = Fixture.objects.filter(group=group)
+                fixtures = NFixture.objects.filter(group=group)
                 for fixture in fixtures:
                     if (
                         fixture.team1_score is not None
@@ -440,7 +439,7 @@ def generate_next_round_fixtures(request):
 
 
 def netfixtures(request):
-    fixures = Fixture.objects.all()
+    fixures = NFixture.objects.all()
     context = {"fixures": fixures}
     return render(request, "frontend/netfixtures.html", context)
 

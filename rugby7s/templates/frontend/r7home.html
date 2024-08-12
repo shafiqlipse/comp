@@ -1,0 +1,54 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Rugby7{% endblock futitle %}
+<!--content-->
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for r7tourn in r7tourns %}
+          <li>
+            <a href="{%url 'Rugby7s' r7tourn.id %}" class="sport-link"
+              >{{r7tourn.championship}}|{{r7tourn.season}}|{{r7tourn.name}}</a
+            >
+          </li>
+          <hr />
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for r7tourn in r7tourns %}
+
+          <div class="netcard">
+            <a href="{%url 'Rugby7s' r7tourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{r7tourn.name}}</h3>
+                <p>{{r7tourn.championship}} | {{r7tourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

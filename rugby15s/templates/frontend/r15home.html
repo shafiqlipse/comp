@@ -1,0 +1,54 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Rugby15{% endblock futitle %}
+<!--content-->
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for r15tourn in r15tourns %}
+          <li>
+            <a href="{%url 'Rugby15s' r15tourn.id %}" class="sport-link"
+              >{{r15tourn.championship}}|{{r15tourn.season}}|{{r15tourn.name}}</a
+            >
+          </li>
+          <hr />
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for r15tourn in r15tourns %}
+
+          <div class="netcard">
+            <a href="{%url 'Rugby15s' r15tourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{r15tourn.name}}</h3>
+                <p>{{r15tourn.championship}} | {{r15tourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

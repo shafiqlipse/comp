@@ -1,11 +1,10 @@
 from django import forms
 from .models import Post
-from ckeditor.widgets import CKEditorWidget
+from django_summernote.widgets import SummernoteWidget
 from .models import *
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Post
@@ -34,9 +33,12 @@ class PostForm(forms.ModelForm):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields["content"].widget.attrs.update({"class": "form-control"})
 
+    widgets = {
+        "content": SummernoteWidget(),
+    }
+
 
 class CategoriesForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Categories

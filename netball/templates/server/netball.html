@@ -1,9 +1,9 @@
-{% extends "server/netbase.html" %} {%load static%}
+{% extends "dashboard/dashboard.html" %} {%load static%}
 <!---->
-{% block title %} Netball{% endblock %}
+{% block title %} {{tournament.championship}}{% endblock %}
 <!---->
 
-{%block netball%}
+{%block content%}
 <div class="championships">
   <div class="champ">
     {% if championship.thumbnail %}

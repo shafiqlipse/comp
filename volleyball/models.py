@@ -46,7 +46,7 @@ class VGroup(models.Model):
         return self.name
 
 
-class Fixture(models.Model):
+class VFixture(models.Model):
     statuses = (
         ("Pending", "Pending"),
         ("InPlay", "InPlay"),
@@ -100,7 +100,7 @@ class Fixture(models.Model):
 
 
 class MatchEvent(models.Model):
-    match = models.ForeignKey(Fixture, on_delete=models.CASCADE)
+    match = models.ForeignKey(VFixture, on_delete=models.CASCADE)
     EVENT_CHOICES = [
         ("Serve", "Serve"),
         ("Ace", "Ace"),
@@ -149,7 +149,7 @@ class match_official(models.Model):
     )
 
     fixture = models.ForeignKey(
-        Fixture, on_delete=models.CASCADE, related_name="vofix", null=True, blank=True
+        VFixture, on_delete=models.CASCADE, related_name="vofix", null=True, blank=True
     )
     official = models.ForeignKey(
         Official,

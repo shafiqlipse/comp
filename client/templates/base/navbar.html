@@ -62,67 +62,31 @@
           <a
             class="nav-link dropdown-toggle"
             href="#"
+            id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             More ...
           </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Basketball5X5</a
-              >
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{%url 'Basketball5'%}">Basketball</a></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'Ragby7s'%}">Rugby7s</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">rugby</a>
+            <li>
+              <a class="dropdown-item" href="{% url 'Ragby15s'%}">Rugby15s</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >swimming</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Hockey</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Table tennis</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">tennis</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Beach soccer</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >woodball</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >beach volleyball</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >lacrose</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >baseball</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >badminton</a
-              >
-            </li>
+            <li><a class="dropdown-item" href="#">Swimming</a></li>
+            <li><a class="dropdown-item" href="#">Hockey</a></li>
+            <li><a class="dropdown-item" href="#">Table Tennis</a></li>
+            <li><a class="dropdown-item" href="#">Tennis</a></li>
+            <li><a class="dropdown-item" href="#">Beach Soccer</a></li>
+            <li><a class="dropdown-item" href="#">Woodball</a></li>
+            <li><a class="dropdown-item" href="#">Beach Volleyball</a></li>
+            <li><a class="dropdown-item" href="#">Lacrosse</a></li>
+            <li><a class="dropdown-item" href="#">Baseball</a></li>
+            <li><a class="dropdown-item" href="#">Badminton</a></li>
           </ul>
         </li>
       </ul>

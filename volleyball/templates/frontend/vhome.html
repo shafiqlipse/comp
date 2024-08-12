@@ -9,23 +9,29 @@
 <div class="home-page">
   <div class="home-area flex">
     <div class="left">{% include "base/left.html" %}</div>
+    <div class="volnews"></div>
+
     <div class="futbol">
       <div class="accounts">
         <h3>Tournaments</h3>
         <hr />
         <div class="logs">
           {% for vtourn in vtourns %}
-          <li>
-            <a href="{%url 'Volleyball' vtourn.id %}" class="sport-link"
-              >{{vtourn.championship}}|{{vtourn.season}}|{{vtourn.name}}</a
-            >
-          </li>
-          <hr />
+
+          <div class="netcard">
+            <a href="{%url 'Volleyball' vtourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{vtourn.name}}</h3>
+                <p>{{vtourn.championship}} | {{vtourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
           {% endfor %}
         </div>
       </div>
     </div>
-
     <div class="left">{% include "base/right.html" %}</div>
   </div>
 </div>

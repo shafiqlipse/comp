@@ -47,13 +47,14 @@ class Athlete(models.Model):
     school = models.ForeignKey(School, on_delete=models.CASCADE)
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
-
     gender = models.CharField(
         choices=(("Male", "Male"), ("Female", "Female")), max_length=50
     )
     age = models.CharField(
         choices=(("U16", "U16"), ("U18", "U18"), ("U20", "U20")), max_length=50
     )
+    shirt_number = models.IntegerField(null=True, blank=True)
+    date_of_birth = models.DateField(blank=True, null=True)
 
     class Meta:
         ordering = ["-fname"]

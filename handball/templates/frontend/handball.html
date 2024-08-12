@@ -14,18 +14,6 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button
             class="nav-link active"
-            id="nav-home-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#nav-home"
-            type="button"
-            role="tab"
-            aria-controls="nav-home"
-            aria-selected="true"
-          >
-            news
-          </button>
-          <button
-            class="nav-link"
             id="nav-profile-tab"
             data-bs-toggle="tab"
             data-bs-target="#nav-groups"
@@ -38,15 +26,28 @@
           </button>
           <button
             class="nav-link"
-            id="nav-contact-tab"
+            id="nav-fixtures-tab"
             data-bs-toggle="tab"
             data-bs-target="#nav-fixtures"
             type="button"
             role="tab"
-            aria-controls="nav-contact"
+            aria-controls="nav-fixtures"
+            aria-selected="true"
+          >
+            Fixtures
+          </button>
+
+          <button
+            class="nav-link"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
             aria-selected="false"
           >
-            fixtures
+            Results
           </button>
           <button
             class="nav-link"
@@ -96,46 +97,37 @@
     <div class="futbol">
       <div class="tab-content" id="nav-tabContent">
         <div
-          class="tab-pane fade show active"
+          class="tab-pane tabpane fade"
           id="nav-home"
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
           <div class="fixtures">
-            <table class="table table-striped">
-              {% regroup results by competition as competition_list %}
-              <!---->
-              {% for competition in competition_list %}
-              <h2>{{ competition.grouper }}</h2>
-              {% regroup competition.list by date as date_list %}
+            <h1>Results</h1>
+            {% regroup results by date as date_list %}
+            <!---->
+            {% for date in date_list %}
+            <div class="grouper">{{ date.grouper }}</div>
+            <!---->
+            {% for fixture in date.list %}
+            <div class="fixture">
+              <div class="match-info fglex">
+                <p>{{ fixture.team1.school.name|slice:":15"}}</p>
 
-              <!---->
-              {% for date in date_list %}
-              <h3>{{ date.grouper }}</h3>
-              <tbody>
-                {% for fixture in date.list %}
-                <tr>
-                  <td>
-                    {{ fixture.team1.school.name|slice:":9" }}
-                    <div class="match-info">
-                      {{ fixture.team1_score }}:{{ fixture.team2_score }}
-                    </div>
-                    {{ fixture.team2.school.name|slice:":9" }}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-              {% endfor %} {% endfor %}
-            </table>
+                <p>{{ fixture.team1_score }} : {{ fixture.team2_score }}</p>
 
-            <div class="fixture"></div>
+                <p>{{ fixture.team2.school.name|slice:":15"}}</p>
+              </div>
+              <hr />
+            </div>
+            {% endfor %} {% endfor %}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade show active"
           id="nav-groups"
           role="tabpanel"
-          aria-labelledby="nav-profile-tab"
+          aria-labelledby="nav-groups-tab"
         >
           <div class="groueps">
             <h2>Groups</h2>
@@ -157,47 +149,30 @@
         </div>
 
         <div
-          class="tab-pane fade"
+          class="tab-pane tabpane fade"
           id="nav-fixtures"
           role="tabpanel"
           aria-labelledby="nav-contact-tab"
         >
           <div class="fixtures">
-            <table class="table table-striped">
-              {% regroup fixtures by group as group_list %}
-              <!---->
-              {% for group in group_list %}
-              <thead>
-                <tr>
-                  <th colspan="2">
-                    <h3>{{ group.grouper|default:"Ungrouped" }}</h3>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for fixture in group.list %}
-                <tr>
-                  <td>
-                    {{ fixture.team1.school.name|slice:":15" }}
-                    <div class="match-info">
-                      <div class="time">{{ fixture.time|time:"H:i" }}</div>
+            <h1>Fixtures</h1>
+            {% regroup fixtures by date as date_list %}
+            <!---->
+            {% for date in date_list %}
+            <div class="grouper">{{ date.grouper }}</div>
+            <!---->
+            {% for fixture in date.list %}
+            <div class="fixture">
+              <div class="match-info fglex">
+                <p>{{ fixture.team1.school.name|slice:":15"}}</p>
 
-                      <div class="date">{{ fixture.date|date:"F j, Y" }}</div>
-                      <div class="venue">{{ fixture.venue }}</div>
-                    </div>
-                    {{ fixture.team2.school.name|slice:":15" }}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-              {% empty %}
-              <tr>
-                <td>No fixtures available.</td>
-              </tr>
-              {% endfor %}
-            </table>
+                <p>{{ fixture.time }}</p>
 
-            <div class="fixture"></div>
+                <p>{{ fixture.team2.school.name|slice:":15"}}</p>
+              </div>
+              <hr />
+            </div>
+            {% endfor %} {% endfor %}
           </div>
         </div>
         <div

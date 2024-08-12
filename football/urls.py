@@ -29,13 +29,12 @@ urlpatterns = [
     # path("fixtures/", fixtures, name="fixtures"),
     #  # path("addtourn", addchampionship, name="addchampionship"),
     #  # path("fixtures/", fixtures, name="fixtures"),
-    path("Football<int:id>", Furtbol, name="Football"),
-
+    path("fixtured/<int:id>/", Fixturepage, name="fixtured"),
+    path("Football/<int:id>", Furtbol, name="Football"),
     # path("Football_fixtures", Fixtures, name="Footfixtures"),
     path("Football", Fhome, name="Football"),
     path("Football_rankings", get_rankings, name="Footrankigs"),
     # path("Footbalstandings", footbollStandings, name="Footstandings"),
     # path("Football_rankings", get_rankings, name="Footrankigs"),
     # path("Footbalstandings", footbollStandings, name="Footstandings"),
-  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

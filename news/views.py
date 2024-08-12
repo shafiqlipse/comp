@@ -45,7 +45,7 @@ def category_posts(request, category_id):
 
 
 # Views for Post model
-
+from django.utils.safestring import mark_safe
 
 def post_list(request):
     posts = Post.objects.all()
@@ -57,6 +57,7 @@ def post_list(request):
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
+    post.content = mark_safe(post.content)
     return render(request, "post_detail.html", {"post": post})
 
 

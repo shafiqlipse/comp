@@ -85,8 +85,10 @@ class FixtureForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Fixture
+        model = NFixture
         fields = [
+            "season",
+            "competition",
             "stage",
             "status",
             "round",
@@ -100,6 +102,8 @@ class FixtureForm(forms.ModelForm):
             "team2_score",
         ]
         widgets = {
+            "season": forms.Select(attrs={"class": "form-control"}),
+            "competition": forms.Select(attrs={"class": "form-control"}),
             "stage": forms.Select(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
             "round": forms.TextInput(attrs={"class": "form-control"}),

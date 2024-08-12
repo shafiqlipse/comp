@@ -5,6 +5,7 @@ from .forms import *
 from .models import *
 
 from accounts.models import Sport
+from accounts.decorators import *
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -18,6 +19,7 @@ from django.db import connection
 
 
 # Create your views here.
+@school_required
 def Busketball5(request):
     basketball5 = Sport.objects.get(name="Basketball5X5")
     b5comps = Basketball5.objects.filter(sport=basketball5)
@@ -28,6 +30,11 @@ def Busketball5(request):
         if cform.is_valid():
             competn = cform.save(commit=False)
             competn.sport = basketball5
+            competn.save()
+            teams = cform.cleaned_data.get(
+                "teams"
+            )  # Replace 'athletes' with the actual form field name
+            competn.teams.set(teams)
             competn.save()
             return HttpResponseRedirect(reverse("basketball5"))
     else:
@@ -52,7 +59,8 @@ def delete_basketball5(request, id):
 # view official details
 from django.forms import inlineformset_factory
 
-
+# Create your views here.
+@school_required
 def b5tourn_details(request, id):
     tournament = get_object_or_404(Basketball5, id=id)
     fgroups = B5Group.objects.filter(competition=tournament)
@@ -98,10 +106,14 @@ def b5tourn_details(request, id):
     return render(request, "server/b5tournament.html", context)
 
 
+from datetime import datetime
+
+
 def generate_b5fixtures_view(request, id):
     basketball5 = get_object_or_404(Basketball5, id=id)
     season = basketball5.season
-
+    now = datetime.now()
+    time = now.time()
     # Fetch all teams for the basketball5 (assuming you have a Team model)
     teams = SchoolTeam.objects.all()
 
@@ -121,6 +133,10 @@ def generate_b5fixtures_view(request, id):
                     competition=basketball5,
                     season=season,
                     group=group,
+                    round=1,
+                    stage="Group",
+                    date=now,
+                    time=time,
                     team1=group_teams[i],
                     team2=group_teams[j],
                     # You may set other fixture properties such as venue, date, etc.
@@ -143,7 +159,7 @@ def edit_fixtures_view(request, id):
         if form.is_valid():
             form.save()
             return redirect(
-                "fixture", id=id
+                "b5fixture", id=id
             )  # Replace 'success_url' with the actual URL
     else:
         form = B5FixtureForm(instance=fixture)
@@ -153,25 +169,45 @@ def edit_fixtures_view(request, id):
     )
 
 
+from django.db.models import Q
+
+
 def FixtureDetail(request, id):
     fixture = get_object_or_404(B5Fixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
     if request.method == "POST":
-
-        eform = MatchEventForm(request.POST)
-        if eform.is_valid():
-            new_event = eform.save(commit=False)
-            new_event.match = fixture
-            new_event.save()
-            return redirect("b5fixture", id=id)
+        if "official_form" in request.POST:
+            cform = MatchOfficialForm(request.POST, request.FILES)
+            eform = MatchEventForm()  # Initialize empty event form
+            if cform.is_valid():
+                new_official = cform.save(commit=False)
+                new_official.fixture = fixture
+                new_official.save()
+                return redirect("b5fixture", id=id)
+        elif "event_form" in request.POST:
+            eform = MatchEventForm(request.POST, fixture_instance=fixture)
+            cform = MatchOfficialForm()  # Initialize empty official form
+            if eform.is_valid():
+                new_event = eform.save(commit=False)
+                new_event.match = fixture
+                new_event.save()
+                return redirect("b5fixture", id=id)
+        else:
+            cform = MatchOfficialForm()
+            eform = MatchEventForm(
+                fixture_instance=fixture
+            )  # Initialize event form with fixture_instance
     else:
-
-        eform = MatchEventForm()
+        cform = MatchOfficialForm()
+        eform = MatchEventForm(
+            fixture_instance=fixture
+        )  # Initialize event form with fixture_instance
 
     context = {
         "fixture": fixture,
+        "cform": cform,
         "eform": eform,
         "officials": officials,
         "events": events,
@@ -271,3 +307,11 @@ def basketball5Standings(request):
     }
 
     return render(request, "server/b5standings.html", context)
+
+
+
+
+def b5nfixtures(request):
+    fixures = B5Fixture.objects.all().order_by("-date")
+    context = {"fixures": fixures}
+    return render(request, "frontend/b5fixtures.html", context)
