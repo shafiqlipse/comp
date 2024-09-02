@@ -2,6 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from accounts.models import *
+from beachsoccer.models import *
 from dashboard.models import *
 from netball.models import *
 from football.models import *
@@ -14,6 +15,7 @@ from hockey.models import *
 
 # Register your models here.
 admin.site.register(User)
+admin.site.register(Beachsoccer)
 admin.site.register(Sport)
 admin.site.register(Championship)
 admin.site.register(Season)
