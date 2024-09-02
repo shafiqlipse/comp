@@ -139,7 +139,7 @@
             {% endfor %}
             <form
               id="generateFixturesForm"
-              action="{% url 'generate_futfixtures' tournament.id %}"
+              action="{% url 'generate_bsfixtures' tournament.id %}"
               method="post"
             >
               {% csrf_token %}
