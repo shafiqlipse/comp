@@ -1,0 +1,199 @@
+{% extends "dashboard/dashboard.html" %} {%load static%}
+<!---->
+{% block title %} New Fixture{% endblock %}
+<!---->
+
+{%block content%}
+<div class="container-fluid mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form
+        id="editFixtureForm"
+        method="post"
+        action=""
+        class="needs-validation"
+        novalidate
+      >
+        {% csrf_token %}
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.season.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.season.label}}</label
+              >
+              {{fixture_form.season}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.competition.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.competition.label}}</label
+              >
+              {{fixture_form.competition}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.stage.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.stage.label}}</label
+              >
+              {{fixture_form.stage}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.status.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.status.label}}</label
+              >
+              {{fixture_form.status}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.round.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.round.label}}</label
+              >
+              {{fixture_form.round}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.group.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.group.label}}</label
+              >
+              {{fixture_form.group}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.venue.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.venue.label}}</label
+              >
+              {{fixture_form.venue}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.date.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.date.label}}</label
+              >
+              {{fixture_form.date}}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.time.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.time.label}}</label
+              >
+              {{fixture_form.time}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="id_team1" class="form-label">Team 1</label>
+              <select id="id_team1" name="team1" class="form-control">
+                <option value="">Select Team 1</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="id_team2" class="form-label">Team 2</label>
+              <select id="id_team2" name="team2" class="form-control">
+                <option value="">Select Team 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.team1_score.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.team1_score.label}}</label
+              >
+              {{fixture_form.team1_score}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label
+                for="{{ fixture_form.team2_score.id_for_label }}"
+                class="form-label"
+                >{{fixture_form.team2_score.label}}</label
+              >
+              {{fixture_form.team2_score}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function get_fixture_teams() {
+    var competition_select = document.getElementById("id_competition");
+    var team1_select = document.getElementById("id_team1");
+    var team2_select = document.getElementById("id_team2");
+    var competition = competition_select.value;
+
+    const url = `/get_fixture_teams/?competition=${competition}`;
+    console.log("Fetching URL:", url);
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        // Clear existing options
+        team1_select.innerHTML = '<option value="">Select Team 1</option>';
+        team2_select.innerHTML = '<option value="">Select Team 2</option>';
+
+        console.log(data);
+        if (data.teams.length === 0) {
+          team1_select.innerHTML += "<option>No teams found.</option>";
+          team2_select.innerHTML += "<option>No teams found.</option>";
+        } else {
+          data.teams.forEach((team) => {
+            var option = document.createElement("option");
+            option.value = team.id;
+
+            option.innerText = team.school__name;
+            team1_select.appendChild(option.cloneNode(true));
+            team2_select.appendChild(option);
+          });
+        }
+      })
+      .catch((error) => {
+        team1_select.innerHTML =
+          "<option>Error fetching teams. Please try again.</option>";
+        team2_select.innerHTML =
+          "<option>Error fetching teams. Please try again.</option>";
+      });
+  }
+
+  document.getElementById("id_competition").onchange = get_fixture_teams;
+</script>
+{% endblock %}

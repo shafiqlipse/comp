@@ -11,10 +11,90 @@
 
     
       <div class="fixtures">
-      
+      <h1>Football</h1>
         <table class="table table-striped">
           <tbody>
-            {% for fixture in xfixtures %}
+            {% for fixture in fot_fixtures %}
+            <tr>
+              <td>
+                {{ fixture.team1.school.name|slice:":9" }}
+                {% if fixture.status == 'Pending' %}
+                <div class="match-info">
+                  {{ fixture.time }}
+                </div>{% else %}
+                <div class="match-info">
+                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
+                </div>{% endif %}
+                {{ fixture.team2.school.name|slice:":9" }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <h1>Netball</h1>
+        <table class="table table-striped">
+          <tbody>
+            {% for fixture in net_fixtures %}
+            <tr>
+              <td>
+                {{ fixture.team1.school.name|slice:":9" }}
+                {% if fixture.status == 'Pending' %}
+                <div class="match-info">
+                  {{ fixture.time }}
+                </div>{% else %}
+                <div class="match-info">
+                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
+                </div>{% endif %}
+                {{ fixture.team2.school.name|slice:":9" }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <h1>Volleyball</h1>
+        <table class="table table-striped">
+          <tbody>
+            {% for fixture in vol_fixtures %}
+            <tr>
+              <td>
+                {{ fixture.team1.school.name|slice:":9" }}
+                {% if fixture.status == 'Pending' %}
+                <div class="match-info">
+                  {{ fixture.time }}
+                </div>{% else %}
+                <div class="match-info">
+                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
+                </div>{% endif %}
+                {{ fixture.team2.school.name|slice:":9" }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <h1>Handball</h1>
+        <table class="table table-striped">
+          <tbody>
+            {% for fixture in han_fixtures %}
+            <tr>
+              <td>
+                {{ fixture.team1.school.name|slice:":9" }}
+                {% if fixture.status == 'Pending' %}
+                <div class="match-info">
+                  {{ fixture.time }}
+                </div>{% else %}
+                <div class="match-info">
+                  {{ fixture.team1_score }}:{{ fixture.team2_score }}
+                </div>{% endif %}
+                {{ fixture.team2.school.name|slice:":9" }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <h1>Basketball</h1>
+        <table class="table table-striped">
+          <tbody>
+            {% for fixture in bas5_fixtures %}
             <tr>
               <td>
                 {{ fixture.team1.school.name|slice:":9" }}

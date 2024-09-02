@@ -1,0 +1,54 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Hockey{% endblock futitle %}
+<!--content-->
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for hotourn in hotourns %}
+          <li>
+            <a href="{%url 'Hockey' hotourn.id %}" class="sport-link"
+              >{{hotourn.championship}}|{{hotourn.season}}|{{hotourn.name}}</a
+            >
+          </li>
+          <hr />
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for hotourn in hotourns %}
+
+          <div class="netcard">
+            <a href="{%url 'Hockey' hotourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{hotourn.name}}</h3>
+                <p>{{hotourn.championship}} | {{hotourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

@@ -44,5 +44,6 @@ urlpatterns = [
     # path("beachsoccer/", include("beachsoccer.urls")),
     path("basketball3/", include("basketball3.urls")),
     path("athletics/", include("athletics.urls")),
+    path("hockey/", include("hockey.urls")),
     path("basketball5/", include("basketball5.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
