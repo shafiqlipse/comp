@@ -20,7 +20,7 @@ from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
 
 
-def get_rankings(competition):
+def get_bsrankings(competition):
     # Athlete Rankings (unchanged)
     athlete_rankings = (
         Athlete.objects.filter(athlete__match__competition=competition)
@@ -73,7 +73,7 @@ def Furtbol(request, id):
     results = BSFixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
-    rankings = get_rankings(competition)
+    rankings = get_bsrankings(competition)
 
     standings_data = {}
     groups = BSGroup.objects.filter(competition=competition)
@@ -145,7 +145,7 @@ def Furtbol(request, id):
         "rankings": rankings,
         "standings_data": standings_data,
     }
-    return render(request, "frontend/beachball.html", context)
+    return render(request, "frontend/beachsoccer.html", context)
 
 
 from django.db.models import Q
@@ -189,13 +189,13 @@ def FFixtureDetail(request, id):
         "team2_fixtures": team2_fixtures,
     }
 
-    return render(request, "frontend/fixture.html", context)
+    return render(request, "frontend/bsfixture.html", context)
 
 
 def Fhome(request):
 
     context = {}
-    return render(request, "frontend/fhome.html", context)
+    return render(request, "frontend/bshome.html", context)
 
 
 def beachbollStandings(request):
@@ -286,19 +286,19 @@ def beachbollStandings(request):
         "standings_data": standings_data,
     }
 
-    return render(request, "frontend/standings.html", context)
+    return render(request, "frontend/bsstandings.html", context)
 
 
 def competition_rankings(request, competition_id):
     competition = get_object_or_404(Beachsoccer, id=competition_id)
-    rankings = get_rankings(competition)
+    rankings = get_bsrankings(competition)
 
     context = {
         "competition": competition,
         "rankings": rankings,
     }
 
-    return render(request, "frotend/futrankings.html", context)
+    return render(request, "frotend/bsrankings.html", context)
 
 
 
