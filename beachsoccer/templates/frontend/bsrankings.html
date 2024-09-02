@@ -1,4 +1,4 @@
-{% extends "frontend/football.html" %}
+{% extends "frontend/beachsoccer.html" %}
 
 <!--static-->
 {% load static %}
@@ -6,7 +6,7 @@
 {% block futitle %}Beachsoccer{% endblock futitle %}
 <!--content-->
 {% block futball %}
-<h1>football Rankings</h1>
+<h1>beachsoccer Rankings</h1>
 <h2>Top Scorers</h2>
 <ul>
 {% for scorer in rankings.athlete_rankings.top_scorers %}

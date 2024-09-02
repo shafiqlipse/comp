@@ -176,14 +176,14 @@
             <span>{{ fixture.date|date:"F j, Y" }} </span>
             <span>{{ fixture.team1 }}</span>
             <span
-              ><a href="{% url 'update_fixture' fixture.id%}"
+              ><a href="{% url 'update_bsfixture' fixture.id%}"
                 >{{ fixture.time}}
               </a></span
             >
             <span>{{ fixture.team2 }}</span>
-            <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
+            <span><a href="{% url 'update_bsfixture' fixture.id%}">Edit</a></span>
             <span class="btn-outlie-primary"
-              ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
+              ><a href="{% url 'bsfixture' fixture.id%}">Manage</a></span
             >
           </div>
           <hr />
@@ -221,7 +221,7 @@
                   <td>{{ fixture.date|date:"F j, Y" }}</td>
 
                   <td>
-                    <a href="{% url 'nfixture' fixture.id %}">Manage</a>
+                    <a href="{% url 'bsfixture' fixture.id %}">Manage</a>
                   </td>
                 </tr>
                 {% endfor %}

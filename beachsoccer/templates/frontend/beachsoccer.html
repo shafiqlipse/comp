@@ -83,10 +83,10 @@
         <h3>Tournaments</h3>
         <hr />
         <div class="logs">
-          {% for ftourn in ftourns %}
+          {% for bstourn in bstourns %}
           <li>
-            <a href="{%url 'Beachsoccer' ftourn.id %}" class="sport-link"
-              >{{ftourn.championship}}|{{ftourn.season}}|{{ftourn.name}}</a
+            <a href="{%url 'Beachsoccer' bstourn.id %}" class="sport-link"
+              >{{bstourn.championship}}|{{bstourn.season}}|{{bstourn.name}}</a
             >
           </li>
           {% endfor %}

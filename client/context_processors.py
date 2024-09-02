@@ -1,4 +1,5 @@
 from football.models import *
+from beachsoccer.models import *
 from netball.models import *
 from basketball3.models import *
 from basketball5.models import *
@@ -12,6 +13,10 @@ from hockey.models import *
 def football_tournaments(request):
     ftourns = Football.objects.all()
     return {"ftourns": ftourns}
+
+def beachsoccer_tournaments(request):
+    bstourns = Beachsoccer.objects.all()
+    return {"bstourns": bstourns}
 
 
 def netball_tournaments(request):
