@@ -41,7 +41,7 @@ urlpatterns = [
     path("rugby7s/", include("rugby7s.urls")),
     path("rugby15s/", include("rugby15s.urls")),
     path("volleyball/", include("volleyball.urls")),
-    # path("beachsoccer/", include("beachsoccer.urls")),
+    path("beachsoccer/", include("beachsoccer.urls")),
     path("basketball3/", include("basketball3.urls")),
     path("athletics/", include("athletics.urls")),
     path("hockey/", include("hockey.urls")),

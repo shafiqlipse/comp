@@ -1,0 +1,71 @@
+{% extends "base/base.html" %}
+<!--static-->
+{% load static %}
+<!--title-->
+{% block title %}{% block futitle %}{{competition}}{% endblock futitle %}
+<!---->
+{% endblock title %}
+<!--content-->
+{% block content %}
+<div class="sport-content">
+  <div class="content-area flex">
+    <div class="left">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for ntourn in ntourns %}
+          <li>
+            <a href="{%url 'Netball' ntourn.id %}" class="sport-link"
+              >{{ntourn.championship}}|{{ntourn.season}}|{{ntourn.name}}</a
+            >
+          </li>
+          {% endfor %}
+        </div>
+      </div>
+      {% include "base/left.html" %}
+    </div>
+    <div class="lo">
+      <div class="official-list">
+        <table id="myTable" class="display">
+          <thead>
+            <tr>
+              <th>Fixture</th>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Time</th>
+              <th>Date</th>
+
+              <th>Edit</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for fixture in futfixures %}
+            <tr>
+              <td>{{ fixture.id }}</td>
+              <td>{{ fixture.team1 }}</td>
+
+              <td>{{ fixture.team2 }}</td>
+              <td>{{ fixture.time}}</td>
+              <td>{{ fixture.date|date:"F j, Y" }}</td>
+
+              <td>
+                <a href="{% url 'update_fixture' fixture.id%}">Edit</a>
+              </td>
+              <td>
+                <a href="{% url 'fixture' fixture.id%}">Manage</a>
+              </td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

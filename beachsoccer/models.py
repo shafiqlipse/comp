@@ -6,18 +6,20 @@ from dashboard.models import *
 
 
 # Create your models here.
-class BeachSoccer(models.Model):
+class Beachsoccer(models.Model):
     name = models.CharField(max_length=255)
-    championship = models.ForeignKey(
-        Championship, related_name="bschamp", on_delete=models.CASCADE
-    )
-    season = models.ForeignKey(
-        Season, related_name="bsseason", on_delete=models.CASCADE
-    )
-    sport = models.ForeignKey(Sport, related_name="bssport", on_delete=models.CASCADE)
+    championship = models.ForeignKey(Championship, on_delete=models.CASCADE)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+    sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
     gender = models.CharField(
-        choices=[("Male", "male"), ("Female", "female")],
+        choices=[("Male", "Male"), ("Female", "Female")],
         max_length=10,
+        null=True,
+        blank=True,
+    )
+    age = models.CharField(
+        choices=(("U16", "U16"), ("U18", "U18"), ("U20", "U20")),
+        max_length=50,
         null=True,
         blank=True,
     )
@@ -30,9 +32,7 @@ class BeachSoccer(models.Model):
 
 
 class BSGroup(models.Model):
-    competition = models.ForeignKey(
-        BeachSoccer, related_name="bscomp", on_delete=models.CASCADE
-    )
+    competition = models.ForeignKey(Beachsoccer, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     teams = models.ManyToManyField(SchoolTeam)
 
@@ -40,7 +40,7 @@ class BSGroup(models.Model):
         return self.name
 
 
-class Fixture(models.Model):
+class BSFixture(models.Model):
     statuses = (
         ("Pending", "Pending"),
         ("InPlay", "InPlay"),
@@ -49,29 +49,24 @@ class Fixture(models.Model):
     )
 
     stages = (("Group", "Group"), ("Knockout", "Knockout"))
-    season = models.ForeignKey(
-        Season, related_name="bssn", on_delete=models.CASCADE, null=True, blank=True
-    )
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True, blank=True)
     competition = models.ForeignKey(
-        BeachSoccer,
-        on_delete=models.CASCADE,
-        related_name="bscomps",
-        null=True,
-        blank=True,
+        Beachsoccer, on_delete=models.CASCADE, null=True, blank=True
     )
     stage = models.CharField(choices=stages, max_length=100, null=True, blank=True)
     status = models.CharField(
         choices=statuses, max_length=100, null=True, blank=True, default="Pending"
     )
     round = models.CharField(max_length=100, null=True, blank=True)
-    group = models.ForeignKey(
-        BSGroup, related_name="bsgroup", on_delete=models.CASCADE, null=True, blank=True
-    )
+    group = models.ForeignKey(BSGroup, on_delete=models.CASCADE, null=True, blank=True)
 
     # Use UUIDField for match_number
 
     venue = models.CharField(max_length=100, null=True, blank=True)
-    date = models.DateTimeField(null=True, blank=True)
+    # Separate date and time fields
+    date = models.DateField(null=True, blank=True)
+    time = models.TimeField(null=True, blank=True)
+
     team1 = models.ForeignKey(
         SchoolTeam, related_name="bsteam1", on_delete=models.CASCADE
     )
@@ -86,42 +81,29 @@ class Fixture(models.Model):
 
 
 class MatchEvent(models.Model):
-    match = models.ForeignKey(Fixture, on_delete=models.CASCADE)
+    match = models.ForeignKey(BSFixture, on_delete=models.CASCADE)
     EVENT_CHOICES = [
-        ("RedCard", "Red Card"),
-        ("YellowCard", "Yellow Card"),
+        ("RedCard", "RedCard"),
+        ("YellowCard", "YellowCard"),
         ("Corner", "Corner"),
         ("Foul", "Foul"),
         ("Assist", "Assist"),
         ("Goal", "Goal"),
         ("Save", "Save"),
         ("Substitution", "Substitution"),
-        ("ShotOnGoal", "Shot on Goal"),
-        ("ShotOffTarget", "Shot off Target"),
-        ("Penalty", "Penalty"),
-        ("BicycleKickGoal", "Bicycle Kick Goal"),
-        ("FreeKickGoal", "Free Kick Goal"),
-        ("SandSave", "Sand Save"),
-        ("OverheadKick", "Overhead Kick"),
-        ("Dribble", "Dribble"),
-        ("BeachDive", "Beach Dive"),
+        ("Short on goal", "Short on goal"),
+        ("Short off target", "Short off target"),
+        ("penalty", "penalty"),
         # Add more choices as needed
     ]
 
     event_type = models.CharField(
-        max_length=30,
+        max_length=20,
         choices=EVENT_CHOICES,
-    )
-    # Example: "Card", "Corner", "Foul", "Assist"
-    team = models.ForeignKey(
-        SchoolTeam, related_name="bsteam", on_delete=models.CASCADE
-    )
+    )  # Example: "Card", "Corner", "Foul", "Assist"
+    team = models.ForeignKey(SchoolTeam, related_name="bsteam", on_delete=models.CASCADE)
     athlete = models.ForeignKey(
-        Athlete,
-        related_name="bsathlete",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
+        Athlete, related_name="bsathlete", on_delete=models.CASCADE, null=True, blank=True
     )
     minute = models.IntegerField()
     commentary = models.TextField(null=True, blank=True)
@@ -140,16 +122,14 @@ class match_official(models.Model):
     )
 
     fixture = models.ForeignKey(
-        Fixture, on_delete=models.CASCADE, related_name="bsfix", null=True, blank=True
+        BSFixture, on_delete=models.CASCADE, null=True, blank=True,related_name="bsofficial"
     )
     official = models.ForeignKey(
-        Official,
-        on_delete=models.CASCADE,
-        related_name="bsofficial",
-        null=True,
-        blank=True,
+        Official, on_delete=models.CASCADE, null=True, blank=True,related_name="bsofficial"
     )
     match_role = models.CharField(choices=role, max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.fixture
+
+

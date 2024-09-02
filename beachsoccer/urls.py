@@ -3,28 +3,39 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from .views import *
+from .clientviews import *
+
 
 # from competition.views import get_teams
 
 
 urlpatterns = [
-    path("beachsoccer", BSball, name="beachsoccer"),
-    # path("addtourn", addchampionship, name="addchampionship"),
+    path("beachsoccer", Beaches, name="beachsoccer"),
     path("fixtures/", bsfixtures, name="beachsoccer_fixtures"),
-    path("futourn/<int:id>", bstourn_details, name="beachsoccer_tournament"),
+    path("bsourn/<int:id>", bstourn_details, name="beachsoccer_tournament"),
     path("fixture/<int:id>", edit_bsfixtures_view, name="update_fixture"),
-    path("fixturedetail/<int:id>", FixtureDetail, name="fixture"),
+    path("fixturedetail/<int:id>", BsFixtureDetail, name="fixture"),
     path(
-        "generate_fixtures/<int:id>/",
+        "generate_bsfixtures/<int:id>/",
         generate_bsfixtures_view,
-        name="bsgenerate_fixtures",
+        name="generate_bsfixtures",
     ),
-    # path("fixtures/", fixtures, name="fixtures"),
     path(
-        "generate-next-round-fixtures/",
-        generate_next_round_fixtures,
-        name="generate_next_round_fixtures",
+        "generate-knockout-bsfixtures/<int:id>/",
+        generate_knockout_bsfixtures,
+        name="generate_knockout_bsfixtures",
     ),
+    path("standings/", beachsoccerStandings, name="beachsoccer_standings"),
     # path("fixtures/", fixtures, name="fixtures"),
-    path("bstandings/", beachsoccerStandings, name="beachsoccer_standings"),
+    #  # path("addtourn", addchampionship, name="addchampionship"),
+    #  # path("fixtures/", fixtures, name="fixtures"),
+    path("fixtured/<int:id>/", Fixturepage, name="fixtured"),
+    path("Beachsoccer/<int:id>", Furtbol, name="Beachsoccer"),
+    # path("Beachsoccer_fixtures", Fixtures, name="Footfixtures"),
+    path("Beachsoccer", Fhome, name="Beachsoccer"),
+    path("Beachsoccer_rankings", get_rankings, name="Footrankigs"),
+    # path("Footbalstandings", beachbollStandings, name="Footstandings"),
+    path("beachfixtures/", beachfixtures, name="beachfixtures"),
+    # path("Beachsoccer_rankings", get_rankings, name="Footrankigs"),
+    # path("Footbalstandings", beachbollStandings, name="Footstandings"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

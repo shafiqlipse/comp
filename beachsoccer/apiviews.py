@@ -4,28 +4,71 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
+
 # Create your views here.
+def getbeach_teams(request):
+    sport_id = request.GET.get("sport")
+    gender = request.GET.get("gender")
+    age = request.GET.get("age")
 
+    print(f"Received: sport={sport_id}, gender={gender}, age={age}")
 
-def get_fixteams(request, id):
-    # Get the fixture object or return a 404 error if not found
-    fixture = get_object_or_404(Fixture, id=id)
+    teams = SchoolTeam.objects.all()
 
-    # Get the team1 and team2 involved in the fixture
-    team1 = fixture.team1
-    team2 = fixture.team2
+    if sport_id:
+        teams = teams.filter(sport_id=sport_id)
 
-    # Prepare the data to be returned in the response
-    data = {
-        "team1": {
-            "id": team1.id,
-            "school": team1.school.name,  # Assuming `school` has a `name` field
-        },
-        "team2": {
-            "id": team2.id,
-            "school": team2.school.name,  # Assuming `school` has a `name` field
-        },
-    }
+    if gender:
+        teams = teams.filter(gender=gender)
 
-    # Return the data as a JSON response
+    if age:
+        teams = teams.filter(age=age)
+
+    teams = teams.values("id", "school__name")
+
+    teams_list = [
+        {"id": team["id"], "school_name": team["school__name"]} for team in teams
+    ]
+
+    data = {"teams": teams_list}
+
     return JsonResponse(data)
+
+
+# Create your views here.
+def getgroup_teams(request, id):
+    tournament = get_object_or_404(Beachsoccer, id=id)
+
+    # Get all teams associated with this tournament
+    teams = tournament.teams.all()
+
+    teams_list = [{"id": team.id, "name": team.school.name} for team in teams]
+
+    return JsonResponse({"teams": teams_list})
+
+
+from django.http import JsonResponse
+from accounts.models import Athlete
+
+
+def get_teams_for_match(request):
+    match_id = request.GET.get("match_id")
+    fixture = get_object_or_404(BSFixture, id=match_id)
+    teams = [fixture.team1, fixture.team2]
+    return JsonResponse(
+        {"teams": [{"id": team.id, "name": str(team)} for team in teams]}
+    )
+
+
+from django.shortcuts import get_object_or_404
+
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+import logging
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+

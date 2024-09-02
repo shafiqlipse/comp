@@ -1,0 +1,35 @@
+.fixtures {
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+  .table {
+    tbody {
+      tr {
+        td {
+          //   width: 70%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          align-items: center;
+          .match-info {
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            background-color: red;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            .venue {
+              font-size: 14px;
+            }
+            .date {
+              font-size: 11px;
+              color: #a0a0a0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

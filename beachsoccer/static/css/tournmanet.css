@@ -1,0 +1,55 @@
+.championsh0ps .dets {
+  padding: 20px;
+  background-color: #fff;
+}
+.championsh0ps .dets h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.championsh0ps .dets h1 i {
+  margin: 10px;
+}
+.championsh0ps .dets .details {
+  list-style: none;
+  width: 300px;
+  margin-left: 10px;
+}
+.championsh0ps .dets .details li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.championsh0ps .dets .details li span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.championsh0ps .comp-groups {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.championsh0ps .comp-groups .form-co {
+  margin: 10px 0;
+}
+.championsh0ps .comp-groups .groups {
+  width: 100%;
+  padding: 10px;
+}
+.championsh0ps .comp-groups .groups .grops {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+@media (max-width: 600px) {
+  .championsh0ps .comp-groups .groups .grops {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.championsh0ps .comp-groups .groups .grops .group {
+  box-shadow: 1px 1px 10px 1px #e1e1e1;
+}
+.championsh0ps .comp-groups .groups .grops .group h3 {
+  background-color: red;
+  padding: 5px;
+  color: #fff;
+}/*# sourceMappingURL=tournmanet.css.map */

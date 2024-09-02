@@ -1,0 +1,28 @@
+@media (max-width: 768px) {
+  .fixtures {
+    padding: 0;
+  }
+}
+.fixtures .table tbody tr td {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+.fixtures .table tbody tr td .match-info {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: red;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+.fixtures .table tbody tr td .match-info .venue {
+  font-size: 14px;
+}
+.fixtures .table tbody tr td .match-info .date {
+  font-size: 11px;
+  color: #a0a0a0;
+}/*# sourceMappingURL=fixtures.css.map */

@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class BeachSoccerConfig(AppConfig):
+class BeachsoccerConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "beachsoccer"
 

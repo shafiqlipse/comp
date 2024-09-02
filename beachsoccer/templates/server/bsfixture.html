@@ -1,14 +1,14 @@
-{% extends "server/bsbase.html" %} {%load static%}
+{% extends "server/futbase.html" %} {%load static%}
 <!---->
 {% block title %} {{fixture}}{% endblock %}
 <!---->
 
-{%block beachsoccer%}
+{%block football%}
 <div class="fxturera">
   <div class="top flex">
     <h1>Fixture {{fixture.id}}</h1>
     <div class="buttons">
-      {% if fixture.status == Pending %}
+      {% if fixture.status == "Pending" %}
       <button
         type="button"
         class="btn btn-primary"
@@ -58,9 +58,9 @@
             <div class="fixtures">
               {% for related_fixture in team1_fixtures %}
               <div class="fixture">
-                <h2 class="team">{{ related_fixture.team1.school.name|slice:":5" }}</h2>
+                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
                 <h3>{{ related_fixture.date|time:"H:i" }}</h3>
-                <h2>{{ related_fixture.team2.school.name|slice:":5" }}</h2>
+                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
               </div>
               {% endfor %}
             </div>
@@ -74,19 +74,14 @@
               </div>
               {% endfor %}
             </div>
-            <div class="team-stats flex">
-              <div class="timp">{{fixture.team1}} {{team1_goals}}</div>
-              <div class="tim">GOALS</div>
-              <div class="timp"> {{team2_goals}} {{fixture.team2}}</div>
-            </div>
           </div>
           <div class="team1">
             <div class="fixtures">
               {% for related_fixture in team2_fixtures %}
               <div class="fixture">
-                <h2 class="team">{{ related_fixture.team1.school.name|slice:":5" }}</h2>
+                <h2 class="team">{{ related_fixture.team1|slice:":5" }}</h2>
                 <h3>{{ related_fixture.date|time:"H:i" }}</h3>
-                <h2>{{ related_fixture.team2.school.name|slice:":5" }}</h2>
+                <h2>{{ related_fixture.team2|slice:":5" }}</h2>
               </div>
               {% endfor %}
             </div>
@@ -176,5 +171,7 @@
       </div>
     </div>
   </div>
+
+
+  {% endblock %}
 </div>
-{% endblock %}

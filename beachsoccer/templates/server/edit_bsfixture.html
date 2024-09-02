@@ -1,6 +1,6 @@
-{% extends "server/bsbase.html" %} {%load static%}
+{% extends "server/futbase.html" %} {%load static%}
 <!-- fixtures_edit.html -->
-{%block beachsoccer%}
+{%block football%}
 <div class="fixture-page">
   <h2>{{fixture.team1}} VS {{fixture.team2}}</h2>
 </div>
@@ -31,6 +31,10 @@
     <div class="field flex">
       <label>{{form.date.label}}</label>
       <span>{{form.date}}</span>
+    </div>
+    <div class="field flex">
+      <label>{{form.time.label}}</label>
+      <span>{{form.time}}</span>
     </div>
     <div class="field flex">
       <label>{{form.team1.label}}</label>

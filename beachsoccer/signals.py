@@ -5,11 +5,11 @@ from django.dispatch import receiver
 from .models import *
 
 # rt based on your actual model location
-from .models import BeachSoccer, BSGroup
+from .models import Beachsoccer, BSGroup
 
 
 # create groups
-@receiver(post_save, sender=BeachSoccer)
+@receiver(post_save, sender=Beachsoccer)
 def create_groups_for_season(sender, instance, created, **kwargs):
     if created:
         # Define the number of groups based on the 'groups' field in the Season model
@@ -21,10 +21,10 @@ def create_groups_for_season(sender, instance, created, **kwargs):
 
 
 # set score to zero and begin th game
-@receiver(pre_save, sender=Fixture)
+@receiver(pre_save, sender=BSFixture)
 def reset_scores_if_inplay(sender, instance, **kwargs):
     if instance.id:
-        previous = Fixture.objects.get(id=instance.id)
+        previous = BSFixture.objects.get(id=instance.id)
         if previous.status == "Pending" and instance.status == "InPlay":
             instance.team1_score = 0
             instance.team2_score = 0

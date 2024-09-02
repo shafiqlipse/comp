@@ -1,22 +1,22 @@
 {% extends "dashboard/dashboard.html" %} {%load static%}
 <!---->
-{% block title %} BeachSoccer{% endblock %}
+{% block title %} Beachsoccer{% endblock %}
 <!---->
 
 {%block content%}
 <div class="footbase">
   <div class="futbol flex">
-    <h1>BeachSoccer</h1>
+    <h1>Beachsoccer</h1>
     <nav class="fut-nav">
       <div class="pages flex">
-        <li><a href="{%url 'beachsoccer'%}">Tournaments</a></li>
-        <li><a href="{%url 'beachsoccer_fixtures'%}">Fixtures</a></li>
+        <li><a href="{%url 'football'%}">Tournaments</a></li>
+        <li><a href="{%url 'football_fixtures'%}">Fixtures</a></li>
         <li><a href="">Results</a></li>
-        <li><a href="{%url 'beachsoccer_standings'%}">Standings</a></li>
-        <li><a href="">Rankings</a></li>
+        <li><a href="{%url 'football_standings'%}">Standings</a></li>
+        <li><a href="{% url 'Footrankigs' %}">Rankings</a></li>
       </div>
     </nav>
   </div>
-  {% block beachsoccer %}{% endblock %}
+  {% block football %}{% endblock %}
 </div>
 {% endblock %}

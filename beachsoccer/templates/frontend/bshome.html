@@ -1,0 +1,39 @@
+{% extends "frontend/football.html" %}
+
+<!--static-->
+{% load static %}
+<!--title-->
+{% block futitle %}Beachsoccer{% endblock futitle %}
+<!--content-->
+{% block content %}
+<div class="home-page">
+  <div class="home-area flex">
+    <div class="left">{% include "base/left.html" %}</div>
+
+    <div class="futbol">
+      <div class="accounts">
+        <h3>Tournaments</h3>
+        <hr />
+        <div class="logs">
+          {% for ftourn in ftourns %}
+
+          <div class="netcard">
+            <a href="{%url 'Beachsoccer' ftourn.id %}" class="sport cardbody">
+              <div class="icon"><i class="fa fa-futbol"></i></div>
+              <div class="title">
+                <h3>{{ftourn.name}}</h3>
+                <p>{{ftourn.championship}} | {{ftourn.season}}</p>
+              </div>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="left">{% include "base/right.html" %}</div>
+  </div>
+</div>
+
+{% endblock %}

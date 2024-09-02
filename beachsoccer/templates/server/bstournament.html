@@ -1,118 +1,292 @@
-{% extends "server/bsbase.html" %} {%load static%}
+{% extends "dashboard/dashboard.html" %} {%load static%}
 <!---->
-{% block title %} {{tournament}}{% endblock %}
+{% block title %} {{tournament.championship}}{% endblock %}
 <!---->
 
-{%block beachsoccer%}
+{%block content%}
 <div class="championsh0ps">
-  <div class="dets">
-    <h1>
-      <i class="fa fa-futbol"></i>{{tournament.championship}}
-      {{tournament.season}}
-    </h1>
-    <ul class="details">
-      <li><span>Tournament:</span>{{tournament.name}}</li>
-      <li><span>Participants:</span>{{tournament.participants}}</li>
-      <li><span>Groups:</span>{{tournament.number_of_groups}}</li>
-      <li><span>Teams:</span>{{tournament.teams.count}}</li>
-      <li><span>Fixtures:</span> {{ tournament.fixture_set.count }}</li>
-    </ul>
+  <div class="corned flex">
+    <nav>
+      <div class="nav nav-tabs natabs" id="nav-tab" role="tablist">
+        <button
+          class="nav-link active"
+          id="nav-profile-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-forms"
+          type="button"
+          role="tab"
+          aria-controls="nav-forms"
+          aria-selected="false"
+        >
+          forms
+        </button>
+        <button
+          class="nav-link"
+          id="nav-home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-groups"
+          type="button"
+          role="tab"
+          aria-controls="nav-groups"
+          aria-selected="true"
+        >
+          Groups
+        </button>
+        <button
+          class="nav-link"
+          id="nav-contact-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-fixtures"
+          type="button"
+          role="tab"
+          aria-controls="nav-fixtures"
+          aria-selected="false"
+        >
+          fixtures
+        </button>
+        <button
+          class="nav-link"
+          id="nav-contact-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-results"
+          type="button"
+          role="tab"
+          aria-controls="nav-results"
+          aria-selected="false"
+        >
+          results
+        </button>
+        <button
+          class="nav-link"
+          id="nav-contact-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-rankings"
+          type="button"
+          role="tab"
+          aria-controls="nav-contact"
+          aria-selected="false"
+        >
+          rankings
+        </button>
+      </div>
+    </nav>
   </div>
-  <div class="comp-groups flex">
-    <div class="form-co">
-      <h2>Group forms</h2>
 
-      <form method="post" class="form-control">
-        {% csrf_token %} {{ formset.management_form }}
-        <div class="gf grid2">
-          {% for form in formset %} {{ form.errors }}
-
-          <table>
-            {{ form.as_table }}
-          </table>
-
-          {% endfor %}
+  <div class="futbol">
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-forms"
+        role="tabpanel"
+        aria-labelledby="nav-forms-tab"
+      >
+        <div class="dets">
+          <h1>
+            <i class="fa fa-futbol"></i>{{tournament.championship}}
+            {{tournament.season}}
+          </h1>
+          <ul class="details">
+            <li><span>Tournament:</span>{{tournament.name}}</li>
+            <li><span>Participants:</span>{{tournament.participants}}</li>
+            <li><span>Groups:</span>{{tournament.number_of_groups}}</li>
+            <li><span>Teams:</span>{{tournament.teams.count}}</li>
+            <li><span>Fixtures:</span> {{ tournament.fixture_set.count }}</li>
+          </ul>
         </div>
-        <button type="submit" class="btn btn-success">Save</button>
-      </form>
-    </div>
-    <!-- competition_detail.html -->
+        <div class="form-co">
+          <div class="form-co">
+            <h2>Group forms</h2>
 
-    <div class="groups">
-      <h2>Groups</h2>
-      <div class="grops form-control">
-        {% for group in fgroups %}
-        <div class="group">
-          <h3>{{ group.name }}</h3>
-          <ol>
-            {% for team in group.teams.all %}
-            <li>{{ team.school }}</li>
+            <h2>Groups</h2>
+            <form method="post" class="form-control grid2">
+              {% csrf_token %} {{ formset.management_form }}
+              <div class="gf grid2">
+                {% for form in formset %}
+                <div class="group-form">
+                  {{ form.id }}
+                  <h3>{{ form.instance.name }}</h3>
+                  {{ form.name }}
+                  <div id="teams-for-group-{{ forloop.counter0 }}">
+                    {{ form.teams }}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              <button type="submit" class="btn btn-danger">Save Groups</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-groups"
+        role="tabpanel"
+        aria-labelledby="nav-groups-tab"
+      >
+        <div class="groups">
+          <h2>Groups</h2>
+          <div class="grops form-control">
+            {% for group in fgroups %}
+            <div class="group">
+              <h3>{{ group.name }}</h3>
+              <ol>
+                {% for team in group.teams.all %}
+                <li>{{ team.school }}</li>
 
+                {% endfor %}
+              </ol>
+            </div>
             {% endfor %}
-          </ol>
+            <form
+              id="generateFixturesForm"
+              action="{% url 'generate_futfixtures' tournament.id %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <button
+                type="button"
+                id="generateFixturesButton"
+                class="btn-submit"
+              >
+                Generate Fixtures
+              </button>
+            </form>
+            <div class="fixture-custom">
+              <button class="btn-submit" onclick="Creater()">
+                create other fixture
+              </button>
+            </div>
+          </div>
         </div>
-        {% endfor %}
-        <form
-          id="generateFixturesForm"
-          action="{% url 'generate_fixtures' tournament.id %}"
-          method="post"
-        >
-          {% csrf_token %}
-          <button type="button" id="generateFixturesButton" class="btn-submit">
-            Generate Fixtures
-          </button>
-        </form>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="nav-fixtures"
+        role="tabpanel"
+        aria-labelledby="nav-fixtures-tab"
+      >
+        <div class="fixtures">
+          {% regroup fixtures by group as group_list %}
+          <h2></h2>
+          {% for group in group_list %}
+          <h2>{{ group.grouper }}</h2>
+          {% for fixture in group.list %}
+          <div class="fixture grid6">
+            <span>{{ fixture.date|date:"F j, Y" }} </span>
+            <span>{{ fixture.team1 }}</span>
+            <span
+              ><a href="{% url 'update_fixture' fixture.id%}"
+                >{{ fixture.time}}
+              </a></span
+            >
+            <span>{{ fixture.team2 }}</span>
+            <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
+            <span class="btn-outlie-primary"
+              ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
+            >
+          </div>
+          <hr />
+
+          {% endfor %} {% endfor %}
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-results"
+        role="tabpanel"
+        aria-labelledby="nav-results-tab"
+      >
+        <div class="official-list">
+          <div class="official-list">
+            <table id="myaTable" class="display">
+              <thead>
+                <tr>
+                  <th>Fixture</th>
+                  <th>Home</th>
+                  <th>Away</th>
+                  <th>Time</th>
+                  <th>Date</th>
+
+                  <th>Manage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for fixture in results %}
+                <tr>
+                  <td>{{ fixture.group }}</td>
+                  <td>{{ fixture.team1 }}</td>
+                  <td>{{ fixture.team2 }}</td>
+                  <td>{{ fixture.team1_score }}:{{ fixture.team2_score }}</td>
+                  <td>{{ fixture.date|date:"F j, Y" }}</td>
+
+                  <td>
+                    <a href="{% url 'nfixture' fixture.id %}">Manage</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-rankings"
+        role="tabpanel"
+        aria-labelledby="nav-contact-tab"
+      >
+        <h2>Player rankings</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Athlete</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>Yellow Cards</th>
+              <th>Red Cards</th>
+              <th>Fouls</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for athlete in rankings.athlete_rankings|slice:":10" %}
+            <tr>
+              <td>{{ athlete.fname }} {{ athlete.lname }}</td>
+              <td>{{ athlete.goals }}</td>
+              <td>{{ athlete.assists }}</td>
+              <td>{{ athlete.yellow_cards }}</td>
+              <td>{{ athlete.red_cards }}</td>
+              <td>{{ athlete.fouls }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h2>Team Rankings</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Goals</th>
+              <th>Yellow Cards</th>
+              <th>Red Cards</th>
+              <th>Fouls</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for team in rankings.team_rankings %}
+            <tr>
+              <td>{{ team.school }}</td>
+              <td>{{ team.goals }}</td>
+              <td>{{ team.yellow_cards }}</td>
+              <td>{{ team.red_cards }}</td>
+              <td>{{ team.fouls }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
-    <!-- competition_detail.html -->
-  </div>
-
-  <div class="kiokl">
-    <div class="fixture-custom">
-      <button class="btn-submit" onclick="Creater()">
-        create other fixture
-      </button>
-    </div>
-    <div class="fixtures">
-      {% regroup fixtures by group as group_list %}
-      <h2></h2>
-      {% for group in group_list %}
-      <h2>{{ group.grouper }}</h2>
-      {% for fixture in group.list %}
-      <div class="fixture grid6">
-        <span>{{ fixture.date|date:"F j, Y" }} </span>
-        <span>{{ fixture.team1 }}</span>
-        <span
-          ><a href="{% url 'update_fixture' fixture.id%}"
-            >{{ fixture.date|time:"H:i:s" }}
-          </a></span
-        >
-        <span>{{ fixture.team2 }}</span>
-        <span><a href="{% url 'update_fixture' fixture.id%}">Edit</a></span>
-        <span class="btn-outlie-primary"
-          ><a href="{% url 'fixture' fixture.id%}">Manage</a></span
-        >
-      </div>
-      <hr />
-
-      {% endfor %} {% endfor %}
-    </div>
-    {% comment %} next round {% endcomment %}
-    <div class="nextround flex">
-      <h1>Next Round Fixtures</h1>
-      <a href="{% url 'generate_next_round_fixtures'%}" class="btn-submit">
-        Generate Next Fixtures
-      </a>
-    </div>
-
-    {% for round_number, fixtures in next_round_fixtures %}
-    <h2>Round {{ forloop.counter }}</h2>
-    <ul>
-      {% for fixture in fixtures %}
-      <li>{{ fixture.team1 }} vs {{ fixture.team2 }}</li>
-      {% endfor %}
-    </ul>
-    {% endfor %}
   </div>
 
   <script>
@@ -128,7 +302,7 @@
         xhr.onload = function () {
           var response = JSON.parse(xhr.responseText);
           if (response.success) {
-            alert("BeachSoccer Fixtures generated successfully");
+            alert("Beachsoccer Fixtures generated successfully");
             // Add additional logic to update the UI if needed
           } else {
             alert("Error: " + response.message);
@@ -148,6 +322,48 @@
         fixtureCreate.classList.remove("flex");
       }
     };
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("/get_group_teams/{{ tournament.id }}/")
+        .then((response) => response.json())
+        .then((data) => {
+          const teams = data.teams;
+          const groupForms = document.querySelectorAll(".group-form");
+          groupForms.forEach((groupForm, index) => {
+            const teamsDiv = document.getElementById(
+              `teams-for-group-${index}`
+            );
+            teamsDiv.innerHTML = ""; // Clear existing checkboxes
+            teams.forEach((team) => {
+              const checkboxId = `id_fgroup_set-${index}-teams_${team.id}`;
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.name = `fgroup_set-${index}-teams`;
+              checkbox.value = team.id;
+              checkbox.id = checkboxId;
+
+              // Check if this team is already in the group
+              if (
+                groupForm.querySelector(`input[value="${team.id}"]:checked`)
+              ) {
+                checkbox.checked = true;
+              }
+
+              const label = document.createElement("label");
+              label.htmlFor = checkboxId;
+              label.textContent = team.name;
+
+              const div = document.createElement("div");
+              div.appendChild(checkbox);
+              div.appendChild(label);
+
+              teamsDiv.appendChild(div);
+            });
+          });
+        })
+        .catch((error) => console.error("Error:", error));
+    });
   </script>
 </div>
 {% endblock %}

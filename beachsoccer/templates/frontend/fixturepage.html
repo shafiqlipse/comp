@@ -1,0 +1,124 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+<table border="1" style="width: 100%">
+  <tr>
+    <th colspan="4">NATIONAL VOLLEYBALL LEAGUE PLAYERS LIST</th>
+  </tr>
+  <tr>
+    <td colspan="2">
+      MATCH DETAILS: <span><strong>{{fixture.team1}}</strong></span>
+    </td>
+    <td colspan="2">MATCH DETAILS: <span><strong>{{fixture.team2}}</strong></span></td>
+  </tr>
+  <tr>
+    <td>{{fixture.team1}}</td>
+    <td>{{fixture.date}}</td>
+    <td>{{fixture.team2}}</td>
+    <td>{{fixture.venue}}</td>
+  </tr>
+  <tr>
+    <td>COURT</td>
+    <td>GENDER</td>
+    <td>{{fixture.time}}</td>
+    <td>COURT</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <table border="1" style="width: 100%">
+        <tr>
+          <th>SN</th>
+          <th>SHIRT NO.</th>
+          <th>PLAYERS NAMES (IN CAPITAL LETTERS)</th>
+        </tr>
+        {% for player in fixture.team2.athletes.all %}
+        <tr>
+          <td>{{player.shirt_number}}</td>
+          <td>{{player.fname}} {{player.lname}}</td>
+          <td>{{player.age}}</td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+          <th colspan="3">LIBERO PLAYER(S)</th>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+    <td colspan="2">
+      <table border="1" style="width: 100%">
+        <tr>
+          <th>SN</th>
+          <th>SHIRT NO.</th>
+          <th>PLAYERS NAMES (IN CAPITAL LETTERS)</th>
+        </tr>
+        {% for player in fixture.team2.athletes.all %}
+        <tr>
+          <td>{{player.shirt_number}}</td>
+          <td>{{player.fname}} {{player.lname}}</td>
+          <td>{{player.age}}</td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+          <th colspan="3">LIBERO PLAYER(S)</th>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2">OFFICIALS</th>
+    <th colspan="2">OFFICIALS</th>
+  </tr>
+  <tr>
+    <td colspan="2">COACH</td>
+    <td colspan="2">COACH</td>
+  </tr>
+  <tr>
+    <td colspan="2">ASST COACH</td>
+    <td colspan="2">ASST COACH</td>
+  </tr>
+  <tr>
+    <td colspan="2">ASST COACH</td>
+    <td colspan="2">ASST COACH</td>
+  </tr>
+  <tr>
+    <td colspan="2">THERAPIST</td>
+    <td colspan="2">THERAPIST</td>
+  </tr>
+  <tr>
+    <td colspan="2">MEDICAL</td>
+    <td colspan="2">MEDICAL</td>
+  </tr>
+</table>
