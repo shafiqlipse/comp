@@ -64,7 +64,7 @@ def get_bsrankings(competition):
     }
 
 
-def Furtbol(request, id):
+def Beachsoc(request, id):
     competition = Beachsoccer.objects.get(id=id)
     fgroups = BSGroup.objects.filter(competition=competition)
     pending_fixtures = BSFixture.objects.filter(
