@@ -532,3 +532,8 @@ def calculate_group_standings(fixtures):
         key=lambda x: (x["points"], x["goal_difference"], x["goals_for"]),
         reverse=True,
     )
+
+def footfixtures(request):
+    fixures = Fixture.objects.filter()
+    context = {"fixures": fixures}
+    return render(request, "frontend/footfixtures.html", context)

@@ -35,6 +35,7 @@ urlpatterns = [
     path("Football", Fhome, name="Football"),
     path("Football_rankings", get_rankings, name="Footrankigs"),
     # path("Footbalstandings", footbollStandings, name="Footstandings"),
+    path("footfixtures/", footfixtures, name="footfixtures"),
     # path("Football_rankings", get_rankings, name="Footrankigs"),
     # path("Footbalstandings", footbollStandings, name="Footstandings"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
