@@ -534,6 +534,6 @@ def calculate_group_standings(fixtures):
     )
 
 def footfixtures(request):
-    fixures = Fixture.objects.filter()
-    context = {"fixures": fixures}
+    futfixures = Fixture.objects.all()
+    context = {"futfixures": futfixures}
     return render(request, "frontend/footfixtures.html", context)
