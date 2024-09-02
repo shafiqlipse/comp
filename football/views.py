@@ -156,7 +156,7 @@ def edit_fixtures_view(request, id):
         if form.is_valid():
             form.save()
             return redirect(
-                "fixture", id=id
+                "update_fixture", id=id
             )  # Replace 'success_url' with the actual URL
     else:
         form = FixtureForm(instance=fixture)

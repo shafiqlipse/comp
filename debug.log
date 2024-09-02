@@ -11947,3 +11947,66 @@ Not Found: /football/fixture/img/avatars/avatar-2.jpg
 Not Found: /football/fixture/img/avatars/avatar-3.jpg
 Not Found: /football/fixture/img/avatars/avatar-4.jpg
 Not Found: /football/fixture/js/datatables.js
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixture/img/avatars/avatar-5.jpg
+Not Found: /football/fixture/img/avatars/avatar-2.jpg
+Not Found: /football/fixture/img/avatars/avatar-3.jpg
+Not Found: /football/fixture/img/avatars/avatar-4.jpg
+Not Found: /football/fixture/js/datatables.js
+Internal Server Error: /football/fixture/28
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\football\views.py", line 158, in edit_fixtures_view
+    return redirect("footfixures")  # Replace 'success_url' with the actual URL
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'footfixures' not found. 'footfixures' is not a valid view function or pattern name.
+Not Found: /favicon.ico
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixture/img/avatars/avatar-5.jpg
+Not Found: /football/fixture/img/avatars/avatar-2.jpg
+Not Found: /football/fixture/img/avatars/avatar-4.jpg
+Not Found: /football/fixture/img/avatars/avatar-3.jpg
+Not Found: /football/fixture/js/datatables.js
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\football\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /football/fixture/img/avatars/avatar-5.jpg
+Not Found: /football/fixture/img/avatars/avatar-2.jpg
+Not Found: /football/fixture/img/avatars/avatar-4.jpg
+Not Found: /football/fixture/img/avatars/avatar-3.jpg
+Not Found: /football/fixture/js/datatables.js
+Not Found: /football/fixture/img/avatars/avatar-5.jpg
+Not Found: /football/fixture/img/avatars/avatar-2.jpg
+Not Found: /football/fixture/img/avatars/avatar-4.jpg
+Not Found: /football/fixture/img/avatars/avatar-3.jpg
+Not Found: /football/fixture/js/datatables.js
