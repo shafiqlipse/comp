@@ -20,48 +20,48 @@ from django.db.models import Count, Sum, Q
 from django.db.models.functions import Coalesce
 
 
-def get_bsrankings(competition):
-    # Athlete Rankings (unchanged)
-    athlete_rankings = (
-        Athlete.objects.filter(athlete__match__competition=competition)
-        .annotate(
-            goals=Count("athlete", filter=Q(athlete__event_type="Goal")),
-            assists=Count("athlete", filter=Q(athlete__event_type="Assist")),
-            yellow_cards=Count("athlete", filter=Q(athlete__event_type="YellowCard")),
-            red_cards=Count("athlete", filter=Q(athlete__event_type="RedCard")),
-            fouls=Count("athlete", filter=Q(athlete__event_type="Foul")),
-        )
-        .order_by("-goals", "-assists")
-    )
+# def get_bsrankings(competition):
+#     # Athlete Rankings (unchanged)
+#     athlete_rankings = (
+#         Athlete.objects.filter(athlete__match__competition=competition)
+#         .annotate(
+#             goals=Count("athlete", filter=Q(athlete__event_type="Goal")),
+#             assists=Count("athlete", filter=Q(athlete__event_type="Assist")),
+#             yellow_cards=Count("athlete", filter=Q(athlete__event_type="YellowCard")),
+#             red_cards=Count("athlete", filter=Q(athlete__event_type="RedCard")),
+#             fouls=Count("athlete", filter=Q(athlete__event_type="Foul")),
+#         )
+#         .order_by("-goals", "-assists")
+#     )
 
-    # Team Rankings
-    team_rankings = (
-        SchoolTeam.objects.filter(team__match__competition=competition)
-        .annotate(
-            goals=Count("team", filter=Q(team__event_type="Goal")),
-            yellow_cards=Count("team", filter=Q(team__event_type="YellowCard")),
-            red_cards=Count("team", filter=Q(team__event_type="RedCard")),
-            fouls=Count("team", filter=Q(team__event_type="Foul")),
-        )
-        .order_by("-goals")
-    )
+#     # Team Rankings
+#     team_rankings = (
+#         SchoolTeam.objects.filter(team__match__competition=competition)
+#         .annotate(
+#             goals=Count("team", filter=Q(team__event_type="Goal")),
+#             yellow_cards=Count("team", filter=Q(team__event_type="YellowCard")),
+#             red_cards=Count("team", filter=Q(team__event_type="RedCard")),
+#             fouls=Count("team", filter=Q(team__event_type="Foul")),
+#         )
+#         .order_by("-goals")
+#     )
 
-    # The rest of the function remains unchanged
-    top_scorers = athlete_rankings.order_by("-goals")[:10]
-    top_assisters = athlete_rankings.order_by("-assists")[:10]
-    most_yellow_cards = athlete_rankings.order_by("-yellow_cards")[:10]
-    most_red_cards = athlete_rankings.order_by("-red_cards")[:10]
-    most_fouls = athlete_rankings.order_by("-fouls")[:10]
+#     # The rest of the function remains unchanged
+#     top_scorers = athlete_rankings.order_by("-goals")[:10]
+#     top_assisters = athlete_rankings.order_by("-assists")[:10]
+#     most_yellow_cards = athlete_rankings.order_by("-yellow_cards")[:10]
+#     most_red_cards = athlete_rankings.order_by("-red_cards")[:10]
+#     most_fouls = athlete_rankings.order_by("-fouls")[:10]
 
-    team_goals = team_rankings.order_by("-goals")[:10]
-    team_yellow_cards = team_rankings.order_by("-yellow_cards")[:10]
-    team_red_cards = team_rankings.order_by("-red_cards")[:10]
-    team_fouls = team_rankings.order_by("-fouls")[:10]
+#     team_goals = team_rankings.order_by("-goals")[:10]
+#     team_yellow_cards = team_rankings.order_by("-yellow_cards")[:10]
+#     team_red_cards = team_rankings.order_by("-red_cards")[:10]
+#     team_fouls = team_rankings.order_by("-fouls")[:10]
 
-    return {
-        "athlete_rankings": athlete_rankings,
-        "team_rankings": team_rankings,  # This now contains all team stats
-    }
+#     return {
+#         "athlete_rankings": athlete_rankings,
+#         "team_rankings": team_rankings,  # This now contains all team stats
+#     }
 
 
 def Beachsoc(request, id):
@@ -73,7 +73,7 @@ def Beachsoc(request, id):
     results = BSFixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
-    rankings = get_bsrankings(competition)
+    # rankings = get_bsrankings(competition)
 
     standings_data = {}
     groups = BSGroup.objects.filter(competition=competition)
@@ -142,7 +142,7 @@ def Beachsoc(request, id):
         "fgroups": fgroups,
         "results": results,
         "fixtures": pending_fixtures,
-        "rankings": rankings,
+        # "rankings": rankings,
         "standings_data": standings_data,
     }
     return render(request, "frontend/beachsoccer.html", context)
