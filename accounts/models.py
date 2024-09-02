@@ -54,7 +54,6 @@ class Athlete(models.Model):
         choices=(("U16", "U16"), ("U18", "U18"), ("U20", "U20")), max_length=50
     )
 
-    date_of_birth = models.DateField(blank=True, null=True)
 
     class Meta:
         ordering = ["-fname"]
