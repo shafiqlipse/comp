@@ -15,14 +15,14 @@
         <h3>Tournaments</h3>
         <hr />
         <div class="logs">
-          {% for ftourn in ftourns %}
+          {% for bstourn in bstourns %}
 
           <div class="netcard">
-            <a href="{%url 'Beachsoccer' ftourn.id %}" class="sport cardbody">
+            <a href="{%url 'Beachsoccer' bstourn.id %}" class="sport cardbody">
               <div class="icon"><i class="fa fa-futbol"></i></div>
               <div class="title">
-                <h3>{{ftourn.name}}</h3>
-                <p>{{ftourn.championship}} | {{ftourn.season}}</p>
+                <h3>{{bstourn.name}}</h3>
+                <p>{{bstourn.championship}} | {{bstourn.season}}</p>
               </div>
             </a>
           </div>
