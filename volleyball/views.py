@@ -94,7 +94,7 @@ def vtourn_details(request, id):
             error_message = "There was an error in the form submission. Please correct the errors below."
     else:
         fixture_form = FixtureForm()
-    fixtures = Fixture.objects.filter(competition=tournament)
+    fixtures = VFixture.objects.filter(competition=tournament)
     context = {
         "tournament": tournament,
         "formset": formset,
