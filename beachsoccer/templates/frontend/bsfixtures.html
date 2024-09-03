@@ -14,10 +14,10 @@
         <h3>Tournaments</h3>
         <hr />
         <div class="logs">
-          {% for ntourn in ntourns %}
+          {% for bstourn in bstourns %}
           <li>
-            <a href="{%url 'Netball' ntourn.id %}" class="sport-link"
-              >{{ntourn.championship}}|{{ntourn.season}}|{{ntourn.name}}</a
+            <a href="{%url 'Beachsoccer' bstourn.id %}" class="sport-link"
+              >{{bstourn.championship}}|{{bstourn.season}}|{{bstourn.name}}</a
             >
           </li>
           {% endfor %}
@@ -51,10 +51,10 @@
               <td>{{ fixture.date|date:"F j, Y" }}</td>
 
               <td>
-                <a href="{% url 'update_fixture' fixture.id%}">Edit</a>
+                <a href="{% url 'update_bsfixture' fixture.id%}">Edit</a>
               </td>
               <td>
-                <a href="{% url 'fixture' fixture.id%}">Manage</a>
+                <a href="{% url 'bsfixture' fixture.id%}">Manage</a>
               </td>
             </tr>
 
