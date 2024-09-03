@@ -1,0 +1,170 @@
+{% extends "server/vobase.html" %} {%load static%}
+<!---->
+{% block title %} {{tournament}}{% endblock %}
+<!---->
+
+{%block volleyball%}
+<div class="championsh0ps">
+  <div class="dets">
+    <h1>
+      <i class="fa fa-futbol"></i>{{tournament.championship}}
+      {{tournament.season}}
+    </h1>
+    <ul class="details">
+      <li><span>Tournament:</span>{{tournament.name}}</li>
+      <li><span>Participants:</span>{{tournament.participants}}</li>
+      <li><span>Groups:</span>{{tournament.number_of_groups}}</li>
+      <li><span>Teams:</span>{{tournament.teams.count}}</li>
+      <li><span>Fixtures:</span> {{ tournament.fixture_set.count }}</li>
+    </ul>
+  </div>
+  <div class="comp-groups flex">
+    <div class="form-co">
+      <h2>Group forms</h2>
+
+      <form method="post" class="form-control">
+        {% csrf_token %} {{ formset.management_form }}
+        <div class="gf grid2">
+          {% for form in formset %} {{ form.errors }}
+
+          <table>
+            {{ form.as_table }}
+          </table>
+
+          {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+    <!-- competition_detail.html -->
+
+    <div class="groups">
+      <h2>Groups</h2>
+      <div class="grops form-control">
+        {% for group in fgroups %}
+        <div class="group">
+          <h3>{{ group.name }}</h3>
+          <ol>
+            {% for team in group.teams.all %}
+            <li>{{ team.school }}</li>
+
+            {% endfor %}
+          </ol>
+        </div>
+        {% endfor %}
+        <form
+          id="generateFixturesForm"
+          action="{% url 'generate_vfixtures' tournament.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="button" id="generateFixturesButton" class="btn-submit">
+            Generate Fixtures
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- competition_detail.html -->
+  </div>
+
+  <div class="kiokl">
+    <div class="fixture-custom">
+      <a class="btn btn-success" href="{%url 'addvfixture'%}">
+        create other fixture
+      </a>
+    </div>
+
+    <div class="lo">
+      <div class="official-list">
+        <table id="myTable" class="display">
+          <thead>
+            <tr>
+              <th>Fixture</th>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Time</th>
+              <th>Date</th>
+
+              <th>Edit</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% regroup fixtures by group as group_list %}
+            <h2></h2>
+            {% for group in group_list %} {% for fixture in group.list %}
+            <tr>
+              <td>{{ fixture.id }}</td>
+              <td>{{ fixture.team1 }}</td>
+
+              <td>{{ fixture.team2 }}</td>
+              <td>{{ fixture.time}}</td>
+              <td>{{ fixture.date|date:"F j, Y" }}</td>
+
+              <td>
+                <a href="{% url 'update_vfixture' fixture.id%}">Edit</a>
+              </td>
+              <td>
+                <a href="{% url 'vfixture' fixture.id%}">Manage</a>
+              </td>
+            </tr>
+
+            {% endfor %} {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% comment %} next round {% endcomment %}
+    <div class="nextround flex">
+      <h1>Next Round Fixtures</h1>
+      <a href="{% url 'generate_next_round_fixtures'%}" class="btn-submit">
+        Generate Next Fixtures
+      </a>
+    </div>
+
+    {% for round_number, fixtures in next_round_fixtures %}
+    <h2>Round {{ forloop.counter }}</h2>
+    <ul>
+      {% for fixture in fixtures %}
+      <li>{{ fixture.team1 }} vs {{ fixture.team2 }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+
+  <script>
+    document
+      .getElementById("generateFixturesButton")
+      .addEventListener("click", function () {
+        var form = document.getElementById("generateFixturesForm");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action, true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.onload = function () {
+          var response = JSON.parse(xhr.responseText);
+          if (response.success) {
+            alert("Volleyball Fixtures generated successfully");
+            // Add additional logic to update the UI if needed
+          } else {
+            alert("Error: " + response.message);
+          }
+        };
+        xhr.send(formData);
+      });
+
+    const fixtureCreate = document.querySelector(".new-fixture");
+
+    const Creater = () => {
+      if (fixtureCreate.classList.contains("none")) {
+        fixtureCreate.classList.remove("none");
+        fixtureCreate.classList.add("flex");
+      } else {
+        fixtureCreate.classList.add("none");
+        fixtureCreate.classList.remove("flex");
+      }
+    };
+  </script>
+</div>
+{% endblock %}
