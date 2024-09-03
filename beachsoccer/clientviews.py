@@ -23,7 +23,7 @@ from django.db.models.functions import Coalesce
 def get_bsrankings(competition):
     # Athlete Rankings (unchanged)
     athlete_rankings = (
-        Athlete.objects.filter(athlete__match__competition=competition)
+        Athlete.objects.filter(bsathlete__match__competition=competition)
         .annotate(
             goals=Count("athlete", filter=Q(athlete__event_type="Goal")),
             assists=Count("athlete", filter=Q(athlete__event_type="Assist")),
@@ -36,7 +36,7 @@ def get_bsrankings(competition):
 
     # Team Rankings
     team_rankings = (
-        SchoolTeam.objects.filter(team__match__competition=competition)
+        SchoolTeam.objects.filter(bsteam__match__competition=competition)
         .annotate(
             goals=Count("team", filter=Q(team__event_type="Goal")),
             yellow_cards=Count("team", filter=Q(team__event_type="YellowCard")),
@@ -73,7 +73,7 @@ def Beachsoc(request, id):
     results = BSFixture.objects.filter(status="InPlay", competition=competition).order_by(
         "date"
     )
-    rankings = get_bsrankings(competition)
+    bsrankings = get_bsrankings(competition)
 
     standings_data = {}
     groups = BSGroup.objects.filter(competition=competition)
@@ -142,7 +142,7 @@ def Beachsoc(request, id):
         "fgroups": fgroups,
         "results": results,
         "fixtures": pending_fixtures,
-        "rankings": rankings,
+        "bsrankings": bsrankings,
         "standings_data": standings_data,
     }
     return render(request, "frontend/beachsoccer.html", context)

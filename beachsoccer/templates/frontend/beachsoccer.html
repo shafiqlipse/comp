@@ -166,13 +166,7 @@
               <div class="match-info fglex">
                 <p>{{ fixture.team1.school.name|slice:":15"}}</p>
 
-                <p>
-                  {{ fixture.time }}<span
-                    ><a href="{% url 'fixtured' fixture.id%}" target="blank"
-                      >rp</a
-                    ></span
-                  >
-                </p>
+                <p>{{ fixture.time }}</p>
 
                 <p>{{ fixture.team2.school.name|slice:":15"}}</p>
               </div>

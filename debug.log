@@ -12759,3 +12759,171 @@ Watching for file changes with StatReloader
 Not Found: /https://champ.usssaonline.com/beachsoccer/Beachsoccer
 Not Found: /favicon.ico
 Not Found: /https://champ.usssaonline.com/beachsoccer/Beachsoccer
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Watching for file changes with StatReloader
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /dashboard/img/avatars/avatar-5.jpg
+Not Found: /dashboard/img/avatars/avatar-2.jpg
+Not Found: /dashboard/img/avatars/avatar-4.jpg
+Not Found: /dashboard/img/avatars/avatar-3.jpg
+Not Found: /dashboard/js/datatables.js
+Not Found: /sport/img/avatars/avatar-4.jpg
+Not Found: /sport/img/avatars/avatar-2.jpg
+Not Found: /sport/js/datatables.js
+Not Found: /sport/img/avatars/avatar-3.jpg
+Not Found: /sport/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/img/avatars/avatar-4.jpg
+Not Found: /beachsoccer/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/js/datatables.js
+Not Found: /beachsoccer/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/img/avatars/avatar-4.jpg
+Not Found: /beachsoccer/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/js/datatables.js
+Not Found: /beachsoccer/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/js/datatables.js
+Not Found: /beachsoccer/img/avatars/avatar-4.jpg
+Not Found: /beachsoccer/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-4.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/bsourn/js/datatables.js
+Not Found: /get_group_teams/1/
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/bsourn/js/datatables.js
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-4.jpg
+Not Found: /get_group_teams/1/
+Internal Server Error: /beachsoccer/Beachsoccer/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 76, in Beachsoc
+    rankings = get_bsrankings(competition)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 26, in get_bsrankings
+    Athlete.objects.filter(athlete__match__competition=competition)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1532, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1346, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1323, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "BEACH SOCCER BOYS": Must be "Football" instance.
+E:\django\cms\cms\beachsoccer\clientviews.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /beachsoccer/Beachsoccer/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 76, in Beachsoc
+    rankings = get_bsrankings(competition)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 39, in get_bsrankings
+    SchoolTeam.objects.filter(team__match__competition=competition)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1532, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1346, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1323, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "BEACH SOCCER BOYS": Must be "Football" instance.
+Not Found: /beachsoccer/bsfixtures
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-5.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-2.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-4.jpg
+Not Found: /beachsoccer/bsourn/img/avatars/avatar-3.jpg
+Not Found: /beachsoccer/bsourn/js/datatables.js
+Not Found: /get_group_teams/1/
+E:\django\cms\cms\beachsoccer\clientviews.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\beachsoccer\clientviews.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /beachsoccer/Beachsoccer/1
+Traceback (most recent call last):
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 76, in Beachsoc
+    bsrankings = get_bsrankings(competition)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\cms\beachsoccer\clientviews.py", line 39, in get_bsrankings
+    SchoolTeam.objects.filter(team__match__competition=competition)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1532, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1346, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "E:\django\cms\venv\Lib\site-packages\django\db\models\sql\query.py", line 1323, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "BEACH SOCCER BOYS": Must be "Football" instance.
+E:\django\cms\cms\beachsoccer\clientviews.py changed, reloading.
+Watching for file changes with StatReloader
