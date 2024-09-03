@@ -16,7 +16,7 @@ urlpatterns = [
     path("vfixture/<int:id>", edit_vfixtures_view, name="update_vfixture"),
     path("vfixturedetail/<int:id>", VFixtureDetail, name="vfixture"),
     path(
-        "generate_fixtures/<int:id>/",
+        "generate_vfixtures/<int:id>/",
         generate_vfixtures_view,
         name="generate_vfixtures",
     ),
