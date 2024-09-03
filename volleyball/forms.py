@@ -65,7 +65,7 @@ GroupFormSet = inlineformset_factory(
 # from django.forms import TimeInput
 
 
-class FixtureForm(forms.ModelForm):
+class VFixtureForm(forms.ModelForm):
 
     date = forms.DateField(
         widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})

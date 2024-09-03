@@ -54,7 +54,7 @@
         {% endfor %}
         <form
           id="generateFixturesForm"
-          action="{% url 'generate_fixtures' tournament.id %}"
+          action="{% url 'generate_vfixtures' tournament.id %}"
           method="post"
         >
           {% csrf_token %}
@@ -145,7 +145,7 @@
         xhr.onload = function () {
           var response = JSON.parse(xhr.responseText);
           if (response.success) {
-            alert("Football Fixtures generated successfully");
+            alert("Volleyball Fixtures generated successfully");
             // Add additional logic to update the UI if needed
           } else {
             alert("Error: " + response.message);

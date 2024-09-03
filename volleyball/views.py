@@ -80,7 +80,7 @@ def vtourn_details(request, id):
         formset = GroupFormset(instance=tournament)
 
     if request.method == "POST":
-        fixture_form = FixtureForm(request.POST)
+        fixture_form = VFixtureForm(request.POST)
         if fixture_form.is_valid():
             fixture = fixture_form.save(commit=False)
             fixture.volleyball = tournament
@@ -93,7 +93,7 @@ def vtourn_details(request, id):
             # Attach errors to the form for display in the template
             error_message = "There was an error in the form submission. Please correct the errors below."
     else:
-        fixture_form = FixtureForm()
+        fixture_form = VFixtureForm()
     fixtures = VFixture.objects.filter(competition=tournament)
     context = {
         "tournament": tournament,
@@ -111,7 +111,7 @@ from datetime import datetime
 
 # Create your views here.
 @school_required
-def generate_fixtures_view(request, id):
+def generate_vfixtures_view(request, id):
     volleyball = get_object_or_404(Volleyball, id=id)
     season = volleyball.season
     now = datetime.now()
@@ -132,7 +132,7 @@ def generate_fixtures_view(request, id):
         # Simple round-robin algorithm for group stage fixtures
         for i in range(team_count - 1):
             for j in range(i + 1, team_count):
-                fixture = Fixture(
+                fixture = VFixture(
                     competition=volleyball,
                     season=season,
                     round=1,
@@ -147,23 +147,23 @@ def generate_fixtures_view(request, id):
                 fixtures.append(fixture)
 
     # Bulk create fixtures
-    Fixture.objects.bulk_create(fixtures)
+    VFixture.objects.bulk_create(fixtures)
 
-    return JsonResponse({"success": True, "message": "Fixtures generated successfully"})
+    return JsonResponse({"success": True, "message": "VFixtures generated successfully"})
 
 
 def edit_vfixtures_view(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(VFixture, id=id)
 
     if request.method == "POST":
-        form = FixtureForm(request.POST, instance=fixture)
+        form = VFixtureForm(request.POST, instance=fixture)
         if form.is_valid():
             form.save()
             return redirect(
                 "vfixture", id=id
             )  # Replace 'success_url' with the actual URL
     else:
-        form = FixtureForm(instance=fixture)
+        form = VFixtureForm(instance=fixture)
 
     return render(
         request, "server/vedit_fixture.html", {"form": form, "fixture": fixture}
@@ -174,7 +174,7 @@ from django.db.models import Q
 
 
 def VFixtureDetail(request, id):
-    fixture = get_object_or_404(Fixture, id=id)
+    fixture = get_object_or_404(VFixture, id=id)
     officials = match_official.objects.filter(fixture_id=id)
     events = MatchEvent.objects.filter(match_id=id)
 
@@ -507,7 +507,7 @@ def generate_next_round_fixtures(request):
 from django.contrib import messages
 def create_vfixture(request):
     if request.method == "POST":
-        fixture_form = FixtureForm(request.POST)
+        fixture_form = VFixtureForm(request.POST)
         if fixture_form.is_valid():
             fixture = fixture_form.save(commit=False)
 
@@ -521,13 +521,13 @@ def create_vfixture(request):
 
             fixture.save()
             messages.success(
-                request, f"Fixture {fixture.id} has been created successfully."
+                request, f"VFixture {fixture.id} has been created successfully."
             )
             return redirect(
                 "fixture_list"
             )  # Replace with your actual fixture list URL name
     else:
-        fixture_form = FixtureForm()
+        fixture_form = VFixtureForm()
 
     return render(
         request, "server/create_vfixture.html", {"fixture_form": fixture_form}
