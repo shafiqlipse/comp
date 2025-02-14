@@ -80,6 +80,7 @@ class FixtureForm(forms.ModelForm):
     date = forms.DateField(
         widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
     )
+
     time = forms.TimeField(
         widget=forms.TimeInput(attrs={"type": "time", "class": "form-control"})
     )

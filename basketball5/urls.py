@@ -21,6 +21,7 @@ urlpatterns = [
         name="generate_b5fixtures",
     ),
     # path("fixtures/", fixtures, name="fixtures"),
+    path("export_csv/", export_csv, name="export_csv"),
     # path("fixtures/", fixtures, name="fixtures"),
     path("Basketball5/<int:id>", B5bol, name="Basketball5"),
     # path("Football_fixtures", Fixtures, name="Footfixtures"),
