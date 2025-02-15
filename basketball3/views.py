@@ -315,3 +315,26 @@ def b3nfixtures(request):
     fixures = B3Fixture.objects.all().order_by("-date")
     context = {"fixures": fixures}
     return render(request, "frontend/b3fixtures.html", context)
+
+
+
+
+
+import csv
+from django.http import HttpResponse
+@login_required(login_url="login")
+def export_csv(request):
+    response = HttpResponse(content_type="text/csv")
+    response["Content-Disposition"] = 'attachment; filename="basketball5.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(["competition", "group", "date", "team1", "team1_score", "team2", "team2_score", "time", "venue"])  # CSV header
+
+    # Fetch data from the database and write it to the CSV file
+    fixtures = B3Fixture.objects.all()
+    for fixture in fixtures:
+        writer.writerow(
+            [fixture.competition, fixture.group, fixture.date, fixture.team1, fixture.team1_score, fixture.team2_score, fixture.team2, fixture.time, fixture.venue]
+        )
+
+    return response
