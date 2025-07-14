@@ -17,7 +17,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # includes
     path("", Home, name="home"),
-    path("login/", user_login, name="login"),
+    
     # path("get_fteams/", getfoot_teams, name="get_fteams"),--football
     path("get_fteams/", getfoot_teams, name="get_fteams"),
     path("get_teams_for_match/", get_teams_for_match, name="get_teams_for_match"),
@@ -43,6 +43,7 @@ urlpatterns = [
     path("volleyball/", include("volleyball.urls")),
     path("beachsoccer/", include("beachsoccer.urls")),
     path("basketball3/", include("basketball3.urls")),
+    
     path("athletics/", include("athletics.urls")),
     path("hockey/", include("hockey.urls")),
     path("basketball5/", include("basketball5.urls")),

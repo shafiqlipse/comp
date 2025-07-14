@@ -114,7 +114,7 @@
               <div class="match-info fglex">
                 <p>{{ fixture.team1.school.name|slice:":15"}}</p>
 
-                <p>{{ fixture.team1_score }}{{ fixture.team2_score }}</p>
+                <h1>{{ fixture.team1_score }} - {{ fixture.team2_score }}</h1>
 
                 <p>{{ fixture.team2.school.name|slice:":15"}}</p>
               </div>
@@ -166,11 +166,7 @@
               <div class="match-info fglex">
                 <p>{{ fixture.team1.school.name|slice:":15"}}</p>
 
-                <p>
-                  {{ fixture.time }}<span
-                    ></span
-                  >
-                </p>
+                <p>{{ fixture.time }}<span></span></p>
 
                 <p>{{ fixture.team2.school.name|slice:":15"}}</p>
               </div>
