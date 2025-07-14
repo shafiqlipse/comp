@@ -28,7 +28,7 @@ urlpatterns = [
     path("get_fixture_teams/", get_fixture_teams, name="get_fixture_teams"),
     path("get_b3teams/", getb3_teams, name="get_b3teams"),
     # path("get_teams_for_match/", get_teams_for_match, name="get_teams_for_match"),
-    path("summernote/", include("django_summernote.urls")),
+
     # path("get_athletes_for_team/", get_athletes_for_team, name="get_athletes_for_team"),
     # path("accounts/", include("accounts.urls")),
     path("dashboard/", include("dashboard.urls")),

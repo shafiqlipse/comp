@@ -13684,3 +13684,11 @@ Traceback (most recent call last):
   File "E:\django\cms\venv\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+Watching for file changes with StatReloader
+E:\django\cms\cms\cms\urls.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\news\models.py changed, reloading.
+Watching for file changes with StatReloader
+E:\django\cms\cms\news\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

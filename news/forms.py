@@ -10,7 +10,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             "title",
-            "content",
+            # "content",
             "thumbnail",
             "author",
             "sport",
@@ -29,9 +29,9 @@ class PostForm(forms.ModelForm):
             "championship": forms.Select(attrs={"class": "form-control"}),
         }
 
-    def __init__(self, *args, **kwargs):
-        super(PostForm, self).__init__(*args, **kwargs)
-        self.fields["content"].widget.attrs.update({"class": "form-control"})
+    # def __init__(self, *args, **kwargs):
+    #     super(PostForm, self).__init__(*args, **kwargs)
+    #     self.fields["content"].widget.attrs.update({"class": "form-control"})
 
     widgets = {
         "content": SummernoteWidget(),
